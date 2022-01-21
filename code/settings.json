@@ -126,7 +126,8 @@
     "editor.tabSize": 4
   },
   "emulator.emulatorPathLinux": "/home/kaz/Android/Sdk/emulator",
-  "prettier.singleQuote": true,
   "git.confirmSync": false,
   "bracket-pair-colorizer-2.depreciation-notice": false,
+  "prettier.singleQuote": true,
+  "prettier.semi": false
 }
