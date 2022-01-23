@@ -253,9 +253,15 @@ endfunction
 
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
+" easymotion
 Plug 'easymotion/vim-easymotion'
+" coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" fugitive
+Plug 'tpope/vim-fugitive'
+" defx
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
