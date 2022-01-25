@@ -1,23 +1,47 @@
-set fenc=utf-8
-set encoding=utf-8
-set nobackup
-set nowritebackup
-set noswapfile
-set autoread
+" vim-plug
+call plug#begin('~/.config/nvim/plugged')
+Plug 'airblade/vim-gitgutter'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'easymotion/vim-easymotion'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+call plug#end()
+" vim-plug end
+
+set number
 set hidden
 set showcmd
-set number
-set cursorline
-set smartindent
-set visualbell
+set autoread
+set nobackup
 set showmatch
-set laststatus=2
+set noswapfile
+set ignorecase
+set cursorline
+set visualbell
+set fenc=utf-8
+set smartindent
 set cmdheight=2
-set updatetime=300
+set laststatus=2
+set nowritebackup
 set shortmess+=c
+set encoding=utf-8
+set updatetime=300
 set virtualedit=onemore
 set wildmode=list:longest
 set clipboard+=unnamedplus
+
+" colorscheme
+let g:tokyonight_style='night'
+colorscheme tokyonight
+set termguicolors
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
@@ -249,25 +273,3 @@ nnoremap <silent><buffer><expr> cd
 endfunction
 " defx.nvim end
 
-
-
-" vim-plug
-call plug#begin('~/.config/nvim/plugged')
-" easymotion
-Plug 'easymotion/vim-easymotion'
-" coc.nvim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" fugitive
-Plug 'tpope/vim-fugitive'
-" defx
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-call plug#end()
-" vim-plug end
