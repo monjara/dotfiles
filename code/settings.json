@@ -35,17 +35,17 @@
     {
       "before": ["<leader>", "d"],
       "commands": ["workbench.view.scm"]
-    },
+    }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "n"],
-      "commands": ["editor.action.addSelectionToNextFindMatch"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"]
     },
     {
       "before": ["<leader>", "<leader>", "n"],
-      "commands": ["editor.action.moveSelectionToNextFindMatch"],
-    },
+      "commands": ["editor.action.moveSelectionToNextFindMatch"]
+    }
   ],
   "vim.handleKeys": {
     "<C-f>": false
@@ -61,7 +61,7 @@
   "editor.scrollBeyondLastLine": false,
   "editor.minimap.enabled": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
+    "source.fixAll": true
   },
 
   "workbench.startupEditor": "newUntitledFile",
@@ -96,7 +96,7 @@
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[javascriptreact]": {
     "editor.formatOnSave": true
@@ -126,9 +126,7 @@
   "[cpp]": {
     "editor.tabSize": 4
   },
-  "emulator.emulatorPathLinux": "/home/kaz/Android/Sdk/emulator",
   "git.confirmSync": false,
-  "bracket-pair-colorizer-2.depreciation-notice": false,
   "prettier.singleQuote": true,
   "prettier.semi": false
 }
