@@ -50,8 +50,6 @@
   "vim.handleKeys": {
     "<C-f>": false
   },
-
-  "window.zoomLevel": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
@@ -128,5 +126,6 @@
   },
   "git.confirmSync": false,
   "prettier.singleQuote": true,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "window.zoomLevel": 2
 }
