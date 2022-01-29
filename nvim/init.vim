@@ -1,10 +1,12 @@
+let mapleader= " "
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
-Plug '/vim-'
+Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
@@ -24,8 +26,8 @@ set showcmd
 set autoread
 set nobackup
 set showmatch
+set smartcase
 set noswapfile 
-set ignorecase
 set cursorline
 set visualbell
 set fenc=utf-8
@@ -50,7 +52,6 @@ if (empty($TMUX))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   endif
   "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
   " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
   if (has("termguicolors"))
     set termguicolors
@@ -91,7 +92,6 @@ else
   set signcolumn=yes
 endif
 
-let mapleader= " "
 
 nnoremap j gj
 nnoremap k gk
@@ -141,18 +141,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -241,17 +229,16 @@ nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 " coc.nvim end
 
 
 " defx.nvim
-nnoremap <silent> <leader>e :<C-u> Defx <CR>
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
 " Define mappings
 nnoremap <silent><buffer><expr> <CR>
-\ defx#do_actio>('open')
+\ defx#do_action('open')
 nnoremap <silent><buffer><expr> c
 \ defx#do_action('copy')
 nnoremap <silent><buffer><expr> m
@@ -326,16 +313,13 @@ call defx#custom#option('_', {
 
 " 
 " <leader>f{char} to move to {char}
-map  <leader><leader>s <Plug>(-bd-f)
-nmap <leader><leader>s <Plug>(easymotion-overwin-f)
+nmap <leader>ss <Plug>(easymotion-overwin-f)
 " s{char}{char} to move to {char}{char}
-nmap <leader><leader>f <Plug>(easymotion-overwin-f2)
+nmap <leader>sf <Plug>(easymotion-overwin-f2)
 " Move to line
-map <leader><leader>l <Plug>(easymotion-bd-jk)
-nmap <leader><leader>l <Plug>(easymotion-overwin-line)
+nmap <leader>sl <Plug>(easymotion-overwin-line)
 " Move to word
-map  <leader><leader>w <Plug>(-bd-w)
-nmap <leader><leader>w <Plug>(-overwin-w)
+nmap <leader>sw <Plug>(-overwin-w)
 "  end
 
 "vim-multiple-cursors
@@ -351,3 +335,11 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 "vim-multiple-cursors end
+
+" FZF
+nnoremap <silent> <leader>ff :<C-u> FZF <CR>
+" FZF end
+
+" nmap
+nnoremap <silent> <leader><leader>o :<C-u> only <CR>
+nnoremap <silent> <leader><leader>d :<C-u> Defx <CR>
