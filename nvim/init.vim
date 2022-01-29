@@ -43,6 +43,10 @@ set virtualedit=onemore
 set wildmode=list:longest
 set clipboard+=unnamedplus
 
+" terminal setting
+command! -nargs=* T split | wincmd j | resize 10 | terminal <args>
+" terminal setting end
+
 " onedark theme setting
 syntax on
 colorscheme onedark
@@ -340,6 +344,9 @@ let g:multi_cursor_quit_key            = '<Esc>'
 nnoremap <silent> <leader>ff :<C-u> FZF <CR>
 " FZF end
 
-" nmap
+" nnoremap
 nnoremap <silent> <leader><leader>o :<C-u> only <CR>
 nnoremap <silent> <leader><leader>d :<C-u> Defx <CR>
+nnoremap <silent> <leader><leader>t :<C-u> T <CR>
+" nnoremap end
+
