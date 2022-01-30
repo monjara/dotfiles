@@ -35,6 +35,10 @@
     {
       "before": ["<leader>", "d"],
       "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "d"],
+      "commands": ["notifications.clearAll"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
