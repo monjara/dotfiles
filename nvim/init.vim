@@ -153,8 +153,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>fs  <Plug>(coc-format-selected)
-nmap <leader>fs  <Plug>(coc-format-selected)
+xmap Kfs  <Plug>(coc-format-selected)
+nmap Kfs  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -165,17 +165,17 @@ augroup mygroup
 augroup end
 
 " Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>as  <Plug>(coc-codeaction-selected)
-nmap <leader>as  <Plug>(coc-codeaction-selected)
+" Example: `Kaap` for current paragraph
+xmap Kas  <Plug>(coc-codeaction-selected)
+nmap Kas  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap Kac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap Kqf  <Plug>(coc-fix-current)
 
 " Run the Code Lens action on the current line.
-nmap <leader>cl  <Plug>(coc-codelens-action)
+nmap Kcl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -219,21 +219,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <leader>la  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> Kla  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <leader>le  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> Kle  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <leader>lc  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> Klc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <leader>lo  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> Klo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <leader>ls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> Kls  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> Kj  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> Kk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> Kp  :<C-u>CocListResume<CR>
 " coc.nvim end
 
 
