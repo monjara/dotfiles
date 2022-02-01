@@ -37,7 +37,7 @@
       "commands": ["workbench.view.scm"]
     },
     {
-      "before": ["<leader>", "<leader>", "d"],
+      "before": ["<leader>", "x"],
       "commands": ["notifications.clearAll"]
     }
   ],
