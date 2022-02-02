@@ -19,7 +19,6 @@ else
 endif
 call plug#end()
 " vim-plug end
-
 set number
 set hidden
 set showcmd
@@ -30,6 +29,7 @@ set smartcase
 set noswapfile 
 set cursorline
 set visualbell
+set splitright
 set fenc=utf-8
 set smartindent
 set cmdheight=2
@@ -343,6 +343,10 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " FZF
 nnoremap <silent> <leader>ff :<C-u> FZF <CR>
 " FZF end
+
+" custome command
+command! -nargs=0 VV :vsp $MYVIMRC
+command! -nargs=0 SV :source ~/.config/nvim/init.vim
 
 " nnoremap
 nnoremap <silent> <leader><leader>o :<C-u> only <CR>
