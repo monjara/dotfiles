@@ -25,7 +25,7 @@ set showcmd
 set autoread
 set nobackup
 set showmatch
-set smartcase
+set ignorecase
 set noswapfile 
 set cursorline
 set visualbell
@@ -48,8 +48,7 @@ command! -nargs=* T split | wincmd j | resize 10 | terminal <args>
 " terminal setting end
 
 " onedark theme setting
-syntax on
-colorscheme onedark
+
 if (empty($TMUX))
   if (has("nvim"))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -68,6 +67,14 @@ let g:onedark_terminal_italics=0
 if !has('gui_running')
   set t_Co=256
 endif
+
+
+let g:onedark_color_overrides = {
+\ "background": {"gui": "#000000", "cterm": "255", "cterm16": "000" },
+\}
+
+syntax on
+colorscheme onedark
 " onedark theme setting end
 
 " lightline-setting
@@ -313,6 +320,33 @@ call defx#custom#option('_', {
       \ 'toggle': 1,
       \ 'resume': 1,
       \ })
+
+function! s:open_defx_if_directory()
+  " This throws an error if the buffer name contains unusual characters like
+  " [[buffergator]]. Desired behavior in those scenarios is to consider the
+  " buffer not to be a directory.
+  try
+    let l:full_path = expand(expand('%:p'))
+  catch
+    return
+  endtry
+
+  " If the path is a directory, delete the (useless) buffer and open defx for
+  " that directory instead.
+  if isdirectory(l:full_path)
+    execute "Defx `expand('%:p')` | bd " . expand('%:r')
+  endif
+endfunction
+
+augroup defx_config
+  autocmd!
+  autocmd FileType defx call s:defx_my_settings()
+
+  " It seems like BufReadPost should work for this, but for some reason, I can't
+  " get it to fire. BufEnter seems to be more reliable.
+  autocmd BufEnter * call s:open_defx_if_directory()
+augroup END
+
 " defx.nvim end
 
 " 
