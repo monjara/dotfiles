@@ -2,11 +2,13 @@ let mapleader= " "
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'simeji/winresizer'
 
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
@@ -42,6 +44,7 @@ set updatetime=300
 set virtualedit=onemore
 set wildmode=list:longest
 set clipboard+=unnamedplus
+filetype plugin indent on
 
 " terminal setting
 command! -nargs=* T split | wincmd j | resize 10 | terminal <args>
@@ -107,11 +110,6 @@ endif
 nnoremap j gj
 nnoremap k gk
 inoremap <silent> jj <ESC>
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap ' ''<LEFT>
-inoremap " ""<LEFT>
 
 
 " coc.nvim https://github.com/neoclide/coc.nvim
@@ -286,8 +284,8 @@ nnoremap <silent><buffer><expr> x
 nnoremap <silent><buffer><expr> yy
 \ defx#do_action('yank_path')
 nnoremap <silent><buffer><expr> .
-\ defx#do_action('toggle_ignored_files')
-nnoremap <silent><buffer><expr> ;
+\ defx#do_action('toggle_ignored_files') 
+nnoremap <silent><buffer><expr> ; 
 \ defx#do_action('repeat')
 nnoremap <silent><buffer><expr> h
 \ defx#do_action('cd', ['..'])
@@ -345,6 +343,8 @@ augroup defx_config
   " It seems like BufReadPost should work for this, but for some reason, I can't
   " get it to fire. BufEnter seems to be more reliable.
   autocmd BufEnter * call s:open_defx_if_directory()
+  autocmd BufWritePost * call defx#redraw()
+  autocmd BufEnter * call defx#redraw()
 augroup END
 
 " defx.nvim end
@@ -376,9 +376,13 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 " FZF
 nnoremap <silent> <leader>ff :<C-u> FZF <CR>
+nnoremap <silent> <leader>fr :<C-u> Rg <CR>
+nnoremap <silent> <leader>fw :<C-u> Windows <CR>
+nnoremap <silent> <leader>fb :<C-u> Buffers <CR>
+nnoremap <silent> <leader>fh :<C-u> History <CR>
 " FZF end
 
-" custome command
+" custom command
 command! -nargs=0 VV :vsp $MYVIMRC
 command! -nargs=0 SV :source ~/.config/nvim/init.vim
 
