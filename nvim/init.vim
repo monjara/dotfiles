@@ -2,6 +2,7 @@ let mapleader= " "
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kassio/neoterm'
 
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
@@ -35,6 +36,7 @@ set splitright
 set fenc=utf-8
 set smartindent
 set cmdheight=2
+set nocompatible
 set laststatus=2
 set shortmess+=c
 set nowritebackup
@@ -44,10 +46,21 @@ set updatetime=300
 set virtualedit=onemore
 set wildmode=list:longest
 set clipboard+=unnamedplus
+
+filetype off
+let &runtimepath.=',~/.config/nvim/plugged/neoterm'
 filetype plugin indent on
 
 " terminal setting
 command! -nargs=* T split | wincmd j | resize 10 | terminal <args>
+
+if has('nvim')
+  " Neovim 用
+  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+else
+  " Vim 用
+  autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
+endif
 " terminal setting end
 
 " onedark theme setting
@@ -389,6 +402,10 @@ command! -nargs=0 SV :source ~/.config/nvim/init.vim
 " nnoremap
 nnoremap <silent> <leader><leader>o :<C-u> only <CR>
 nnoremap <silent> <leader><leader>d :<C-u> Defx <CR>
-nnoremap <silent> <leader><leader>t :<C-u> T <CR>
+nnoremap <silent> <A-t> :<C-u> T <CR>
 " nnoremap end
 
+" tnoremap
+tnoremap <silent> <A-t> :<C-u> T <CR>
+tnoremap <silent> <A-i> <C-\><C-n> 
+" tnoremap end
