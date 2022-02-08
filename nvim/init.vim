@@ -48,20 +48,8 @@ set wildmode=list:longest
 set clipboard+=unnamedplus
 
 filetype off
-let &runtimepath.=',~/.config/nvim/plugged/neoterm'
+let &runtimepath.='~/.config/nvim/plugged/neoterm'
 filetype plugin indent on
-
-" terminal setting
-command! -nargs=* T split | wincmd j | resize 10 | terminal <args>
-
-if has('nvim')
-  " Neovim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-else
-  " Vim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
-endif
-" terminal setting end
 
 " onedark theme setting
 
@@ -395,6 +383,20 @@ nnoremap <silent> <leader>fb :<C-u> Buffers <CR>
 nnoremap <silent> <leader>fh :<C-u> History <CR>
 " FZF end
 
+" terminal setting
+command! -nargs=0 T split | wincmd j | resize 10 | terminal <args>
+
+command! -nargs=0 TV vertical split | wincmd j | terminal <args>
+
+if has('nvim')
+  " Neovim 用
+  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+else
+  " Vim 用
+  autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
+endif
+" terminal setting end
+
 " custom command
 command! -nargs=0 VV :vsp $MYVIMRC
 command! -nargs=0 SV :source ~/.config/nvim/init.vim
@@ -402,10 +404,10 @@ command! -nargs=0 SV :source ~/.config/nvim/init.vim
 " nnoremap
 nnoremap <silent> <leader><leader>o :<C-u> only <CR>
 nnoremap <silent> <leader><leader>d :<C-u> Defx <CR>
-nnoremap <silent> <A-t> :<C-u> T <CR>
+nnoremap <silent> <leader>tt :<C-u> T <CR>
+nnoremap <silent> <leader>tv :<C-u> TV <CR>
 " nnoremap end
 
 " tnoremap
-tnoremap <silent> <A-t> :<C-u> T <CR>
 tnoremap <silent> <A-i> <C-\><C-n> 
 " tnoremap end
