@@ -16,21 +16,6 @@ set split-view-height = 80%
 set diff-options = -m --first-parent
 set refresh-mode = auto
 
-#--------------------------------------------------------------#
-##        key bind                                            ##
-#--------------------------------------------------------------#
-# Pで現在のブランチへpush
-bind generic P ?@!git push origin %(repo:head)
-
-# Dでstatus viewのuntracked fileを削除できるようにする
-# https://github.com/jonas/tig/issues/31 見るとおもしろい
-# https://github.com/jonas/tig/issues/393　見るとおもしろい
-bind status D ?@rm %(file)
-
-# そのほかのGitコマンド
-bind generic F ?@!git fetch %(remote)
-bind generic U ?@!git pull %(remote)
-
 color cursor black cyan
 color title-blur		black	blue
 color title-focus		black	blue	bold
