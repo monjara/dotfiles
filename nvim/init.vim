@@ -22,26 +22,29 @@ else
 endif
 call plug#end()
 " vim-plug end
-set number
+"
+" charcter
+set fenc=utf-8                 " ファイルの文字エンコード
+set encoding=utf-8             " vimの文字エンコード
+
+set ignorecase
+set wildignorecase
+
+set number                     " 行番号
 set hidden
 set showcmd
 set autoread
 set nobackup
 set showmatch
-set ignorecase
 set noswapfile 
 set cursorline
 set visualbell
 set splitright
-set fenc=utf-8
-set smartindent
 set cmdheight=2
 set nocompatible
 set laststatus=2
 set shortmess+=c
 set nowritebackup
-set wildignorecase
-set encoding=utf-8
 set updatetime=300
 set virtualedit=onemore
 set wildmode=list:longest
@@ -240,6 +243,9 @@ nnoremap <silent><nowait> Kj  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> Kk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> Kp  :<C-u>CocListResume<CR>
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " coc.nvim end
 
 
@@ -383,31 +389,54 @@ nnoremap <silent> <leader>fb :<C-u> Buffers <CR>
 nnoremap <silent> <leader>fh :<C-u> History <CR>
 " FZF end
 
-" terminal setting
-command! -nargs=0 T split | wincmd j | resize 10 | terminal <args>
+" ==== neoterm setting =================================================
+let g:neoterm_size             = 10
+let g:neoterm_default_mod      = 'botright'
+let g:neoterm_keep_term_open   = 1
+let g:neoterm_autoinsert       = 0
+let g:neoterm_autojump         = 1
+" ==== neoterm setting end =============================================
 
-command! -nargs=0 TV vertical split | wincmd j | terminal <args>
+" === indent =============================================================
+set autoindent          "改行時に前の行のインデントを計測
+set smartindent         "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set cindent             "Cプログラムファイルの自動インデントを始める
+set smarttab            "新しい行を作った時に高度な自動インデントを行う
+set expandtab           "タブ入力を複数の空白に置き換える
 
-if has('nvim')
-  " Neovim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-else
-  " Vim 用
-  autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
-endif
-" terminal setting end
+set tabstop=2           "タブを含むファイルを開いた際, タブを何文字の空白に変換するか
+set shiftwidth=2        "自動インデントで入る空白数
+set softtabstop=0       "キーボードから入るタブの数
 
-" custom command
+if has("autocmd")
+autocmd FileType javascript       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType typescript       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType javascriptreact  setlocal sw=2 sts=2 ts=2 et
+autocmd FileType typescriptreact  setlocal sw=2 sts=2 ts=2 et
+end
+" === indent end =========================================================
+
+" ==== custom command ==================================================
+" open vim setting file
 command! -nargs=0 VV :vsp $MYVIMRC
+" source vim setting file
 command! -nargs=0 SV :source ~/.config/nvim/init.vim
+" open help vertical split
+command! -nargs=1 -complete=help H :vertical belowright help <args>
+" open terminal vertical split
+command! -nargs=0 TV vertical split | wincmd j | terminal <args>
+" ==== custom command end ==============================================
 
-" nnoremap
+" ==== nnoremap ========================================================
 nnoremap <silent> <leader><leader>o :<C-u> only <CR>
 nnoremap <silent> <leader><leader>d :<C-u> Defx <CR>
-nnoremap <silent> <leader>tt :<C-u> T <CR>
+nnoremap <silent> <leader>tt :<C-u> Ttoggle <CR>
+nnoremap <silent> <leader>tj :<C-u> Tclear <CR>
+nnoremap <silent> <leader>tn :<C-u> Tnew <CR>
+nnoremap <silent> <leader>th :<C-u> Tclose <CR>
 nnoremap <silent> <leader>tv :<C-u> TV <CR>
-" nnoremap end
+" ==== nnoremap end ===================================================
 
-" tnoremap
+" ==== tnoremap =======================================================
 tnoremap <silent> <A-i> <C-\><C-n> 
-" tnoremap end
+" ==== tnoremap end ===================================================
