@@ -394,12 +394,37 @@ nnoremap <silent> <leader>fh :<C-u> History <CR>
 " FZF end
 
 " ==== neoterm setting =================================================
-let g:neoterm_size             = 10
 let g:neoterm_default_mod      = 'botright'
 let g:neoterm_keep_term_open   = 1
 let g:neoterm_autoinsert       = 0
 let g:neoterm_autojump         = 1
+
+nnoremap <silent> <leader>tt :<C-u>silent call <SID>open_neoterm('Ttoggle')<CR>
+nnoremap <silent> <leader>tn :<C-u>silent call <SID>open_neoterm('Tnew')<CR>
+nnoremap <silent> <leader>tc :<C-u> Tclear <CR>
+nnoremap <silent> <leader>td :<C-u> Tclose <CR>
+
+function! s:open_neoterm(cmd) abort
+    let split = s:split_type()
+
+    call execute(printf('%s %s', split, a:cmd))
+endfunction
+
+function! s:split_type() abort
+    let width = winwidth(win_getid())
+    let height = winheight(win_getid()) * 2.1
+
+    if height > width
+        let g:neoterm_size             = 10
+        return 'bel'
+    else
+        let g:neoterm_size             = 50
+        return 'vert'
+    endif
+endfunction
+
 " ==== neoterm setting end =============================================
+"
 
 " === indent =============================================================
 set autoindent          "改行時に前の行のインデントを計測
@@ -427,18 +452,11 @@ command! -nargs=0 VV :tabnew $MYVIMRC
 command! -nargs=0 SV :source ~/.config/nvim/init.vim
 " open help vertical split
 command! -nargs=1 -complete=help H :vertical belowright help <args>
-" open terminal vertical split
-command! -nargs=0 TV vertical split | wincmd j | terminal <args>
 " ==== custom command end ==============================================
 
 " ==== nnoremap ========================================================
 nnoremap <silent> <leader><leader>o :<C-u> only <CR>
 nnoremap <silent> <leader><leader>d :<C-u> Defx <CR>
-nnoremap <silent> <leader>tt :<C-u> Ttoggle <CR>
-nnoremap <silent> <leader>tj :<C-u> Tclear <CR>
-nnoremap <silent> <leader>tn :<C-u> Tnew <CR>
-nnoremap <silent> <leader>th :<C-u> Tclose <CR>
-nnoremap <silent> <leader>tv :<C-u> TV <CR>
 " ==== nnoremap end ===================================================
 
 " ==== tnoremap =======================================================
