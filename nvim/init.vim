@@ -277,6 +277,8 @@ nnoremap <silent><buffer><expr> l
 \ defx#do_action('open')
 nnoremap <silent><buffer><expr> E
 \ defx#do_action('open', 'vsplit')
+nnoremap <silent><buffer><expr> T
+\ defx#do_action('open', 'tabnew')
 nnoremap <silent><buffer><expr> P
 \ defx#do_action('preview')
 nnoremap <silent><buffer><expr> o
@@ -327,16 +329,6 @@ nnoremap <silent><buffer><expr> <C-g>
 nnoremap <silent><buffer><expr> cd
 \ defx#do_action('change_vim_cwd')
 endfunction
-
-call defx#custom#option('_', {
-      \ 'winwidth': 30,
-      \ 'split': 'vertical',
-      \ 'direction': 'topleft',
-      \ 'show_ignored_files': 1,
-      \ 'buffer_name': 'exlorer',
-      \ 'toggle': 1,
-      \ 'resume': 1,
-      \ })
 
 function! s:open_defx_if_directory()
   " This throws an error if the buffer name contains unusual characters like
@@ -430,7 +422,7 @@ end
 
 " ==== custom command ==================================================
 " open vim setting file
-command! -nargs=0 VV :vsp $MYVIMRC
+command! -nargs=0 VV :tabnew $MYVIMRC
 " source vim setting file
 command! -nargs=0 SV :source ~/.config/nvim/init.vim
 " open help vertical split
