@@ -399,10 +399,12 @@ let g:neoterm_keep_term_open   = 1
 let g:neoterm_autoinsert       = 0
 let g:neoterm_autojump         = 1
 
-nnoremap <silent> <leader>tt :<C-u>silent call <SID>open_neoterm('Ttoggle')<CR>
-nnoremap <silent> <leader>tn :<C-u>silent call <SID>open_neoterm('Tnew')<CR>
-nnoremap <silent> <leader>tc :<C-u> Tclear <CR>
-nnoremap <silent> <leader>td :<C-u> Tclose <CR>
+nnoremap [term] <Nop>
+nmap <leader>t [term]
+nnoremap <silent> [term]t :<C-u>silent call <SID>open_neoterm('Ttoggle')<CR>
+nnoremap <silent> [term]n :<C-u>silent call <SID>open_neoterm('Tnew')<CR>
+nnoremap <silent> [term]c :<C-u> Tclear <CR>
+nnoremap <silent> [term]d :<C-u> Tclose <CR>
 
 function! s:open_neoterm(cmd) abort
     let split = s:split_type()
