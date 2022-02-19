@@ -1,4 +1,3 @@
-let mapleader= " "
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -23,7 +22,14 @@ else
 endif
 call plug#end()
 " vim-plug end
-"
+
+" prefix
+let mapleader= ","
+nnoremap <Space> <Nop>
+nnoremap [s] <Nop>
+nnoremap s <Nop>
+nmap s [s]
+
 " charcter
 set fenc=utf-8                 " ファイルの文字エンコード
 set encoding=utf-8             " vimの文字エンコード
@@ -56,7 +62,6 @@ let &runtimepath.='~/.config/nvim/plugged/neoterm'
 filetype plugin indent on
 
 " onedark theme setting
-
 if (empty($TMUX))
   if (has("nvim"))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -112,9 +117,6 @@ else
 endif
 
 
-nnoremap j gj
-nnoremap k gk
-inoremap <silent> jj <ESC>
 
 
 " coc.nvim https://github.com/neoclide/coc.nvim
@@ -174,8 +176,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap Kfs  <Plug>(coc-format-selected)
-nmap Kfs  <Plug>(coc-format-selected)
+xmap <leader>fs  <Plug>(coc-format-selected)
+nmap <leader>fs  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -187,16 +189,16 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `Kaap` for current paragraph
-xmap Kas  <Plug>(coc-codeaction-selected)
-nmap Kas  <Plug>(coc-codeaction-selected)
+xmap <leader>as  <Plug>(coc-codeaction-selected)
+nmap <leader>as  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap Kac  <Plug>(coc-codeaction)
+nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap Kqf  <Plug>(coc-fix-current)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Run the Code Lens action on the current line.
-nmap Kcl  <Plug>(coc-codelens-action)
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -240,21 +242,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> Kla  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> sla  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> Kle  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> sle  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> Klc  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> slc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> Klo  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> slo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> Kls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> sls  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> Kj  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> sj  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> Kk  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> sk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> Kp  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> sp  :<C-u>CocListResume<CR>
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
@@ -360,15 +362,17 @@ augroup END
 
 " defx.nvim end
 
-" 
-" <leader>f{char} to move to {char}
-nmap <leader>ss <Plug>(easymotion-overwin-f)
+" easymotion setting
+let g:EasyMotion_do_mapping=0
+nnoremap [easyM] <Nop>
+nmap <Space>s [easyM]
+nmap [easyM]s <Plug>(easymotion-overwin-f)
 " s{char}{char} to move to {char}{char}
-nmap <leader>sf <Plug>(easymotion-overwin-f2)
+nmap [easyM]f <Plug>(easymotion-overwin-f2)
 " Move to line
-nmap <leader>sl <Plug>(easymotion-overwin-line)
+nmap [easyM]l <Plug>(easymotion-overwin-line)
 " Move to word
-nmap <leader>sw <Plug>(-overwin-w)
+nmap [easyM]w <Plug>(easymotion-overwin-w)
 "  end
 
 "vim-multiple-cursors
@@ -386,11 +390,13 @@ let g:multi_cursor_quit_key            = '<Esc>'
 "vim-multiple-cursors end
 
 " FZF
-nnoremap <silent> <leader>ff :<C-u> FZF <CR>
-nnoremap <silent> <leader>fr :<C-u> Rg <CR>
-nnoremap <silent> <leader>fw :<C-u> Windows <CR>
-nnoremap <silent> <leader>fb :<C-u> Buffers <CR>
-nnoremap <silent> <leader>fh :<C-u> History <CR>
+nnoremap [fzf] <Nop>
+nmap <Space>f [fzf]
+nnoremap <silent> [fzf]f :<C-u> FZF <CR>
+nnoremap <silent> [fzf]r :<C-u> Rg <CR>
+nnoremap <silent> [fzf]w :<C-u> Windows <CR>
+nnoremap <silent> [fzf]b :<C-u> Buffers <CR>
+nnoremap <silent> [fzf]h :<C-u> History <CR>
 " FZF end
 
 " ==== neoterm setting =================================================
@@ -400,9 +406,10 @@ let g:neoterm_autoinsert       = 0
 let g:neoterm_autojump         = 1
 
 nnoremap [term] <Nop>
-nmap <leader>t [term]
+nmap <Space>t [term]
 nnoremap <silent> [term]t :<C-u>silent call <SID>open_neoterm('Ttoggle')<CR>
 nnoremap <silent> [term]n :<C-u>silent call <SID>open_neoterm('Tnew')<CR>
+nnoremap <silent> [term]r :<C-u> Tredo <CR>
 nnoremap <silent> [term]c :<C-u> Tclear <CR>
 nnoremap <silent> [term]d :<C-u> Tclose <CR>
 
@@ -445,7 +452,7 @@ autocmd FileType typescript       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType javascriptreact  setlocal sw=2 sts=2 ts=2 et
 autocmd FileType typescriptreact  setlocal sw=2 sts=2 ts=2 et
 end
-" === indent end =========================================================
+" === indent end =======================================================
 
 " ==== custom command ==================================================
 " open vim setting file
@@ -456,11 +463,29 @@ command! -nargs=0 SV :source ~/.config/nvim/init.vim
 command! -nargs=1 -complete=help H :vertical belowright help <args>
 " ==== custom command end ==============================================
 
+" ==== noremap =========================================================
+noremap \  ,
+" ==== noremap =========================================================
+
 " ==== nnoremap ========================================================
-nnoremap <silent> <leader><leader>o :<C-u> only <CR>
-nnoremap <silent> <leader><leader>d :<C-u> Defx <CR>
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+nnoremap <silent> <Space><Space>o :<C-u> only <CR>
+nnoremap <silent> <Space><Space>d :<C-u> Defx <CR>
 " ==== nnoremap end ===================================================
+
+" ==== inoremap =======================================================
+inoremap <silent> jj <ESC>
+" ==== inoremap end ===================================================
 
 " ==== tnoremap =======================================================
 tnoremap <silent> <A-i> <C-\><C-n> 
 " ==== tnoremap end ===================================================
+ 
+" ==== Nop ============================================================
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+" ==== Nop end ========================================================
+
