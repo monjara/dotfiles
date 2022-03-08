@@ -258,7 +258,7 @@ nnoremap <silent><nowait> sk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> sp  :<C-u>CocListResume<CR>
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " coc.nvim end
 
@@ -472,6 +472,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+nnoremap <silent> <Space><Space>n :<C-u> nohl <CR>
 nnoremap <silent> <Space><Space>o :<C-u> only <CR>
 nnoremap <silent> <Space><Space>d :<C-u> Defx <CR>
 " ==== nnoremap end ===================================================
