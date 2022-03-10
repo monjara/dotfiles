@@ -1,4 +1,11 @@
 {
-  "coc.preferences.jumpCommand": "tabe",
-  "coc.preferences.formatOnSaveFiletypes": ["js", "ts", "jsx", "tsx"]
+  "coc.preferences.jumpCommand": "vsplit",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown"
+  ],
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 60
 }
