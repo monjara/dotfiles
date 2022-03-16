@@ -8,7 +8,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'simeji/winresizer'
 
 Plug 'joshdick/onedark.vim'
@@ -81,6 +80,9 @@ if !has('gui_running')
   set t_Co=256
 endif
 
+if !empty($TMUX)
+  set termguicolors
+endif
 
 let g:onedark_color_overrides = {
 \ "background": {"gui": "#000000", "cterm": "255", "cterm16": "000" },
@@ -390,13 +392,26 @@ let g:multi_cursor_quit_key            = '<Esc>'
 "vim-multiple-cursors end
 
 " FZF
+let g:fzf_preview_command = 'bat --color=always --plain {-1}'
+let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
 nnoremap [fzf] <Nop>
 nmap <Space>f [fzf]
-nnoremap <silent> [fzf]f :<C-u> FZF <CR>
-nnoremap <silent> [fzf]r :<C-u> Rg <CR>
-nnoremap <silent> [fzf]w :<C-u> Windows <CR>
-nnoremap <silent> [fzf]b :<C-u> Buffers <CR>
-nnoremap <silent> [fzf]h :<C-u> History <CR>
+xmap <Space>f [fzf]
+nnoremap <silent> [fzf]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
+nnoremap <silent> [fzf]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+nnoremap <silent> [fzf]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
+nnoremap <silent> [fzf]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
+nnoremap <silent> [fzf]B     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
+nnoremap <silent> [fzf]o     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
+nnoremap <silent> [fzf]<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
+nnoremap <silent> [fzf]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
+nnoremap <silent> [fzf]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+nnoremap <silent> [fzf]*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+nnoremap          [fzf]r    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+xnoremap          [fzf]r    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+nnoremap <silent> [fzf]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
+nnoremap <silent> [fzf]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
+nnoremap <silent> [fzf]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 " FZF end
 
 " ==== neoterm setting =================================================
