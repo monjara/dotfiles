@@ -85,6 +85,8 @@ alias gc='git commit'
 alias gp='git push -u'
 alias gl='git log'
 alias gs='git status'
+alias vf='nvim $(fzf)'
+alias cdf='find . -name "*" -type d | fzf'
 # CircleCiCLI用alias
 alias civa='circleci config validate'
 alias cile='circleci local execute'
