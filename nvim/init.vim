@@ -1,30 +1,28 @@
-" vim-plug
-call plug#begin('~/.config/nvim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'kassio/neoterm'
-
-Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'simeji/winresizer'
-
-Plug 'mattn/emmet-vim'
-" rust
-Plug 'rust-lang/rust.vim'
-
-Plug 'joshdick/onedark.vim'
-Plug 'itchyny/lightline.vim'
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+" dein
+if &compatible
+  set nocompatible " Be iMproved
 endif
-call plug#end()
-" vim-plug end
+
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state($HOME . '/.config/nvim/dein')
+  call dein#begin($HOME . "/.cache/dein")
+    let s:toml_dir  = $HOME . '/.config/nvim/dein/toml' 
+    let s:toml      = s:toml_dir . '/dein.toml'
+    let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
+    call dein#load_toml(s:toml,      {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+ call dein#install()
+endif
+" dein end
 
 " prefix
 let mapleader= ","
@@ -61,7 +59,7 @@ set wildmode=list:longest
 set clipboard+=unnamedplus
 
 filetype off
-let &runtimepath.='~/.config/nvim/plugged/neoterm'
+let &runtimepath.=$HOME.'/.config/nvim/plugged/neoterm'
 filetype plugin indent on
 
 " onedark theme setting
