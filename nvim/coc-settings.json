@@ -7,5 +7,6 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.printWidth": 60
+  "prettier.printWidth": 60,
+  "rust-analyzer.server.path": "~/.local/bin/rust-analyzer"
 }

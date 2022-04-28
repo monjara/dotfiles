@@ -10,6 +10,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'simeji/winresizer'
 
+Plug 'mattn/emmet-vim'
+" rust
+Plug 'rust-lang/rust.vim'
+
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 if has('nvim')
@@ -490,6 +494,9 @@ nnoremap gk k
 nnoremap <silent> <Space><Space>n :<C-u> nohl <CR>
 nnoremap <silent> <Space><Space>o :<C-u> only <CR>
 nnoremap <silent> <Space><Space>d :<C-u> Defx <CR>
+
+nnoremap <silent> <Space>rr :<C-u> T cargo run . <CR>
+nnoremap <silent> <Space>rt :<C-u> T cargo test <CR>
 " ==== nnoremap end ===================================================
 
 " ==== inoremap =======================================================
