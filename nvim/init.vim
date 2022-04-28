@@ -1,33 +1,3 @@
-" vim-plug
-" call plug#begin('~/.config/nvim/plugged')
-" Plug 'kassio/neoterm'
-" 
-" Plug 'easymotion/vim-easymotion'
-" Plug 'terryma/vim-multiple-cursors'
-" Plug 'tpope/vim-surround'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'simeji/winresizer'
-" 
-" Plug 'mattn/emmet-vim'
-" " rust
-" Plug 'rust-lang/rust.vim'
-" 
-" Plug 'joshdick/onedark.vim'
-" Plug 'itchyny/lightline.vim'
-
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" if has('nvim')
-"   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/defx.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" call plug#end()
-" vim-plug end
-
 " dein
 if &compatible
   set nocompatible " Be iMproved
