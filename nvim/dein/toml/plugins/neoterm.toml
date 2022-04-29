@@ -1,0 +1,37 @@
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+let &runtimepath.=$HOME.'/.config/nvim/plugged/neoterm'
+
+let g:neoterm_default_mod      = 'botright'
+let g:neoterm_keep_term_open   = 1
+let g:neoterm_autoinsert       = 0
+let g:neoterm_autojump         = 1
+
+nnoremap [term] <Nop>
+nmap <Space>t [term]
+nnoremap <silent> [term]t :<C-u>silent call <SID>open_neoterm('Ttoggle')<CR>
+nnoremap <silent> [term]n :<C-u>silent call <SID>open_neoterm('Tnew')<CR>
+nnoremap <silent> [term]r :<C-u> Tredo <CR>
+nnoremap <silent> [term]c :<C-u> Tclear <CR>
+nnoremap <silent> [term]d :<C-u> Tclose <CR>
+
+function! s:open_neoterm(cmd) abort
+    let split = s:split_type()
+
+    call execute(printf('%s %s', split, a:cmd))
+endfunction
+
+function! s:split_type() abort
+    let width = winwidth(win_getid())
+    let height = winheight(win_getid()) * 2.1
+
+    if height > width
+        let g:neoterm_size             = 10
+        return 'bel'
+    else
+        let g:neoterm_size             = 50
+        return 'vert'
+    endif
+endfunction
+'''

@@ -1,41 +1,12 @@
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-source = 'release'
-build = 'coc#util#install()'
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-
-[[plugins]]
-repo = 'kassio/neoterm'
-
-[[plugins]]
-repo = 'easymotion/vim-easymotion'
-
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'simeji/winresizer'
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
+on_event = ['InsertEnter']
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
+on_ft = ['rust']
+hook_post_source = '''
+nnoremap <silent> <Space>rr :<C-u> T cargo run . <CR>
+nnoremap <silent> <Space>rt :<C-u> T cargo test <CR>
+'''
 
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'

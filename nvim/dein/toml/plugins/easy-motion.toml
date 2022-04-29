@@ -1,0 +1,11 @@
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+let g:EasyMotion_do_mapping=0
+nnoremap [easyM] <Nop>
+nmap <Space>s [easyM]
+nmap [easyM]s <Plug>(easymotion-overwin-f)
+nmap [easyM]f <Plug>(easymotion-overwin-f2)
+nmap [easyM]l <Plug>(easymotion-overwin-line)
+nmap [easyM]w <Plug>(easymotion-overwin-w)
+'''
