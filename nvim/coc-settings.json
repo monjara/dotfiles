@@ -8,5 +8,6 @@
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
   "prettier.printWidth": 60,
-  "rust-analyzer.server.path": "~/.local/bin/rust-analyzer"
+  "rust-analyzer.server.path": "~/.local/bin/rust-analyzer",
+  "toml.toml.": ""
 }
