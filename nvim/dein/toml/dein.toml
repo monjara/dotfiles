@@ -33,3 +33,5 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'

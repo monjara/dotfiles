@@ -26,9 +26,9 @@ endif
 filetype plugin indent on
 syntax enable
 
-if dein#check_install()
- call dein#install()
-endif
+" if dein#check_install()
+"  call dein#install()
+" endif
 " dein end
 
 " prefix
