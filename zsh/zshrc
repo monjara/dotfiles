@@ -94,3 +94,5 @@ alias cile='circleci local execute'
 
 # .zsh_local読み込み
 [ -f $HOME/.zshrc_local ] && source $HOME/.zshrc_local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
