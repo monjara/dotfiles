@@ -1,1 +1,7 @@
-/home/kaz/Develop/ideavimrc/.ideavimrc
+set ignorecase
+set smartcase
+set hlsearch
+set easymotion
+set surround
+set clipboard=unnamed,unnamedplus
+inoremap jj <Esc>
