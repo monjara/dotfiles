@@ -8,6 +8,7 @@ nnoremap [fzf] <Nop>
 nmap <Space>f [fzf]
 xmap <Space>f [fzf]
 nnoremap <silent> [fzf]f     :<C-u>CocCommand fzf-preview.DirectoryFiles<CR>
+nnoremap <silent> [fzf]m     :<C-u>Marks<CR>
 nnoremap <silent> [fzf]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 nnoremap <silent> [fzf]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> [fzf]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>

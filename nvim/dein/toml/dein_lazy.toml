@@ -10,3 +10,7 @@ nnoremap <silent> <Space>rr :<C-u> T cargo run . <CR>
 nnoremap <silent> <Space>rt :<C-u> T cargo test <CR>
 '''
 
+[[plugins]]
+repo = 'pantharshit00/vim-prisma'
+on_ft = ['prisma']
+
