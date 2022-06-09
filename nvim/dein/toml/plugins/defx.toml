@@ -1,7 +1,8 @@
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-nnoremap <silent> <Space><Space>d :<C-u> Defx <CR>
+nnoremap <silent> <Space>dd :<C-u> Defx <CR>
+nnoremap <silent> <Space>dc :<C-u> Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')` <CR>
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
