@@ -10,6 +10,7 @@ if vim.fn['dein#load_state'](dein_dir) then
   vim.api.nvim_set_var('dein#install_max_processes', 16)
   vim.api.nvim_set_var('dein#install_message_type', 'none')
   vim.api.nvim_set_var('dein#enable_notification', 1)
+  vim.api.nvim_set_var('dein#auto_recache', 1)
 
   local cache_dir = home_dir .. '/.cache/dein'
   local toml_dir  = home_dir .. '/.config/nvim/dein/toml'
@@ -25,7 +26,6 @@ if vim.fn['dein#load_state'](dein_dir) then
   vim.fn['dein#load_toml'](plug_dir .. '/neoterm.toml',     {lazy = 0})
   vim.fn['dein#load_toml'](plug_dir .. '/fzf.toml',         {lazy = 0})
   vim.fn['dein#load_toml'](plug_dir .. '/easy-motion.toml', {lazy = 0})
-  vim.fn['dein#load_toml'](plug_dir .. '/coc.toml',         {lazy = 1})
 
   vim.fn['dein#end']()
   vim.fn['dein#save_state']()
