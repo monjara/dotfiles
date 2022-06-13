@@ -10,7 +10,7 @@ if vim.fn['dein#load_state'](dein_dir) then
   vim.api.nvim_set_var('dein#install_max_processes', 16)
   vim.api.nvim_set_var('dein#install_message_type', 'none')
   vim.api.nvim_set_var('dein#enable_notification', 1)
-  vim.api.nvim_set_var('dein#auto_recache', 1)
+--  vim.api.nvim_set_var('dein#auto_recache', 1)
 
   local cache_dir = home_dir .. '/.cache/dein'
   local toml_dir  = home_dir .. '/.config/nvim/dein/toml'
@@ -109,7 +109,7 @@ filetype plugin indent on
 
 command! -nargs=0 VV :tabnew $MYVIMRC
 " source vim setting file
-command! -nargs=0 SV :source ~/.config/nvim/init.vim
+command! -nargs=0 SV :source ~/.config/nvim/init.lua
 " open help vertical split
 command! -nargs=1 -complete=help H :vertical belowright help <args>
 
