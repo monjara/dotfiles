@@ -1,5 +1,5 @@
 {
-  "coc.preferences.jumpCommand": "vsplit",
+  "coc.preferences.jumpCommand": "edit",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown"
@@ -8,6 +8,5 @@
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
   "prettier.printWidth": 60,
-  "rust-analyzer.server.path": "~/.local/bin/rust-analyzer",
-  "toml.toml.": ""
+  "rust-analyzer.server.path": "~/.local/bin/rust-analyzer"
 }

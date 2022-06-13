@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Default High Contrast",
+  "workbench.colorTheme": "Default Dark+",
   "editor.fontFamily": "Menlo, 'DejaVu Sans Mono', Consolas, 'Lucida Console', monospace",
   "editor.renderLineHighlight": "none",
   "vim.easymotion": true,
