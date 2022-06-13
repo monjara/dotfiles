@@ -25,13 +25,16 @@ let g:multi_cursor_quit_key            = '<Esc>'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'joshdick/onedark.vim'
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'folke/tokyonight.nvim'
+hook_add = '''
+lua << EOF
+vim.g.tokyonight_style = "night"
+EOF
+'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
