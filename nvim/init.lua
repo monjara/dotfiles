@@ -1,6 +1,11 @@
 -- dein start
 local home_dir = os.getenv("HOME")
-local dein_dir = home_dir .. '/.config/nvim/dein'
+local dein_dir = home_dir .. "/.config/nvim/dein"
+local dein_repo_dir = home_dir .. "/.cache/dein/repos/github.com/Shougo/dein.vim"
+
+if vim.fn.isdirectory(dein_repo_dir) ~= 1 then
+  os.execute("git clone --depth=1 https://github.com/Shougo/dein.vim " .. dein_repo_dir)
+end
 
 vim.opt.runtimepath:append(home_dir .. '/.cache/dein/repos/github.com/Shougo/dein.vim')
 
@@ -44,20 +49,19 @@ end
 vim.cmd[[colorscheme tokyonight]]
 
 vim.g.mapleader = ","
-vim.api.nvim_set_keymap("n", "<Space>", "", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "s",       "", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", [[\]], ",", {noremap = false, silent = false})
-vim.api.nvim_set_keymap("n", "j", "gj", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "k", "gk", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "gj", "j", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "gk", "k", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "<Leader>n", ":<C-u> nohl <CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>o", ":<C-u> only <CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "ZZ", "", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "ZQ", "", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n",  "<space>",    "",                {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  [[\]],        ",",               {noremap  =  false,  silent  =  false})
+vim.api.nvim_set_keymap("n",  "j",          "gj",              {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  "k",          "gk",              {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  "gj",         "j",               {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  "gk",         "k",               {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  "<Leader>n",  ":<C-u>nohl<CR>",  {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  "<Leader>o",  ":<C-u>only<CR>",  {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  "ZZ",         "",                {noremap  =  true,   silent  =  false})
+vim.api.nvim_set_keymap("n",  "ZQ",         "",                {noremap  =  true,   silent  =  false})
 
-vim.api.nvim_set_keymap("i", "jj", "<ESC>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("t", "<A-i>", [[<C-\><C-n>]], {noremap = true, silent = true})
+vim.api.nvim_set_keymap("i",  "jj",         "<ESC>",           {noremap  =  true,   silent  =  true})
+vim.api.nvim_set_keymap("t",  "<A-i>",      [[<C-\><C-n>]],    {noremap  =  true,   silent  =  true})
 
 vim.opt.number = true
 vim.opt.fenc = 'utf-8'
@@ -89,9 +93,9 @@ vim.opt.cindent=true             -- "Cプログラムファイルの自動イン
 vim.opt.smarttab=true            -- "新しい行を作った時に高度な自動インデントを行う
 vim.opt.expandtab=true           -- "タブ入力を複数の空白に置き換える
 
-vim.opt.tabstop=2           -- "タブを含むファイルを開いた際, タブを何文字の空白に変換するか
-vim.opt.shiftwidth=2        -- "自動インデントで入る空白数
-vim.opt.softtabstop=0       -- "キーボードから入るタブの数
+vim.opt.tabstop=2                -- "タブを含むファイルを開いた際, タブを何文字の空白に変換するか
+vim.opt.shiftwidth=2             -- "自動インデントで入る空白数
+vim.opt.softtabstop=0            -- "キーボードから入るタブの数
 
 if vim.fn.has("autocmd") == 1 then
 vim.cmd([[
