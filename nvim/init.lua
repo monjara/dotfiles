@@ -34,6 +34,7 @@ if vim.fn['dein#load_state'](dein_dir) then
 
   vim.fn['dein#end']()
   vim.fn['dein#save_state']()
+	vim.cmd([[autocmd VimEnter * call dein#call_hook('post_source')]])
 end
 
 vim.cmd([[

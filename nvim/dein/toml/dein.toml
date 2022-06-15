@@ -48,24 +48,10 @@ EOF
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set signcolumn=yes
+'''
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = "williamboman/nvim-lsp-installer"
-hook_add = '''
-lua << EOF
-require("nvim-lsp-installer").setup({
-    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
-})
-EOF
-'''
 
