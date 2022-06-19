@@ -19,11 +19,10 @@ repo = "neovim/nvim-lspconfig"
 on_event = "BufEnter"
 hook_add = '''
 lua <<EOF
-
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']g', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
@@ -41,41 +40,40 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<Space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
+
 EOF
 '''
 hook_post_source = '''
-lua << EOF
+lua <<EOF
 local lsp_flags = {
   debounce_text_changes = 150,
 }
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require('lspconfig')['pyright'].setup{
+require('lspconfig')['pyright'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
-}
-require('lspconfig')['tsserver'].setup{
+})
+require('lspconfig')['tsserver'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
-}
-require('lspconfig')['rust_analyzer'].setup{
+})
+require('lspconfig')['rust_analyzer'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities
-    -- Server-specific settings...
+    capabilities = capabilities,
     settings = {
       ["rust-analyzer"] = {}
     }
-}
-
+})
 EOF
 '''
 
@@ -130,6 +128,25 @@ lua <<EOF
       ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+  }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'vsnip' }, -- For vsnip users.
