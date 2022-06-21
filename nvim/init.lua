@@ -78,7 +78,6 @@ require('packer').startup(function(use)
       nmap [easyM]f <Plug>(easymotion-overwin-f2)
       nmap [easyM]l <Plug>(easymotion-overwin-line)
       nmap [easyM]w <Plug>(easymotion-overwin-w)
-      autocmd FileType netrw nmap <buffer> s <Plug>(easymotion-s)
       ]])
     end
   }
