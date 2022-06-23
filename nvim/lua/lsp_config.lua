@@ -42,16 +42,12 @@ end
 vim.cmd [[set completeopt=menu,menuone,noselect]]
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
 
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
   window = {
@@ -67,8 +63,6 @@ cmp.setup({
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -76,8 +70,6 @@ cmp.setup({
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
       else
         fallback()
       end
@@ -86,9 +78,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
-    { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
   })
@@ -116,18 +105,26 @@ local lsp_flags = {
 }
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local nvim_lsp = require('lspconfig')
+local is_node = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")
+local is_deno = nvim_lsp.util.root_pattern("package.json")
 
-require('lspconfig')['pyright'].setup({
+nvim_lsp['pyright'].setup({
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities
 })
-require('lspconfig')['tsserver'].setup({
+nvim_lsp['tsserver'].setup({
   on_attach = on_attach,
   flags = lsp_flags,
-  capabilities = capabilities
+  capabilities = capabilities,
+  root_dir = is_node
 })
-require('lspconfig')['rust_analyzer'].setup({
+nvim_lsp['denols'].setup({
+  on_attach = on_attach,
+  root_dir = is_deno
+})
+nvim_lsp['rust_analyzer'].setup({
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
@@ -135,7 +132,7 @@ require('lspconfig')['rust_analyzer'].setup({
     ["rust-analyzer"] = {}
   }
 })
-require('lspconfig')['sumneko_lua'].setup({
+nvim_lsp['sumneko_lua'].setup({
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
