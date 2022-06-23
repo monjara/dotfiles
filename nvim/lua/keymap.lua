@@ -16,11 +16,12 @@ vim.api.nvim_set_keymap("t", "<A-i>", [[<C-\><C-n>]], { noremap = true, silent =
 vim.api.nvim_set_keymap("n", "<space>dd", ":<C-u>Explore<CR>", {noremap = true, silent = true})
 
 vim.cmd([[
-command! -nargs=0 VV :tabnew $MYVIMRC
+command! -nargs=0 VV :tabnew $MYVIMRC | :tcd %:h
 command! -nargs=0 SV :source ~/.config/nvim/init.lua
 command! -nargs=1 -complete=help H :vertical belowright help <args>
 
 autocmd FileType netrw nmap <buffer> s <Plug>(easymotion-s)
 autocmd FileType netrw nmap <buffer><nowait> <space> <CR>
+autocmd TabEnter * :tcd %:h
 ]])
 
