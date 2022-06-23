@@ -106,8 +106,8 @@ local lsp_flags = {
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
-local is_node = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")
-local is_deno = nvim_lsp.util.root_pattern("package.json")
+local is_deno = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")
+local is_node = nvim_lsp.util.root_pattern("package.json")
 
 nvim_lsp['pyright'].setup({
   on_attach = on_attach,
