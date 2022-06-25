@@ -15,6 +15,24 @@ vim.api.nvim_set_keymap("t", "<A-i>", [[<C-\><C-n>]], { noremap = true, silent =
 
 vim.api.nvim_set_keymap("n", "<space>dd", ":<C-u>Explore<CR>", {noremap = true, silent = true})
 
+vim.keymap.set(
+"n",
+"<space>yf",
+function ()
+  vim.api.nvim_command('let @" = expand("%:p")')
+  vim.api.nvim_command('let @+ = expand("%:p")')
+end
+)
+
+vim.keymap.set(
+"n",
+"<space>yd",
+function ()
+  vim.api.nvim_command('let @" = expand("%:p:h")')
+  vim.api.nvim_command('let @+ = expand("%:p:h")')
+end
+)
+
 vim.cmd([[
 command! -nargs=0 VV :tabnew $MYVIMRC | :tcd %:h
 command! -nargs=0 SV :source ~/.config/nvim/init.lua
