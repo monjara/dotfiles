@@ -21,7 +21,7 @@ command! -nargs=0 SV :source ~/.config/nvim/init.lua
 command! -nargs=1 -complete=help H :vertical belowright help <args>
 
 autocmd FileType netrw nmap <buffer> s <Plug>(easymotion-s)
-autocmd FileType netrw nmap <buffer><nowait> <space> <CR>
+autocmd FileType netrw nmap <buffer><nowait> ; <CR>
 autocmd TabEnter * :tcd %:h
 ]])
 
