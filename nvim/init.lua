@@ -5,7 +5,7 @@ local packer_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
     install_path })
-  vim.o.runtimepath = vim.fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
+  vim.o.runtimepath = fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
 end
 
 vim.cmd [[packadd packer.nvim]]
@@ -18,14 +18,14 @@ require('packer').startup(function(use)
 
   use {
     'airblade/vim-gitgutter',
-    config = function()
+    setup = function()
       vim.cmd [[set signcolumn=yes]]
     end
   }
 
   use {
     'folke/tokyonight.nvim',
-    config = function()
+    setup = function()
       vim.g.tokyonight_style = "night"
       vim.g.tokyonight_terminal_colors = true
       vim.g.tokyonight_italic_comments = false
@@ -41,6 +41,8 @@ require('packer').startup(function(use)
       vim.g.tokyonight_colors = {}
       vim.g.tokyonight_day_brightness = 0.3
       vim.g.tokyonight_lualine_bold = false
+    end,
+    config = function()
       vim.cmd [[colorscheme tokyonight]]
     end
   }
@@ -52,75 +54,98 @@ require('packer').startup(function(use)
 
   use {
     'terryma/vim-multiple-cursors',
-    config = function()
-      vim.cmd([[
-      let g:multi_cursor_use_default_mapping=0
-      let g:multi_cursor_start_word_key      = '<C-n>'
-      let g:multi_cursor_select_all_word_key = '<A-n>'
-      let g:multi_cursor_start_key           = 'g<C-n>'
-      let g:multi_cursor_select_all_key      = 'g<A-n>'
-      let g:multi_cursor_next_key            = '<C-n>'
-      let g:multi_cursor_prev_key            = '<C-p>'
-      let g:multi_cursor_skip_key            = '<C-x>'
-      let g:multi_cursor_quit_key            = '<Esc>'
-      ]])
+    setup = function()
+      vim.g.multi_cursor_use_default_mapping = 0
+      vim.g.multi_cursor_start_word_key      = '<C-n>'
+      vim.g.multi_cursor_select_all_word_key = '<A-n>'
+      vim.g.multi_cursor_start_key           = 'g<C-n>'
+      vim.g.multi_cursor_select_all_key      = 'g<A-n>'
+      vim.g.multi_cursor_next_key            = '<C-n>'
+      vim.g.multi_cursor_prev_key            = '<C-p>'
+      vim.g.multi_cursor_skip_key            = '<C-x>'
+      vim.g.multi_cursor_quit_key            = '<Esc>'
     end
   }
 
   use {
     'easymotion/vim-easymotion',
+    setup = function()
+      vim.g.EasyMotion_do_mapping = 0
+    end,
     config = function()
-      vim.cmd([[
-      let g:EasyMotion_do_mapping=0
-      nnoremap [easyM] <Nop>
-      nmap <Space>s [easyM]
-      nmap s        <Plug>(easymotion-overwin-f)
-      nmap [easyM]f <Plug>(easymotion-overwin-f2)
-      nmap [easyM]l <Plug>(easymotion-overwin-line)
-      nmap [easyM]w <Plug>(easymotion-overwin-w)
-      ]])
+      vim.keymap.set('n', 's', "<Plug>(easymotion-overwin-f)", { noremap = false, nowait = true })
+      vim.keymap.set('n', '<Space>sf', "<Plug>(easymotion-overwin-f2)", { noremap = false, nowait = true })
+      vim.keymap.set('n', '<Space>sl', "<Plug>(easymotion-overwin-line)", { noremap = false, nowait = true })
+      vim.keymap.set('n', '<Space>sw', "<Plug>(easymotion-overwin-w)", { noremap = false, nowait = true })
     end
   }
 
   use {
     'kassio/neoterm',
+    opt = true,
+    event = { 'BufEnter' },
+    setup = function()
+      vim.cmd [[let &runtimepath.=$HOME.'/.config/nvim/plugged/neoterm']]
+      vim.g.neoterm_default_mod = 'botright'
+      vim.g.neoterm_keep_term_open = 1
+      vim.g.neoterm_autoinsert = 0
+      vim.g.neoterm_autojump = 1
+    end,
     config = function()
-      vim.cmd([[
-        let &runtimepath.=$HOME.'/.config/nvim/plugged/neoterm'
+      local function split_type()
+        -- local current_win = vim.api.nvim_win_get_number(0)
+        local width = vim.api.nvim_win_get_width(0)
+        local height = vim.api.nvim_win_get_height(0) * 2.1
 
-        let g:neoterm_default_mod      = 'botright'
-        let g:neoterm_keep_term_open   = 1
-        let g:neoterm_autoinsert       = 0
-        let g:neoterm_autojump         = 1
+        if height > width then
+          vim.g.neoterm_size = 10
+          return 'bel'
+        else
+          vim.g.neoterm_size = 50
+          return 'vert'
+        end
+      end
 
-        nnoremap [term] <Nop>
-        nmap <Space>t [term]
-        nnoremap <silent> [term]t :<C-u> Ttoggle<CR>
-        nnoremap <silent> [term]n :<C-u> Tnew<CR>
-        nnoremap <silent> [term]r :<C-u> Tredo <CR>
-        nnoremap <silent> [term]c :<C-u> Tclear <CR>
-        nnoremap <silent> [term]d :<C-u> Tclose <CR>
+      local function open_neoterm(cmd)
+        local split = split_type()
+        local command = split .. ' ' .. cmd
+        vim.api.nvim_command(command)
+      end
 
-        " TODO: use this function
-        function! s:open_neoterm(cmd) abort
-            let split = s:split_type()
-
-            call execute(printf('%s %s', split, a:cmd))
-        endfunction
-
-        function! s:split_type() abort
-            let width = winwidth(win_getid())
-            let height = winheight(win_getid()) * 2.1
-
-            if height > width
-                let g:neoterm_size             = 10
-                return 'bel'
-            else
-                let g:neoterm_size             = 50
-                return 'vert'
-            endif
-        endfunction
-      ]])
+      vim.keymap.set(
+        'n',
+        '<Space>tt',
+        function()
+          open_neoterm('Ttoggle')
+        end,
+        { noremap = true, silent = true })
+      vim.keymap.set('n',
+        '<Space>tn',
+        function()
+          open_neoterm('Tnew')
+        end,
+        { noremap = true, silent = true })
+      vim.keymap.set(
+        'n',
+        '<Space>tr',
+        function()
+          open_neoterm('Tredo')
+        end,
+        { noremap = true, silent = true })
+      vim.keymap.set(
+        'n',
+        '<Space>tc',
+        function()
+          open_neoterm('Tclear')
+        end,
+        { noremap = true, silent = true })
+      vim.keymap.set(
+        'n',
+        '<Space>td',
+        function()
+          open_neoterm('Tclose')
+        end,
+        { noremap = true, silent = true })
     end
   }
 
@@ -151,9 +176,14 @@ require('packer').startup(function(use)
   }
 
   -- TODO: lazy
-  use 'mattn/emmet-vim'
+  use { 'mattn/emmet-vim',
+    opt = true,
+    event = { 'BufEnter' },
+  }
+
   use {
     'rust-lang/rust.vim',
+    opt = true,
     ft = 'rust',
     config = function()
       local opts = { noremap = true, silent = true }
@@ -164,6 +194,7 @@ require('packer').startup(function(use)
 
   use {
     'pantharshit00/vim-prisma',
+    opt = true,
     ft = 'prisma'
   }
 
@@ -178,9 +209,6 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
 
-  -- use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip'
-
   if packer_bootstrap then
     require('packer').sync()
   end
@@ -189,5 +217,3 @@ end)
 require('lsp_config')
 require('keymap')
 require('opts')
-
--- nnoremap <silent><buffer><expr> C  defx#do_action('toggle_columns', 'mark:indent:icon:filename:type:size:time')
