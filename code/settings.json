@@ -71,6 +71,10 @@
       "commands": ["editor.action.addSelectionToNextFindMatch"],
     },
     {
+      "before": ["<space>", "N"],
+      "commands": ["editor.action.moveSelectionToPreviousFindMatch"],
+    },
+    {
       "before": ["<space>", "<space>","n"],
       "commands": ["editor.action.moveSelectionToNextFindMatch"],
     }
