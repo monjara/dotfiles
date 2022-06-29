@@ -1,0 +1,16 @@
+local g = vim.g
+g.tokyonight_style = "night"
+g.tokyonight_terminal_colors = true
+g.tokyonight_italic_comments = false
+g.tokyonight_italic_keywords = false
+g.tokyonight_italic_functions = false
+g.tokyonight_italic_variables = false
+g.tokyonight_transparent = false
+g.tokyonight_hide_inactive_statusline = false
+g.tokyonight_sidebars = {}
+g.tokyonight_transparent_sidebar = false
+g.tokyonight_dark_sidebar = true
+g.tokyonight_dark_float = true
+g.tokyonight_colors = {}
+g.tokyonight_day_brightness = 0.3
+g.tokyonight_lualine_bold = false

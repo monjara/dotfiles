@@ -26,24 +26,10 @@ require('packer').startup(function(use)
   use {
     'folke/tokyonight.nvim',
     setup = function()
-      vim.g.tokyonight_style = "night"
-      vim.g.tokyonight_terminal_colors = true
-      vim.g.tokyonight_italic_comments = false
-      vim.g.tokyonight_italic_keywords = false
-      vim.g.tokyonight_italic_functions = false
-      vim.g.tokyonight_italic_variables = false
-      vim.g.tokyonight_transparent = false
-      vim.g.tokyonight_hide_inactive_statusline = false
-      vim.g.tokyonight_sidebars = {}
-      vim.g.tokyonight_transparent_sidebar = false
-      vim.g.tokyonight_dark_sidebar = true
-      vim.g.tokyonight_dark_float = true
-      vim.g.tokyonight_colors = {}
-      vim.g.tokyonight_day_brightness = 0.3
-      vim.g.tokyonight_lualine_bold = false
+      require("plugins.tokyonight.setup")
     end,
     config = function()
-      vim.cmd [[colorscheme tokyonight]]
+      require("plugins.tokyonight.config")
     end
   }
 
@@ -53,17 +39,15 @@ require('packer').startup(function(use)
   }
 
   use {
-    'terryma/vim-multiple-cursors',
-    setup = function()
-      vim.g.multi_cursor_use_default_mapping = 0
-      vim.g.multi_cursor_start_word_key      = '<C-n>'
-      vim.g.multi_cursor_select_all_word_key = '<A-n>'
-      vim.g.multi_cursor_start_key           = 'g<C-n>'
-      vim.g.multi_cursor_select_all_key      = 'g<A-n>'
-      vim.g.multi_cursor_next_key            = '<C-n>'
-      vim.g.multi_cursor_prev_key            = '<C-p>'
-      vim.g.multi_cursor_skip_key            = '<C-x>'
-      vim.g.multi_cursor_quit_key            = '<Esc>'
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("plugins.neotree.config")
     end
   }
 
@@ -85,67 +69,10 @@ require('packer').startup(function(use)
     opt = true,
     event = { 'BufEnter' },
     setup = function()
-      vim.cmd [[let &runtimepath.=$HOME.'/.config/nvim/plugged/neoterm']]
-      vim.g.neoterm_default_mod = 'botright'
-      vim.g.neoterm_keep_term_open = 1
-      vim.g.neoterm_autoinsert = 0
-      vim.g.neoterm_autojump = 1
+      require("plugins.neoterm.setup")
     end,
     config = function()
-      local function split_type()
-        -- local current_win = vim.api.nvim_win_get_number(0)
-        local width = vim.api.nvim_win_get_width(0)
-        local height = vim.api.nvim_win_get_height(0) * 2.1
-
-        if height > width then
-          vim.g.neoterm_size = 10
-          return 'bel'
-        else
-          vim.g.neoterm_size = 50
-          return 'vert'
-        end
-      end
-
-      local function open_neoterm(cmd)
-        local split = split_type()
-        local command = split .. ' ' .. cmd
-        vim.api.nvim_command(command)
-      end
-
-      vim.keymap.set(
-        'n',
-        '<Space>tt',
-        function()
-          open_neoterm('Ttoggle')
-        end,
-        { noremap = true, silent = true })
-      vim.keymap.set('n',
-        '<Space>tn',
-        function()
-          open_neoterm('Tnew')
-        end,
-        { noremap = true, silent = true })
-      vim.keymap.set(
-        'n',
-        '<Space>tr',
-        function()
-          open_neoterm('Tredo')
-        end,
-        { noremap = true, silent = true })
-      vim.keymap.set(
-        'n',
-        '<Space>tc',
-        function()
-          open_neoterm('Tclear')
-        end,
-        { noremap = true, silent = true })
-      vim.keymap.set(
-        'n',
-        '<Space>td',
-        function()
-          open_neoterm('Tclose')
-        end,
-        { noremap = true, silent = true })
+      require("plugins.neoterm.config")
     end
   }
 
@@ -154,14 +81,7 @@ require('packer').startup(function(use)
     -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
-      local opts = { noremap = true, silent = true }
-      vim.keymap.set('n', '<space>ff', "<cmd>lua  require('fzf-lua').files()<CR>", opts)
-      vim.keymap.set('n', '<space>fb', "<cmd>lua  require('fzf-lua').buffers()<CR>", opts)
-      vim.keymap.set('n', '<space>fm', "<cmd>lua  require('fzf-lua').marks()<CR>", opts)
-      vim.keymap.set('n', '<space>fr', "<cmd>lua  require('fzf-lua').grep()<CR>", opts)
-      vim.keymap.set('n', '<space>fp', "<cmd>lua  require('fzf-lua').registers()<CR>", opts)
-      vim.keymap.set('n', '<space>gs', "<cmd>lua  require('fzf-lua').git_status()<CR>", opts)
-      -- TODO add keymap
+      require("plugins.fzf.config")
     end
   }
 

@@ -39,12 +39,6 @@ autocmd FileType typescript       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType javascriptreact  setlocal sw=2 sts=2 ts=2 et
 autocmd FileType typescriptreact  setlocal sw=2 sts=2 ts=2 et
 
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-let g:netrw_sizestyle="H"
-let g:netrw_timefmt="%Y/%m/%d %H:%M:%S"
-let g:netrw_preview=1
-
 filetype off
 filetype plugin indent on
 ]] )
