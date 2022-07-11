@@ -33,7 +33,10 @@
       "before": ["<space>", "f", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
-
+    {
+      "before": ["m"],
+      "after": ["d"]
+    },
     {
       "before": ["<space>", "t", "t"],
       "commands": ["workbench.action.terminal.toggleTerminal"]
@@ -55,28 +58,33 @@
       "after": ["<leader>", "<leader>", "s"]
     },
     {
-      "before": ["<space>", "d","d"],
+      "before": ["<space>", "d", "d"],
       "commands": ["workbench.explorer.fileView.focus"],
       "when": "inFilesPicker && inQuickOpen"
     },
     {
-      "before": ["<space>", "d","c"],
+      "before": ["<space>", "d", "c"],
       "commands": ["workbench.explorer.fileView.focus"],
       "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+      "before": ["<space>", "f", "o"],
+      "commands": ["editor.action.formatDocument"],
+      "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<space>", "n"],
-      "commands": ["editor.action.addSelectionToNextFindMatch"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"]
     },
     {
       "before": ["<space>", "N"],
-      "commands": ["editor.action.moveSelectionToPreviousFindMatch"],
+      "commands": ["editor.action.moveSelectionToPreviousFindMatch"]
     },
     {
-      "before": ["<space>", "<space>","n"],
-      "commands": ["editor.action.moveSelectionToNextFindMatch"],
+      "before": ["<space>", "<space>", "n"],
+      "commands": ["editor.action.moveSelectionToNextFindMatch"]
     }
   ],
   "vim.handleKeys": {
