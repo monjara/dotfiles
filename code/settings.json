@@ -27,7 +27,7 @@
     },
     {
       "before": ["<space>", "f", "r"],
-      "commands": ["workbench.view.search"]
+      "commands": ["workbench.action.findInFiles"]
     },
     {
       "before": ["<space>", "f", "f"],
@@ -68,7 +68,7 @@
       "when": "inFilesPicker && inQuickOpen"
     },
     {
-      "before": ["<space>", "f", "o"],
+      "before": ["<leader>", "f", "o"],
       "commands": ["editor.action.formatDocument"],
       "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     }
@@ -169,5 +169,6 @@
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "window.zoomLevel": 2,
-  "bracketPairColorizer.depreciation-notice": false
+  "bracketPairColorizer.depreciation-notice": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false
 }
