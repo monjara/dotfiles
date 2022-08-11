@@ -170,5 +170,8 @@
   "prettier.semi": false,
   "window.zoomLevel": 2,
   "bracketPairColorizer.depreciation-notice": false,
-  "terminal.integrated.enableMultiLinePasteWarning": false
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[caddyfile]": {
+    "editor.defaultFormatter": "matthewpi.caddyfile-support"
+  }
 }
