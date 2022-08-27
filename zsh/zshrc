@@ -91,6 +91,12 @@ alias gl='git log'
 alias gs='git status'
 alias vf='nvim $(fzf)'
 alias cdf='find . -name "*" -type d | fzf'
+
+alias dotfiles='cd ~/Develop/dotfiles'
+alias vz='nvim ~/Develop/dotfiles/zsh/zshrc'
+alias sz='source ~/.zshrc'
+alias cv='cd ~/Develop/dotfiles/nvim '
+alias vv='nvim ~/Develop/dotfiles/nvim/init.nvim'
 # CircleCiCLI用alias
 alias civa='circleci config validate'
 alias cile='circleci local execute'
