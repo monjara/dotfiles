@@ -71,6 +71,14 @@
       "before": ["<leader>", "f", "o"],
       "commands": ["editor.action.formatDocument"],
       "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+      "before": [ "<space>", "f", "p" ],
+      "commands": [ "copyRelativeFilePath" ]
+    },
+    {
+      "before": [ "<space>", "f", "e" ],
+      "commands": [ "search.action.focusSearchList" ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -168,10 +176,13 @@
   "git.confirmSync": false,
   "prettier.singleQuote": true,
   "prettier.semi": false,
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 1,
   "bracketPairColorizer.depreciation-notice": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "[caddyfile]": {
     "editor.defaultFormatter": "matthewpi.caddyfile-support"
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
   }
 }
