@@ -26,17 +26,17 @@ require('packer').startup(function(use)
   use {
     'folke/tokyonight.nvim',
     setup = function()
-      require("plugins.tokyonight.setup")
+      require('plugins.tokyonight.setup')
     end,
     config = function()
-      require("plugins.tokyonight.config")
+      require('plugins.tokyonight.config')
     end
   }
 
   use {
-    "folke/zen-mode.nvim",
+    'folke/zen-mode.nvim',
     config = function()
-      require("zen-mode").setup {
+      require('zen-mode').setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
@@ -50,15 +50,15 @@ require('packer').startup(function(use)
   }
 
   use {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v2.x',
     requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
     },
     config = function()
-      require("plugins.neotree.config")
+      require('plugins.neotree.config')
     end
   }
 
@@ -68,10 +68,10 @@ require('packer').startup(function(use)
       vim.g.EasyMotion_do_mapping = 0
     end,
     config = function()
-      vim.keymap.set('n', 's', "<Plug>(easymotion-overwin-f)", { noremap = false, nowait = true })
-      vim.keymap.set('n', '<Space>sf', "<Plug>(easymotion-overwin-f2)", { noremap = false, nowait = true })
-      vim.keymap.set('n', '<Space>sl', "<Plug>(easymotion-overwin-line)", { noremap = false, nowait = true })
-      vim.keymap.set('n', '<Space>sw', "<Plug>(easymotion-overwin-w)", { noremap = false, nowait = true })
+      vim.keymap.set('n', 's', '<Plug>(easymotion-overwin-f)', { noremap = false, nowait = true })
+      vim.keymap.set('n', '<Space>sf', '<Plug>(easymotion-overwin-f2)', { noremap = false, nowait = true })
+      vim.keymap.set('n', '<Space>sl', '<Plug>(easymotion-overwin-line)', { noremap = false, nowait = true })
+      vim.keymap.set('n', '<Space>sw', '<Plug>(easymotion-overwin-w)', { noremap = false, nowait = true })
     end
   }
 
@@ -80,10 +80,10 @@ require('packer').startup(function(use)
     opt = true,
     event = { 'BufEnter' },
     setup = function()
-      require("plugins.neoterm.setup")
+      require('plugins.neoterm.setup')
     end,
     config = function()
-      require("plugins.neoterm.config")
+      require('plugins.neoterm.config')
     end
   }
 
@@ -92,7 +92,7 @@ require('packer').startup(function(use)
     -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
-      require("plugins.fzf.config")
+      require('plugins.fzf.config')
     end
   }
 
