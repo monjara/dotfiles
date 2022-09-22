@@ -12,87 +12,201 @@
   "vim.sneak": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "n"],
-      "commands": [":nohl"]
+      "before": [
+        "<leader>",
+        "n"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     {
-      "before": ["<leader>", "j"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
     },
     {
-      "before": ["<space>", "f", "r"],
-      "commands": ["workbench.action.findInFiles"]
+      "before": [
+        "<space>",
+        "f",
+        "r"
+      ],
+      "commands": [
+        "workbench.action.findInFiles"
+      ]
     },
     {
-      "before": ["<space>", "f", "f"],
-      "commands": ["workbench.action.quickOpen"]
+      "before": [
+        "<space>",
+        "f",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
     },
     {
-      "before": ["m"],
-      "after": ["d"]
+      "before": [
+        "m"
+      ],
+      "after": [
+        "d"
+      ]
     },
     {
-      "before": ["<space>", "t", "t"],
-      "commands": ["workbench.action.terminal.toggleTerminal"]
+      "before": [
+        "<space>",
+        "t",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.terminal.toggleTerminal"
+      ]
     },
     {
-      "before": ["<leader>", "x"],
-      "commands": ["workbench.action.closePanel", "notifications.clearAll"]
+      "before": [
+        "<leader>",
+        "x"
+      ],
+      "commands": [
+        "workbench.action.closePanel",
+        "notifications.clearAll"
+      ]
     },
     {
-      "before": ["[", "g"],
-      "commands": ["editor.action.marker.prev"]
+      "before": [
+        "[",
+        "g"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
     },
     {
-      "before": ["]", "g"],
-      "commands": ["editor.action.marker.next"]
+      "before": [
+        "]",
+        "g"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
     },
     {
-      "before": ["s"],
-      "after": ["<leader>", "<leader>", "s"]
+      "before": [
+        "s"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "s"
+      ]
     },
     {
-      "before": ["<space>", "d", "d"],
-      "commands": ["workbench.explorer.fileView.focus"],
+      "before": [
+        "<space>",
+        "d",
+        "d"
+      ],
+      "commands": [
+        "workbench.explorer.fileView.focus"
+      ],
       "when": "inFilesPicker && inQuickOpen"
     },
     {
-      "before": ["<space>", "d", "c"],
-      "commands": ["workbench.explorer.fileView.focus"],
+      "before": [
+        "<space>",
+        "d",
+        "c"
+      ],
+      "commands": [
+        "workbench.explorer.fileView.focus"
+      ],
       "when": "inFilesPicker && inQuickOpen"
     },
     {
-      "before": ["<leader>", "f", "o"],
-      "commands": ["editor.action.formatDocument"],
+      "before": [
+        "<leader>",
+        "f",
+        "o"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ],
       "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     },
     {
-      "before": [ "<space>", "f", "p" ],
-      "commands": [ "copyRelativeFilePath" ]
+      "before": [
+        "<space>",
+        "f",
+        "p"
+      ],
+      "commands": [
+        "copyRelativeFilePath"
+      ]
     },
     {
-      "before": [ "<space>", "f", "e" ],
-      "commands": [ "search.action.focusSearchList" ]
+      "before": [
+        "<space>",
+        "f",
+        "e"
+      ],
+      "commands": [
+        "search.action.focusSearchList"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        "selectPrevSuggestion"
+      ],
+      "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": ["<space>", "n"],
-      "commands": ["editor.action.addSelectionToNextFindMatch"]
+      "before": [
+        "<space>",
+        "n"
+      ],
+      "commands": [
+        "editor.action.addSelectionToNextFindMatch"
+      ]
     },
     {
-      "before": ["<space>", "N"],
-      "commands": ["editor.action.moveSelectionToPreviousFindMatch"]
+      "before": [
+        "<space>",
+        "N"
+      ],
+      "commands": [
+        "editor.action.moveSelectionToPreviousFindMatch"
+      ]
     },
     {
-      "before": ["<space>", "<space>", "n"],
-      "commands": ["editor.action.moveSelectionToNextFindMatch"]
+      "before": [
+        "<space>",
+        "<space>",
+        "n"
+      ],
+      "commands": [
+        "editor.action.moveSelectionToNextFindMatch"
+      ]
     }
   ],
   "vim.handleKeys": {
@@ -160,7 +274,9 @@
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [80],
+    "editor.rulers": [
+      80
+    ],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -184,5 +300,15 @@
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "Lua.telemetry.enable": true,
+  "Lua.diagnostics.globals": [
+    "vim",
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
   }
 }
