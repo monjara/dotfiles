@@ -80,7 +80,6 @@ require('packer').startup(function(use)
 
   use {
     'ibhagwan/fzf-lua',
-    -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       require('plugins.fzf.config')

@@ -1,8 +1,10 @@
+local map = vim.keymap
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>ff', "<cmd>lua  require('fzf-lua').files()<CR>", opts)
-vim.keymap.set('n', '<space>fb', "<cmd>lua  require('fzf-lua').buffers()<CR>", opts)
-vim.keymap.set('n', '<space>fm', "<cmd>lua  require('fzf-lua').marks()<CR>", opts)
-vim.keymap.set('n', '<space>fr', "<cmd>lua  require('fzf-lua').grep()<CR>", opts)
-vim.keymap.set('n', '<space>fp', "<cmd>lua  require('fzf-lua').registers()<CR>", opts)
-vim.keymap.set('n', '<space>gs', "<cmd>lua  require('fzf-lua').git_status()<CR>", opts)
+
+map.set('n', '<space>ff', ':FzfLua files<CR>', opts)
+map.set('n', '<space>fb', ':FzfLua buffers<CR>', opts)
+map.set('n', '<space>fm', ':FzfLua marks<CR>', opts)
+map.set('n', '<space>fr', ':FzfLua grep<CR>', opts)
+map.set('n', '<space>fp', ':FzfLua registers<CR>', opts)
+map.set('n', '<space>gs', ':FzfLua git_status<CR>', opts)
 -- TODO add keymap
