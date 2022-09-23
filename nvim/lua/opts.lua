@@ -32,16 +32,12 @@ vim.opt.tabstop = 2 -- "タブを含むファイルを開いた際, タブを何
 vim.opt.shiftwidth = 2 -- "自動インデントで入る空白数
 vim.opt.softtabstop = 0 -- "キーボードから入るタブの数
 
-if vim.fn.has("autocmd") == 1 then
-  vim.cmd([[
-autocmd FileType javascript       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType typescript       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType javascriptreact  setlocal sw=2 sts=2 ts=2 et
-autocmd FileType typescriptreact  setlocal sw=2 sts=2 ts=2 et
-
-filetype off
-filetype plugin indent on
-]] )
-end
-
-
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  callback = function()
+    vim.opt_local.sw = 2
+    vim.opt_local.sts = 2
+    vim.opt_local.ts = 2
+    vim.opt_local.et = true
+  end
+})

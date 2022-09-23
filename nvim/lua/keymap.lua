@@ -36,16 +36,16 @@ vim.api.nvim_create_autocmd({ 'TabEnter' }, {
   command = 'tcd %:h'
 })
 
-vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+vim.api.nvim_create_autocmd({ 'FileType' }, {
   pattern = { 'neo-tree' },
   callback = function()
     vim.api.nvim_set_keymap("n", "s", "<Plug>(easymotino-s)", { noremap = false, silent = false })
   end
 })
 
+-- TODO: implement with nvim_create_user_command()
 vim.cmd([[
 command! -nargs=0 VV :tabnew $MYVIMRC | :tcd %:h
 command! -nargs=0 SV :source ~/.config/nvim/init.lua
 command! -nargs=1 -complete=help H :vertical belowright help <args>
 ]])
-

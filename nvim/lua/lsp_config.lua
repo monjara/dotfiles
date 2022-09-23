@@ -39,7 +39,8 @@ local on_attach = function(_, bufnr)
 end
 
 -- nvim-cmp
-vim.cmd [[set completeopt=menu,menuone,noselect]]
+-- vim.cmd [[set completeopt=menu,menuone,noselect]]
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 
