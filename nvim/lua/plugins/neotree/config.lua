@@ -180,4 +180,4 @@ require('neo-tree').setup({
   }
 })
 
-vim.keymap.set('n', '<space>dd', ':<C-u>Neotree reveal<cr>', { noremap = true, nowait = true })
+vim.keymap.set('n', '<space>dd', ':<C-u>Neotree reveal<cr>', { noremap = true, nowait = true, silent = true })
