@@ -99,6 +99,7 @@ alias vzl='nvim ~/.zshrc_local'
 alias sz='source ~/.zshrc'
 alias cv='cd ~/Develop/dotfiles/nvim '
 alias vv='nvim ~/Develop/dotfiles/nvim/init.lua'
+alias memo='vi ~/Documents/memo.txt'
 # CircleCiCLI用alias
 alias civa='circleci config validate'
 alias cile='circleci local execute'
