@@ -59,15 +59,10 @@ require('packer').startup(function(use)
   }
 
   use {
-    'easymotion/vim-easymotion',
-    setup = function()
-      vim.g.EasyMotion_do_mapping = 0
-    end,
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
     config = function()
-      vim.keymap.set('n', 's', '<Plug>(easymotion-overwin-f)', { noremap = false, nowait = true })
-      vim.keymap.set('n', '<Space>sf', '<Plug>(easymotion-overwin-f2)', { noremap = false, nowait = true })
-      vim.keymap.set('n', '<Space>sl', '<Plug>(easymotion-overwin-line)', { noremap = false, nowait = true })
-      vim.keymap.set('n', '<Space>sw', '<Plug>(easymotion-overwin-w)', { noremap = false, nowait = true })
+      require('plugins.hop.config')
     end
   }
 

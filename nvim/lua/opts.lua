@@ -41,3 +41,8 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     vim.opt_local.et = true
   end
 })
+
+vim.cmd([[
+filetype off
+filetype plugin indent on
+]])

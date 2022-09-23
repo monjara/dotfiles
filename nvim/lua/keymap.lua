@@ -1,22 +1,22 @@
-vim.g.mapleader = ","
-vim.api.nvim_set_keymap("n", "<space>", "", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("v", "<space>", "", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", [[\]], ",", { noremap = false, silent = false })
-vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "gk", "k", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "<Leader>n", ":<C-u>nohl<CR>", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "<Leader>o", ":<C-u>only<CR>", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "ZZ", "", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "ZQ", "", { noremap = true, silent = false })
+vim.g.mapleader = ','
+vim.api.nvim_set_keymap('n', '<space>', '', { noremap = true })
+vim.api.nvim_set_keymap('v', '<space>', '', { noremap = true })
+vim.api.nvim_set_keymap('n', [[\]], ',', {})
+vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
+vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gj', 'j', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gk', 'k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>n', ':<C-u>nohl<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>o', ':<C-u>only<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'ZZ', '', { noremap = true })
+vim.api.nvim_set_keymap('n', 'ZQ', '', { noremap = true })
 
-vim.api.nvim_set_keymap("i", "jj", "<ESC>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<A-i>", [[<C-\><C-n>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-i>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 vim.keymap.set(
-  "n",
-  "<space>yf",
+  'n',
+  '<space>yf',
   function()
     vim.api.nvim_command('let @" = expand("%:p")')
     vim.api.nvim_command('let @+ = expand("%:p")')
@@ -24,8 +24,8 @@ vim.keymap.set(
 )
 
 vim.keymap.set(
-  "n",
-  "<space>yd",
+  'n',
+  '<space>yd',
   function()
     vim.api.nvim_command('let @" = expand("%:p:h")')
     vim.api.nvim_command('let @+ = expand("%:p:h")')
@@ -34,13 +34,6 @@ vim.keymap.set(
 
 vim.api.nvim_create_autocmd({ 'TabEnter' }, {
   command = 'tcd %:h'
-})
-
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-  pattern = { 'neo-tree' },
-  callback = function()
-    vim.api.nvim_set_keymap("n", "s", "<Plug>(easymotino-s)", { noremap = false, silent = false })
-  end
 })
 
 -- TODO: implement with nvim_create_user_command()
