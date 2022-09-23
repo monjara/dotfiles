@@ -1,5 +1,4 @@
 local function split_type()
-  -- local current_win = vim.api.nvim_win_get_number(0)
   local width = vim.api.nvim_win_get_width(0)
   local height = vim.api.nvim_win_get_height(0) * 2.1
 
@@ -20,35 +19,46 @@ end
 
 vim.keymap.set(
   'n',
-  '<Space>tt',
+  '<space>tt',
   function()
     open_neoterm('Ttoggle')
   end,
-  { noremap = true, silent = true })
-vim.keymap.set('n',
-  '<Space>tn',
+  { noremap = true, silent = true }
+)
+
+local map = vim.keymap
+local opt = { noremap = true, silent = true }
+map.set('n',
+  '<space>tn',
   function()
     open_neoterm('Tnew')
   end,
-  { noremap = true, silent = true })
-vim.keymap.set(
+  opt
+)
+
+map.set(
   'n',
-  '<Space>tr',
+  '<space>tr',
   function()
     open_neoterm('Tredo')
   end,
-  { noremap = true, silent = true })
-vim.keymap.set(
+  opt
+)
+
+map.set(
   'n',
-  '<Space>tc',
+  '<space>tc',
   function()
     open_neoterm('Tclear')
   end,
-  { noremap = true, silent = true })
-vim.keymap.set(
+  opt
+)
+
+map.set(
   'n',
-  '<Space>td',
+  '<space>td',
   function()
     open_neoterm('Tclose')
   end,
-  { noremap = true, silent = true })
+  opt
+)
