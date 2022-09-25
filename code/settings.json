@@ -62,14 +62,6 @@
     },
     {
       "before": [
-        "m"
-      ],
-      "after": [
-        "d"
-      ]
-    },
-    {
-      "before": [
         "<space>",
         "t",
         "t"
