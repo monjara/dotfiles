@@ -295,7 +295,7 @@
   },
   "Lua.telemetry.enable": true,
   "Lua.diagnostics.globals": [
-    "vim",
+    "vim"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
