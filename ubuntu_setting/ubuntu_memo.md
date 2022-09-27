@@ -62,3 +62,7 @@ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_
 sudo dpkg -i ripgrep_13.0.0_amd64.deb
 ```
 
+anyenv
+https://github.com/anyenv/anyenv
+https://github.com/znz/anyenv-update
+
