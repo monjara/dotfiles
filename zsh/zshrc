@@ -5,6 +5,7 @@ promptinit
 prompt adam1
 
 setopt histignorealldups sharehistory
+setopt auto_cd
 
 # bindkey 
 autoload -Uz edit-command-line

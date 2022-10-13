@@ -10,6 +10,9 @@ rm -rf デスクトップ ダウンロード テンプレート 公開 ドキュ
 sudo apt update 
 sudo apt upgrade -y
 sudo apt install build-essential curl file git -y
+sudo apt install pkg-config -y
+sudo apt-get install libudev-dev -y
+sudo apt install  libssl-dev -y
 sudo apt install zsh -y
 chsh -s $(which zsh)
 sudo apt install -y mozc-utils-gui
