@@ -1,12 +1,19 @@
 -- lsp-installer
-require("nvim-lsp-installer").setup({
-  automatic_installation = true,
+require('mason').setup({
   ui = {
     icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
+      package_installed = '✓',
+      package_pending = '➜',
+      package_uninstalled = '✗'
     }
+  }
+})
+require('mason-lspconfig').setup({
+  automatic_installation = true,
+  ensure_installed = {
+    'rust_analyzer',
+    'sumneko_lua',
+    'tsserver'
   }
 })
 
@@ -40,7 +47,7 @@ end
 
 -- nvim-cmp
 -- vim.cmd [[set completeopt=menu,menuone,noselect]]
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 
@@ -48,7 +55,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
     end,
   },
   window = {
@@ -121,8 +128,8 @@ local lsp_flags = {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local nvim_lsp = require('lspconfig')
-local is_deno = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")
-local is_node = nvim_lsp.util.root_pattern("package.json")
+local is_deno = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc')
+local is_node = nvim_lsp.util.root_pattern('package.json')
 
 nvim_lsp['pyright'].setup({
   on_attach = on_attach,
@@ -144,7 +151,7 @@ nvim_lsp['rust_analyzer'].setup({
   flags = lsp_flags,
   capabilities = capabilities,
   settings = {
-    ["rust-analyzer"] = {}
+    ['rust-analyzer'] = {}
   }
 })
 nvim_lsp['sumneko_lua'].setup({
@@ -165,6 +172,6 @@ nvim_lsp['terraformls'].setup({})
 --   callback = vim.lsp.buf.formatting_sync
 -- })
 nvim_lsp['jsonls'].setup({
-  filetypes = { "json", "jsonc" },
+  filetypes = { 'json', 'jsonc' },
 })
 nvim_lsp['taplo'].setup({})
