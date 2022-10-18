@@ -1,6 +1,6 @@
 -- lsp-installer
 require("nvim-lsp-installer").setup({
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+  automatic_installation = true,
   ui = {
     icons = {
       server_installed = "✓",
@@ -119,7 +119,7 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local nvim_lsp = require('lspconfig')
 local is_deno = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")
 local is_node = nvim_lsp.util.root_pattern("package.json")
@@ -160,10 +160,11 @@ nvim_lsp['sumneko_lua'].setup({
   }
 })
 nvim_lsp['terraformls'].setup({})
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.tf", "*.tfvars" },
-  callback = vim.lsp.buf.formatting_sync
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*.tf", "*.tfvars" },
+--   callback = vim.lsp.buf.formatting_sync
+-- })
 nvim_lsp['jsonls'].setup({
   filetypes = { "json", "jsonc" },
 })
+nvim_lsp['taplo'].setup({})
