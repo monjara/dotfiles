@@ -137,16 +137,19 @@ nvim_lsp['pyright'].setup({
   capabilities = capabilities
 })
 nvim_lsp['tsserver'].setup({
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
   root_dir = is_node
 })
 nvim_lsp['denols'].setup({
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   on_attach = on_attach,
   root_dir = is_deno
 })
 nvim_lsp['rust_analyzer'].setup({
+  filetypes = { 'rust' },
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
@@ -155,6 +158,7 @@ nvim_lsp['rust_analyzer'].setup({
   }
 })
 nvim_lsp['sumneko_lua'].setup({
+  filetypes = { 'lua' },
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
