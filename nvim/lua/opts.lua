@@ -46,3 +46,5 @@ vim.cmd([[
 filetype off
 filetype plugin indent on
 ]])
+
+vim.g.python3_host_prog = '/home/ya/.anyenv/envs/pyenv/shims/python'

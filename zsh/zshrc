@@ -15,6 +15,7 @@ bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M viins '^v' edit-command-line
 bindkey -M vicmd '^v' edit-command-line
+EDITOR='nvim'
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -114,5 +115,7 @@ case ${OSTYPE} in
     ;;
   linux*)
     eval "$(dircolors -b)"
+    autoload -U +X bashcompinit && bashcompinit
+    complete -o nospace -C /home/ya/.anyenv/envs/tfenv/versions/1.2.8/terraform terraform
     ;;
 esac

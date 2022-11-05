@@ -138,6 +138,13 @@ nvim_lsp['pylsp'].setup({
   capabilities = capabilities,
   settings = {}
 })
+nvim_lsp['pyright'].setup({
+  filetypes = { 'python' },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+  settings = {}
+})
 nvim_lsp['tsserver'].setup({
   filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   on_attach = on_attach,
@@ -172,11 +179,12 @@ nvim_lsp['sumneko_lua'].setup({
     }
   }
 })
-nvim_lsp['terraformls'].setup({})
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   pattern = { "*.tf", "*.tfvars" },
---   callback = vim.lsp.buf.formatting_sync
--- })
+nvim_lsp['terraformls'].setup({
+  filetypes = { 'tf', 'terraform' },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities
+})
 nvim_lsp['jsonls'].setup({
   filetypes = { 'json', 'jsonc' },
 })
