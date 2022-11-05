@@ -23,15 +23,17 @@ require('packer').startup(function(use)
     end
   }
 
-  use {
-    'folke/tokyonight.nvim',
-    setup = function()
-      require('plugins.tokyonight.setup')
-    end,
-    config = function()
-      require('plugins.tokyonight.config')
-    end
-  }
+  if vim.fn.has('linux') == 1 then
+    use {
+      'folke/tokyonight.nvim',
+      setup = function()
+        require('plugins.tokyonight.setup')
+      end,
+      config = function()
+        require('plugins.tokyonight.config')
+      end
+    }
+  end
 
   use {
     'folke/zen-mode.nvim',
