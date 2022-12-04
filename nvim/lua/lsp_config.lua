@@ -188,4 +188,9 @@ nvim_lsp['terraformls'].setup({
 nvim_lsp['jsonls'].setup({
   filetypes = { 'json', 'jsonc' },
 })
-nvim_lsp['taplo'].setup({})
+nvim_lsp['graphql'].setup({
+  filetypes = { 'graphql' },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+})
