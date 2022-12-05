@@ -43,6 +43,11 @@ require('packer').startup(function(use)
   }
 
   use {
+    'dsznajder/vscode-es7-javascript-react-snippets',
+    run = 'yarn install --frozen-lockfile && yarn compile'
+  }
+
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
