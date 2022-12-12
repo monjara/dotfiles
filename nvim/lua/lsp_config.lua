@@ -12,6 +12,7 @@ require('mason-lspconfig').setup({
   automatic_installation = true,
   ensure_installed = {
     'rust_analyzer',
+    'rustfmt',
     'sumneko_lua',
     'tsserver'
   }
@@ -190,6 +191,12 @@ nvim_lsp['jsonls'].setup({
 })
 nvim_lsp['graphql'].setup({
   filetypes = { 'graphql' },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+})
+nvim_lsp['gopls'].setup({
+  filetypes = { 'go', 'gomod' },
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
