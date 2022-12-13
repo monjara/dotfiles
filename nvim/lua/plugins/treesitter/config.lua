@@ -3,7 +3,8 @@ require 'nvim-treesitter.configs'.setup {
     'javascript',
     'typescript',
     'lua',
-    'rust'
+    'rust',
+    'go'
   },
   highlight = {
     enable = true

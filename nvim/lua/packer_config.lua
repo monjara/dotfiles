@@ -108,36 +108,6 @@ require('packer').startup(function(use)
     event = { 'BufEnter' },
   }
 
-  use {
-    'rust-lang/rust.vim',
-    opt = true,
-    ft = 'rust',
-    config = function()
-      local opts = { noremap = true, silent = true }
-      vim.keymap.set('n', '<space>rr', ':<C-u>T cargo run .<CR>', opts)
-      vim.keymap.set('n', '<space>rt', ':<C-u>T cargo test<CR>', opts)
-    end
-  }
-
-  use {
-    'simrat39/rust-tools.nvim',
-    opt = true,
-    ft = 'rust',
-    config = function()
-      local rt = require("rust-tools")
-
-      rt.setup({
-        server = {
-          on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-          end,
-        },
-      })
-    end
-  }
 
   -- Debugging
   use 'mfussenegger/nvim-dap'
@@ -159,6 +129,20 @@ require('packer').startup(function(use)
 
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
+
+
+  use {
+    'rust-lang/rust.vim',
+    opt = true,
+    ft = 'rust',
+    config = function()
+      local opts = { noremap = true, silent = true }
+      vim.keymap.set('n', '<space>rr', ':<C-u>T cargo run .<CR>', opts)
+      vim.keymap.set('n', '<space>rt', ':<C-u>T cargo test<CR>', opts)
+    end
+  }
+
+  use 'simrat39/rust-tools.nvim'
 
   if packer_bootstrap then
     require('packer').sync()
