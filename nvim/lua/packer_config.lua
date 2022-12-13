@@ -110,7 +110,6 @@ require('packer').startup(function(use)
 
 
   -- Debugging
-  use 'mfussenegger/nvim-dap'
 
   use {
     'pantharshit00/vim-prisma',
@@ -131,18 +130,14 @@ require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
 
 
-  use {
-    'rust-lang/rust.vim',
-    opt = true,
-    ft = 'rust',
-    config = function()
-      local opts = { noremap = true, silent = true }
-      vim.keymap.set('n', '<space>rr', ':<C-u>T cargo run .<CR>', opts)
-      vim.keymap.set('n', '<space>rt', ':<C-u>T cargo test<CR>', opts)
-    end
-  }
+  use 'mfussenegger/nvim-dap'
 
-  use 'simrat39/rust-tools.nvim'
+  use {
+    'simrat39/rust-tools.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+  }
 
   if packer_bootstrap then
     require('packer').sync()
