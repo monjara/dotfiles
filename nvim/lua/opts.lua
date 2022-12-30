@@ -1,36 +1,38 @@
-vim.opt.number = true
-vim.opt.fenc = 'utf-8'
-vim.opt.encoding = 'utf-8'
-vim.opt.ignorecase = true
-vim.opt.wildignorecase = true
-vim.opt.hidden = true
-vim.opt.showcmd = true
-vim.opt.autoread = true
-vim.opt.backup = false
-vim.opt.showmatch = true
-vim.opt.swapfile = false
-vim.opt.cursorline = true
-vim.opt.visualbell = true
-vim.opt.splitright = true
-vim.opt.cmdheight = 2
-vim.opt.laststatus = 2
-vim.opt.writebackup = false
-vim.opt.updatetime = 300
-vim.opt.virtualedit = 'onemore'
-vim.opt.wildmode = 'list:longest'
-
 vim.opt.shortmess:append('c')
 vim.opt.clipboard:append('unnamedplus')
 
-vim.opt.autoindent = true -- 改行時に前の行のインデントを計測
-vim.opt.smartindent = true -- "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-vim.opt.cindent = true -- "Cプログラムファイルの自動インデントを始める
-vim.opt.smarttab = true -- "新しい行を作った時に高度な自動インデントを行う
-vim.opt.expandtab = true -- "タブ入力を複数の空白に置き換える
-
-vim.opt.tabstop = 2 -- "タブを含むファイルを開いた際, タブを何文字の空白に変換するか
-vim.opt.shiftwidth = 2 -- "自動インデントで入る空白数
-vim.opt.softtabstop = 0 -- "キーボードから入るタブの数
+for k, v in pairs({
+  number = true,
+  fenc = 'utf-8',
+  encoding = 'utf-8',
+  ignorecase = true,
+  wildignorecase = true,
+  hidden = true,
+  showcmd = true,
+  autoread = true,
+  backup = false,
+  showmatch = true,
+  swapfile = false,
+  cursorline = true,
+  visualbell = true,
+  splitright = true,
+  cmdheight = 2,
+  laststatus = 2,
+  writebackup = false,
+  updatetime = 300,
+  virtualedit = 'onemore',
+  wildmode = 'list:longest',
+  autoindent = true, -- 改行時に前の行のインデントを計測
+  smartindent = true, -- "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+  cindent = true, -- "Cプログラムファイルの自動インデントを始める
+  smarttab = true, -- "新しい行を作った時に高度な自動インデントを行う
+  expandtab = true, -- "タブ入力を複数の空白に置き換える
+  tabstop = 2, -- "タブを含むファイルを開いた際, タブを何文字の空白に変換するか
+  shiftwidth = 2, -- "自動インデントで入る空白数
+  softtabstop = 0, -- "キーボードから入るタブの数
+}) do
+  vim.opt[k] = v
+end
 
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },

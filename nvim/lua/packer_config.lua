@@ -19,7 +19,7 @@ require('packer').startup(function(use)
   use {
     'airblade/vim-gitgutter',
     setup = function()
-      vim.cmd [[set signcolumn=yes]]
+      vim.opt.signcolumn = 'yes'
     end
   }
 
@@ -44,6 +44,7 @@ require('packer').startup(function(use)
 
   use {
     'dsznajder/vscode-es7-javascript-react-snippets',
+    ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
     run = 'yarn install --frozen-lockfile && yarn compile'
   }
 
