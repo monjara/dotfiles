@@ -15,25 +15,25 @@ vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<A-i>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 vim.keymap.set(
-  'n',
-  '<space>yf',
-  function()
-    vim.api.nvim_command('let @" = expand("%:p")')
-    vim.api.nvim_command('let @+ = expand("%:p")')
-  end
+    'n',
+    '<space>yf',
+    function()
+      vim.api.nvim_command('let @" = expand("%:p")')
+      vim.api.nvim_command('let @+ = expand("%:p")')
+    end
 )
 
 vim.keymap.set(
-  'n',
-  '<space>yd',
-  function()
-    vim.api.nvim_command('let @" = expand("%:p:h")')
-    vim.api.nvim_command('let @+ = expand("%:p:h")')
-  end
+    'n',
+    '<space>yd',
+    function()
+      vim.api.nvim_command('let @" = expand("%:p:h")')
+      vim.api.nvim_command('let @+ = expand("%:p:h")')
+    end
 )
 
 vim.api.nvim_create_autocmd({ 'TabEnter' }, {
-  command = 'tcd %:h'
+    command = 'tcd %:h'
 })
 
 -- TODO: implement with nvim_create_user_command()
