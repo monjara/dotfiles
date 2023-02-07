@@ -302,5 +302,8 @@
   },
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }
