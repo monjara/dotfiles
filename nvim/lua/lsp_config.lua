@@ -39,6 +39,7 @@ nvim_lsp.sumneko_lua.setup {
     }
 }
 
+-- rust
 local rt = require('rust-tools')
 rt.setup {
     server = {
@@ -58,10 +59,23 @@ rt.setup {
 }
 
 
+-- terraform
+nvim_lsp.terraformls.setup {
+    on_attach = on_attach,
+    flags = lsp_flags
+}
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = { "*.tf", "*.tfvars" },
+    callback = function()
+      vim.lsp.buf.format()
+    end
+})
+
 if vim.fn.has('mac') == 1 then
   -- swift
   nvim_lsp.sourcekit.setup {
       on_attach = on_attach,
+      flags = lsp_flags
   }
 end
 
