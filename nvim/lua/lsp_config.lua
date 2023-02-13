@@ -22,60 +22,66 @@ local on_attach = function(_, bufnr)
 end
 
 local lsp_flags = {
-    -- This is the default in Nvim 0.7+
-    debounce_text_changes = 150,
+  -- This is the default in Nvim 0.7+
+  debounce_text_changes = 150,
 }
 
 -- lua
-nvim_lsp.sumneko_lua.setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
+nvim_lsp.lua_ls.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
     }
+  }
 }
 
 -- rust
 local rt = require('rust-tools')
 rt.setup {
-    server = {
-        on_attach = function(_, bufnr)
-          on_attach(_, bufnr)
-          vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
-          vim.keymap.set('n', '<Leader>a', rt.code_action_group.code_action_group, { buffer = bufnr })
-        end,
-        settings = {
-            ["rust_analyzer"] = {
-                checkOnSave = {
-                    command = 'clippy',
-                }
-            }
+  server = {
+    on_attach = function(_, bufnr)
+      on_attach(_, bufnr)
+      vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
+      vim.keymap.set('n', '<Leader>a', rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+    settings = {
+      ["rust_analyzer"] = {
+        checkOnSave = {
+          command = 'clippy',
         }
+      }
     }
+  }
+}
+
+-- ts
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  flags = lsp_flags
 }
 
 
 -- terraform
 nvim_lsp.terraformls.setup {
-    on_attach = on_attach,
-    flags = lsp_flags
+  on_attach = on_attach,
+  flags = lsp_flags
 }
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*.tf", "*.tfvars" },
-    callback = function()
-      vim.lsp.buf.format()
-    end
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function()
+    vim.lsp.buf.format()
+  end
 })
 
 if vim.fn.has('mac') == 1 then
   -- swift
   nvim_lsp.sourcekit.setup {
-      on_attach = on_attach,
-      flags = lsp_flags
+    on_attach = on_attach,
+    flags = lsp_flags
   }
 end
 

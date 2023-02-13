@@ -8,8 +8,8 @@ api.nvim_set_keymap('', '<space>sw', ':HopChar1BC<CR>', {})
 api.nvim_set_keymap('', '<space>sd', ':HopChar1AC<CR>', {})
 
 api.nvim_create_autocmd({ 'BufEnter' }, {
-    pattern = { 'neo-tree' },
-    callback = function()
-      vim.api.nvim_set_keymap('n', 's', ':HopChar1<CR>', {})
-    end
+  pattern = { 'neo-tree' },
+  callback = function()
+    vim.api.nvim_set_keymap('n', 's', ':HopChar1<CR>', {})
+  end
 })
