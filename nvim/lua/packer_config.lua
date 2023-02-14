@@ -34,6 +34,16 @@ require('packer').startup(function(use)
         require('plugins.tokyonight.config')
       end
     }
+  else
+    use {
+      'rafamadriz/neon',
+      setup = function ()
+        require('plugins.neon.setup')
+      end,
+      config = function()
+        require('plugins.neon.config')
+      end
+    }
   end
 
   use {
