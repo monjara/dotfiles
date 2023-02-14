@@ -93,7 +93,6 @@ alias gs='git status'
 alias vf='nvim $(fzf)'
 alias cdf='find . -name "*" -type d | fzf'
 
-alias auau='sudo apt update && sudo apt upgrade -y'
 alias dotfiles='cd ~/Develop/dotfiles'
 alias vz='nvim ~/Develop/dotfiles/zsh/zshrc'
 alias vzl='nvim ~/.zshrc_local'
@@ -114,6 +113,8 @@ case ${OSTYPE} in
   darwin*)
     ;;
   linux*)
+    alias auau='sudo apt update && sudo apt upgrade -y'
+
     eval "$(dircolors -b)"
     autoload -U +X bashcompinit && bashcompinit
     complete -o nospace -C /home/ya/.anyenv/envs/tfenv/versions/1.2.8/terraform terraform
