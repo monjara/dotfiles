@@ -2,6 +2,96 @@
   "workbench.colorTheme": "Default Dark+",
   "editor.fontFamily": "Menlo, 'DejaVu Sans Mono', Consolas, 'Lucida Console', monospace",
   "editor.renderLineHighlight": "none",
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.scrollBeyondLastLine": false,
+  "editor.minimap.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.settings.openDefaultKeybindings": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "files.autoGuessEncoding": true,
+  "explorer.confirmDelete": false,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "[graphql]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    },
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[cpp]": {
+    "editor.tabSize": 4
+  },
+  "git.confirmSync": false,
+  "window.zoomLevel": 1,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "Lua.diagnostics.globals": [
+    "vim"
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -203,107 +293,5 @@
   ],
   "vim.handleKeys": {
     "<C-f>": false
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.cursorStyle": "line",
-  "editor.insertSpaces": false,
-  "editor.lineNumbers": "on",
-  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "off",
-  "editor.scrollBeyondLastLine": false,
-  "editor.minimap.enabled": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.settings.openDefaultKeybindings": true,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "dart.openDevTools": "flutter",
-  "files.autoGuessEncoding": true,
-  "explorer.confirmDelete": false,
-  "code-runner.runInTerminal": true,
-  "C_Cpp.updateChannel": "Insiders",
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  },
-  "eslint.packageManager": "yarn",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "[graphql]": {
-    "editor.formatOnSave": true
-  },
-  "[markdown]": {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "strings": "on",
-      "other": "on"
-    },
-    "editor.formatOnSave": true
-  },
-  "[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": true
-  },
-  "[json]": {
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.formatOnSave": true
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": true
-  },
-  "[dart]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
-    "editor.selectionHighlight": false,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
-  },
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  },
-  "[cpp]": {
-    "editor.tabSize": 4
-  },
-  "git.confirmSync": false,
-  "prettier.singleQuote": true,
-  "prettier.semi": false,
-  "window.zoomLevel": 1,
-  "bracketPairColorizer.depreciation-notice": false,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "[caddyfile]": {
-    "editor.defaultFormatter": "matthewpi.caddyfile-support"
-  },
-  "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform"
-  },
-  "Lua.telemetry.enable": true,
-  "Lua.diagnostics.globals": [
-    "vim"
-  ],
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[lua]": {
-    "editor.defaultFormatter": "sumneko.lua"
-  },
-  "[dockercompose]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }
