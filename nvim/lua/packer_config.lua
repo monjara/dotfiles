@@ -10,6 +10,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd [[packadd packer.nvim]]
+
+local is_not_vscode = function()
+  return vim.g.vscode == nil
+end
+
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'leico/autodate.vim'
@@ -19,6 +24,7 @@ require('packer').startup(function(use)
 
   use {
     'airblade/vim-gitgutter',
+    cond = is_not_vscode,
     setup = function()
       vim.opt.signcolumn = 'yes'
     end
@@ -26,6 +32,7 @@ require('packer').startup(function(use)
 
   use {
     'rafamadriz/neon',
+    cond = is_not_vscode,
     setup = function()
       require('plugins.neon.setup')
     end,
@@ -36,6 +43,7 @@ require('packer').startup(function(use)
 
   use {
     'folke/zen-mode.nvim',
+    cond = is_not_vscode,
     config = function()
       require('zen-mode').setup {}
     end
@@ -43,6 +51,7 @@ require('packer').startup(function(use)
 
   use {
     'dsznajder/vscode-es7-javascript-react-snippets',
+    cond = is_not_vscode,
     ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
     run = 'yarn install --frozen-lockfile && yarn compile'
   }
@@ -62,6 +71,7 @@ require('packer').startup(function(use)
   use {
     'kassio/neoterm',
     opt = true,
+    cond = is_not_vscode,
     event = { 'BufEnter' },
     setup = function()
       require('plugins.neoterm.setup')
@@ -73,6 +83,7 @@ require('packer').startup(function(use)
 
   use {
     'ibhagwan/fzf-lua',
+    cond = is_not_vscode,
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       require('plugins.fzf.config')
@@ -81,6 +92,7 @@ require('packer').startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
+    cond = is_not_vscode,
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
       require('lualine').setup {
@@ -89,7 +101,9 @@ require('packer').startup(function(use)
     end,
   }
 
-  use { 'mattn/emmet-vim',
+  use {
+    'mattn/emmet-vim',
+    cond = is_not_vscode,
     opt = true,
     event = { 'BufEnter' },
   }
@@ -128,9 +142,7 @@ require('packer').startup(function(use)
   use {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
-    cond = function ()
-      return vim.g.vscode == nil
-    end,
+    cond = is_not_vscode,
     requires = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
