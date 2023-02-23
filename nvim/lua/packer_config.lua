@@ -24,27 +24,15 @@ require('packer').startup(function(use)
     end
   }
 
-  if vim.fn.has('linux') == 1 then
-    use {
-      'folke/tokyonight.nvim',
-      setup = function()
-        require('plugins.tokyonight.setup')
-      end,
-      config = function()
-        require('plugins.tokyonight.config')
-      end
-    }
-  else
-    use {
-      'rafamadriz/neon',
-      setup = function ()
-        require('plugins.neon.setup')
-      end,
-      config = function()
-        require('plugins.neon.config')
-      end
-    }
-  end
+  use {
+    'rafamadriz/neon',
+    setup = function()
+      require('plugins.neon.setup')
+    end,
+    config = function()
+      require('plugins.neon.config')
+    end
+  }
 
   use {
     'folke/zen-mode.nvim',
