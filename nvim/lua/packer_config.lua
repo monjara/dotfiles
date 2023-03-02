@@ -1,21 +1,24 @@
+local utils = require('utils')
+
 -- packer
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-local packer_bootstrap
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
-  })
-  vim.o.runtimepath = fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = utils.join_paths(fn.stdpath('data'), 'site/pack/packer/start/packer.nvim')
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({
+      'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
+    })
+    vim.cmd.packadd 'packer.nvim'
+    return true
+  end
+  return false
 end
 
-vim.cmd [[packadd packer.nvim]]
+local packer_bootstrap = ensure_packer()
 
-local is_not_vscode = function()
-  return vim.g.vscode == nil
-end
+local packer = require('packer')
 
-require('packer').startup(function(use)
+packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'leico/autodate.vim'
   use 'simeji/winresizer'
@@ -24,15 +27,29 @@ require('packer').startup(function(use)
 
   use {
     'airblade/vim-gitgutter',
-    cond = is_not_vscode,
+    cond = utils.is_not_vscode,
     setup = function()
       vim.opt.signcolumn = 'yes'
     end
   }
 
   use {
+    'folke/tokyonight.nvim',
+    cond = { utils.is_not_vscode, utils.is_linux },
+    setup = function()
+    end,
+    config = function()
+      require('tokyonight').setup {
+        style = 'night',
+        light_style = 'night'
+      }
+      vim.cmd [[colorscheme tokyonight]]
+    end
+  }
+
+  use {
     'rafamadriz/neon',
-    cond = is_not_vscode,
+    cond = { utils.is_not_vscode, utils.is_mac },
     setup = function()
       require('plugins.neon.setup')
     end,
@@ -43,7 +60,7 @@ require('packer').startup(function(use)
 
   use {
     'folke/zen-mode.nvim',
-    cond = is_not_vscode,
+    cond = utils.is_not_vscode,
     config = function()
       require('zen-mode').setup {}
     end
@@ -51,7 +68,7 @@ require('packer').startup(function(use)
 
   use {
     'dsznajder/vscode-es7-javascript-react-snippets',
-    cond = is_not_vscode,
+    cond = utils.is_not_vscode,
     ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
     run = 'yarn install --frozen-lockfile && yarn compile'
   }
@@ -71,7 +88,7 @@ require('packer').startup(function(use)
   use {
     'kassio/neoterm',
     opt = true,
-    cond = is_not_vscode,
+    cond = utils.is_not_vscode,
     event = { 'BufEnter' },
     setup = function()
       require('plugins.neoterm.setup')
@@ -83,7 +100,7 @@ require('packer').startup(function(use)
 
   use {
     'ibhagwan/fzf-lua',
-    cond = is_not_vscode,
+    cond = utils.is_not_vscode,
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       require('plugins.fzf.config')
@@ -92,7 +109,7 @@ require('packer').startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    cond = is_not_vscode,
+    cond = utils.is_not_vscode,
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
       require('lualine').setup {
@@ -103,7 +120,7 @@ require('packer').startup(function(use)
 
   use {
     'mattn/emmet-vim',
-    cond = is_not_vscode,
+    cond = utils.is_not_vscode,
     opt = true,
     event = { 'BufEnter' },
   }
@@ -142,7 +159,6 @@ require('packer').startup(function(use)
   use {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
-    cond = is_not_vscode,
     requires = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
