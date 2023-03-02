@@ -23,5 +23,5 @@
   {
     "key": "ctrl+k ctrl+left",
     "command": "-workbench.action.focusLeftGroup"
-  }
+  },
 ]

@@ -75,11 +75,24 @@
   "window.zoomLevel": 1,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform"
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    },
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    },
   },
   "Lua.diagnostics.globals": [
     "vim"
   ],
+
+  
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -293,5 +306,6 @@
   ],
   "vim.handleKeys": {
     "<C-f>": false
-  }
+  },
+  "git.openRepositoryInParentFolders": "never"
 }
