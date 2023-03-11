@@ -76,6 +76,17 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end
 })
 
+nvim_lsp.docker_compose_language_service.setup {
+  on_attach = on_attach,
+  flags = lsp_flags
+}
+
+
+nvim_lsp.dockerls.setup {
+  on_attach = on_attach,
+  flags = lsp_flags
+}
+
 if vim.fn.has('mac') == 1 then
   -- swift
   nvim_lsp.sourcekit.setup {
