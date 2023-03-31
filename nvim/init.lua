@@ -8,4 +8,5 @@ else
   require('cmp_config')
   require('keymap')
   require('plugins.treesitter.config')
+  require('custome')
 end
