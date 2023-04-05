@@ -49,49 +49,36 @@ filetype off
 filetype plugin indent on
 ]])
 
-vim.g.python3_host_prog = '/home/ya/.anyenv/envs/pyenv/shims/python'
-
-
 local utils = require('utils')
+vim.g.python3_host_prog = utils.join_paths(vim.loop.os_homedir(), '.anyenv/envs/pyenv/shims/python')
 
--- packer
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = utils.join_paths(fn.stdpath('data'), 'site/pack/packer/start/packer.nvim')
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({
-      'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
-    })
-    vim.cmd.packadd 'packer.nvim'
-    return true
-  end
-  return false
+-- lazy
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-local packer = require('packer')
-
-packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'leico/autodate.vim'
-  use 'simeji/winresizer'
-  use 'tpope/vim-surround'
-  use 'vim-jp/vimdoc-ja'
-
-  use {
+require("lazy").setup({
+  'simeji/winresizer',
+  'tpope/vim-surround',
+  'vim-jp/vimdoc-ja',
+  {
     'airblade/vim-gitgutter',
-    cond = utils.is_not_vscode,
-    setup = function()
+    init = function()
       vim.opt.signcolumn = 'yes'
     end
-  }
-
-  use {
+  },
+  {
     'folke/tokyonight.nvim',
     cond = { utils.is_not_vscode, utils.is_linux },
-    setup = function()
-    end,
     config = function()
       require('tokyonight').setup {
         style = 'night',
@@ -99,12 +86,11 @@ packer.startup(function(use)
       }
       vim.cmd [[colorscheme tokyonight]]
     end
-  }
-
-  use {
+  },
+  {
     'rafamadriz/neon',
     cond = { utils.is_not_vscode, utils.is_mac },
-    setup = function()
+    init = function()
       vim.g.neon_style = "Dark"
       vim.g.neon_italic_comment = false
       vim.g.neon_italic_keyword = false
@@ -117,28 +103,25 @@ packer.startup(function(use)
     config = function()
       vim.cmd [[colorscheme neon]]
     end
-  }
-
-  use {
+  },
+  {
     'folke/zen-mode.nvim',
     cond = utils.is_not_vscode,
     config = function()
       require('zen-mode').setup {}
     end
-  }
-
-  use {
+  },
+  {
     'dsznajder/vscode-es7-javascript-react-snippets',
     cond = utils.is_not_vscode,
     ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
-    run = 'yarn install --frozen-lockfile && yarn compile'
-  }
-
-  use {
+    build = 'yarn install --frozen-lockfile && yarn compile'
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-  use {
+    build = ':TSUpdate'
+  },
+  {
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
     config = function()
@@ -158,14 +141,13 @@ packer.startup(function(use)
         end
       })
     end
-  }
-
-  use {
+  },
+  {
     'kassio/neoterm',
-    opt = true,
+    lazy = true,
     cond = utils.is_not_vscode,
     event = { 'BufEnter' },
-    setup = function()
+    init = function()
       vim.cmd [[let &runtimepath.=$HOME.'/.config/nvim/plugged/neoterm']]
       vim.g.neoterm_default_mod = 'botright'
       vim.g.neoterm_keep_term_open = 1
@@ -238,12 +220,11 @@ packer.startup(function(use)
         opt
       )
     end
-  }
-
-  use {
+  },
+  {
     'ibhagwan/fzf-lua',
     cond = utils.is_not_vscode,
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       local map = vim.keymap
       local opts = { noremap = true, silent = true }
@@ -255,61 +236,42 @@ packer.startup(function(use)
       map.set('n', '<space>fp', ':FzfLua registers<CR>', opts)
       map.set('n', '<space>gs', ':FzfLua git_status<CR>', opts)
     end
-  }
-
-  use {
+  },
+  {
     'nvim-lualine/lualine.nvim',
     cond = utils.is_not_vscode,
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
       require('lualine').setup {
         options = { theme = 'nightfly' },
       }
     end,
-  }
-
-  use {
+  },
+  'neovim/nvim-lspconfig',
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-vsnip',
+  'hrsh7th/vim-vsnip',
+  'mfussenegger/nvim-dap',
+  {
     'mattn/emmet-vim',
     cond = utils.is_not_vscode,
-    opt = true,
-    event = { 'BufEnter' },
-  }
-
-
-  -- Debugging
-
-  use {
-    'pantharshit00/vim-prisma',
-    opt = true,
-    ft = 'prisma'
-  }
-
-  use 'neovim/nvim-lspconfig'
-  use { 'williamboman/mason.nvim' }
-  use { 'williamboman/mason-lspconfig.nvim' }
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-
-
-  use 'mfussenegger/nvim-dap'
-
-  use {
+  },
+  {
     'simrat39/rust-tools.nvim',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
     },
-  }
-
-  use {
+  },
+  {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
@@ -497,14 +459,11 @@ packer.startup(function(use)
         }
       })
 
-      vim.keymap.set('n', '<space>dd', ':<C-u>Neotree reveal<cr>', { noremap = true, nowait = true, silent = true })
+      vim.keymap.set('n', '<space>dd', ':Neotree reveal position=current<cr>',
+        { noremap = true, nowait = true, silent = true })
     end,
   }
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+})
 
 require('mason').setup({
   ui = {
@@ -794,4 +753,3 @@ endfunction
 
 command! -complete=help -nargs=? Help call FloatingWindowHelp(<q-args>)
 ]])
-
