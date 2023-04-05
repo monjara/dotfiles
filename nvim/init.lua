@@ -144,7 +144,7 @@ require("lazy").setup({
   },
   {
     'kassio/neoterm',
-    opt = true,
+    lazy = true,
     cond = utils.is_not_vscode,
     event = { 'BufEnter' },
     init = function()
