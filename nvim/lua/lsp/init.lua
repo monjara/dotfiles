@@ -52,8 +52,10 @@ nvim_lsp.lua_ls.setup {
       },
       format = {
         enable = true,
-        default_config = {
+        defaultConfig = {
           insert_final_newline = false,
+          indent_size = 2,
+          indent_style = 'space',
         }
       }
     }
@@ -143,7 +145,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()

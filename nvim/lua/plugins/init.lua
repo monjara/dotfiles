@@ -261,34 +261,34 @@ require('lazy').setup({
             nowait = true,
           },
           mappings = {
-                ['<space>'] = {
+            ['<space>'] = {
               'toggle_node',
               nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
             },
-                ['<2-LeftMouse>'] = 'open',
-                ['<cr>'] = 'open',
-                ['T'] = 'open_split',
-                ['t'] = 'open_vsplit',
-                ['s'] = '',
-                ['C'] = 'close_node',
-                ['a'] = {
+            ['<2-LeftMouse>'] = 'open',
+            ['<cr>'] = 'open',
+            ['T'] = 'open_split',
+            ['t'] = 'open_vsplit',
+            ['s'] = '',
+            ['C'] = 'close_node',
+            ['a'] = {
               'add',
               -- some commands may take optional config options, see `:h neo-tree-mappings` for details
               config = {
                 show_path = 'none' -- 'none', 'relative', 'absolute'
               }
             },
-                ['A'] = 'add_directory', -- also accepts the optional config.show_path option like 'add'.
-                ['d'] = 'delete',
-                ['r'] = 'rename',
-                ['y'] = 'copy_to_clipboard',
-                ['x'] = 'cut_to_clipboard',
-                ['p'] = 'paste_from_clipboard',
-                ['c'] = 'copy', -- takes text input for destination, also accepts the optional config.show_path option like 'add':
-                ['m'] = 'move', -- takes text input for destination, also accepts the optional config.show_path option like 'add'.
-                ['q'] = 'close_window',
-                ['R'] = 'refresh',
-                ['?'] = 'show_help',
+            ['A'] = 'add_directory',     -- also accepts the optional config.show_path option like 'add'.
+            ['d'] = 'delete',
+            ['r'] = 'rename',
+            ['y'] = 'copy_to_clipboard',
+            ['x'] = 'cut_to_clipboard',
+            ['p'] = 'paste_from_clipboard',
+            ['c'] = 'copy',     -- takes text input for destination, also accepts the optional config.show_path option like 'add':
+            ['m'] = 'move',     -- takes text input for destination, also accepts the optional config.show_path option like 'add'.
+            ['q'] = 'close_window',
+            ['R'] = 'refresh',
+            ['?'] = 'show_help',
           }
         },
         nesting_rules = {},
@@ -321,14 +321,14 @@ require('lazy').setup({
           -- instead of relying on nvim autocmd events.
           window = {
             mappings = {
-                  ['<bs>'] = 'navigate_up',
-                  ['.'] = 'set_root',
-                  ['H'] = 'toggle_hidden',
-                  ['/'] = 'fuzzy_finder',
-                  ['f'] = 'filter_on_submit',
-                  ['<c-x>'] = 'clear_filter',
-                  ['[g'] = 'prev_git_modified',
-                  [']g'] = 'next_git_modified',
+              ['<bs>'] = 'navigate_up',
+              ['.'] = 'set_root',
+              ['H'] = 'toggle_hidden',
+              ['/'] = 'fuzzy_finder',
+              ['f'] = 'filter_on_submit',
+              ['<c-x>'] = 'clear_filter',
+              ['[g'] = 'prev_git_modified',
+              [']g'] = 'next_git_modified',
             }
           }
         },
@@ -339,9 +339,9 @@ require('lazy').setup({
           show_unloaded = true,
           window = {
             mappings = {
-                  ['bd'] = 'buffer_delete',
-                  ['<bs>'] = 'navigate_up',
-                  ['.'] = 'set_root',
+              ['bd'] = 'buffer_delete',
+              ['<bs>'] = 'navigate_up',
+              ['.'] = 'set_root',
             }
           },
         },
@@ -349,13 +349,13 @@ require('lazy').setup({
           window = {
             position = 'float',
             mappings = {
-                  ['A'] = 'git_add_all',
-                  ['gu'] = 'git_unstage_file',
-                  ['ga'] = 'git_add_file',
-                  ['gr'] = 'git_revert_file',
-                  ['gc'] = 'git_commit',
-                  ['gp'] = 'git_push',
-                  ['gg'] = 'git_commit_and_push',
+              ['A'] = 'git_add_all',
+              ['gu'] = 'git_unstage_file',
+              ['ga'] = 'git_add_file',
+              ['gr'] = 'git_revert_file',
+              ['gc'] = 'git_commit',
+              ['gp'] = 'git_push',
+              ['gg'] = 'git_commit_and_push',
             }
           }
         }
