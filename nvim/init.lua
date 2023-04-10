@@ -10,13 +10,8 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
   end
 })
 
--- vim.cmd([[
--- filetype off
--- filetype plugin indent on
--- ]])
-
 local utils = require('utils')
-vim.g.python3_host_prog = utils.join_paths(vim.loop.os_homedir(), '.anyenv/envs/pyenv/shims/python')
+vim.g.python3_host_prog = utils.join_paths(utils.get_home(), '.anyenv/envs/pyenv/shims/python')
 
 require('plugins')
 require('lsp')
@@ -35,7 +30,7 @@ vim.api.nvim_set_keymap('n', 'ZZ', '', { noremap = true })
 vim.api.nvim_set_keymap('n', 'ZQ', '', { noremap = true })
 
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<A-i>', [[<C-\><C-n>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<M-i>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 vim.keymap.set(
   'n',

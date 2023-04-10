@@ -21,4 +21,8 @@ utils.is_linux = function()
   return vim.fn.has('linux') == 1
 end
 
+utils.get_home = function()
+  return os.getenv('HOME')
+end
+
 return utils
