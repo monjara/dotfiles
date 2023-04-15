@@ -1,20 +1,25 @@
 require('core')
+vim.cmd([[
+let $LANG='en_US.UTF-8'
+let $LC_MESSAGES='en_US.UTF-8'
+]])
 
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-  callback = function()
-    vim.opt_local.sw = 2
-    vim.opt_local.sts = 2
-    vim.opt_local.ts = 2
-    vim.opt_local.et = true
-  end
-})
+-- vim.api.nvim_create_autocmd({ 'FileType' }, {
+--   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+--   callback = function()
+--     vim.opt_local.sw = 2
+--     vim.opt_local.sts = 2
+--     vim.opt_local.ts = 2
+--     vim.opt_local.et = true
+--   end
+-- })
 
 local utils = require('utils')
 vim.g.python3_host_prog = utils.join_paths(utils.get_home(), '.anyenv/envs/pyenv/shims/python')
 
 require('plugins')
 require('lsp')
+require('custom')
 
 vim.g.mapleader = ','
 vim.api.nvim_set_keymap('n', '<space>', '', { noremap = true })
@@ -58,7 +63,6 @@ vim.api.nvim_create_autocmd({ 'TabEnter' }, {
 vim.cmd([[
 command! -nargs=0 VV :tabnew $MYVIMRC | :tcd %:h
 command! -nargs=0 SV :source ~/.config/nvim/init.lua
-command! -complete=help -nargs=? H call FloatingWindowHelp(<q-args>)
 ]])
 
 
@@ -72,40 +76,7 @@ require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true
   },
+  autotag = {
+    enable = true
+  }
 }
-
-vim.cmd([[
-function! CreateCenteredFloatingWindow() abort
-    let width = min([&columns - 4, max([80, &columns - 20])])
-    let height = min([&lines - 4, max([20, &lines - 10])])
-    let top = ((&lines - height) / 2) - 1
-    let left = (&columns - width) / 2
-    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
-
-    let top = "╭" . repeat("─", width - 2) . "╮"
-    let mid = "│" . repeat(" ", width - 2) . "│"
-    let bot = "╰" . repeat("─", width - 2) . "╯"
-    let lines = [top] + repeat([mid], height - 2) + [bot]
-    let s:buf = nvim_create_buf(v:false, v:true)
-    call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-    call nvim_open_win(s:buf, v:true, opts)
-    set winhl=Normal:Floating
-    let opts.row += 1
-    let opts.height -= 2
-    let opts.col += 2
-    let opts.width -= 4
-    let l:textbuf = nvim_create_buf(v:false, v:true)
-    call nvim_open_win(l:textbuf, v:true, opts)
-    au BufWipeout <buffer> exe 'bw '.s:buf
-    return l:textbuf
-endfunction
-
-function! FloatingWindowHelp(query) abort
-    let l:buf = CreateCenteredFloatingWindow()
-    call nvim_set_current_buf(l:buf)
-    setlocal filetype=help
-    setlocal buftype=help
-    execute 'help ' . a:query
-endfunction
-
-]])
