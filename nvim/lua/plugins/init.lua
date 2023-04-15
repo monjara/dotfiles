@@ -16,6 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   'tpope/vim-surround',
   {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  },
+  {
     'folke/tokyonight.nvim',
     cond = { utils.is_not_vscode, utils.is_linux },
     config = function()
@@ -34,6 +40,9 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'windwp/nvim-ts-autotag'
+    },
     build = ':TSUpdate'
   },
   {
@@ -278,14 +287,14 @@ require('lazy').setup({
                 show_path = 'none' -- 'none', 'relative', 'absolute'
               }
             },
-            ['A'] = 'add_directory',     -- also accepts the optional config.show_path option like 'add'.
+            ['A'] = 'add_directory', -- also accepts the optional config.show_path option like 'add'.
             ['d'] = 'delete',
             ['r'] = 'rename',
             ['y'] = 'copy_to_clipboard',
             ['x'] = 'cut_to_clipboard',
             ['p'] = 'paste_from_clipboard',
-            ['c'] = 'copy',     -- takes text input for destination, also accepts the optional config.show_path option like 'add':
-            ['m'] = 'move',     -- takes text input for destination, also accepts the optional config.show_path option like 'add'.
+            ['c'] = 'copy', -- takes text input for destination, also accepts the optional config.show_path option like 'add':
+            ['m'] = 'move', -- takes text input for destination, also accepts the optional config.show_path option like 'add'.
             ['q'] = 'close_window',
             ['R'] = 'refresh',
             ['?'] = 'show_help',

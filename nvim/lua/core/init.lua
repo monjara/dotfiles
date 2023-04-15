@@ -2,6 +2,7 @@ local function load_options()
   local options = {
     fenc = 'utf-8',
     encoding = 'utf-8',
+    shortmess = 'aoOTIcF',
     ignorecase = true,
     wildignorecase = true,
     hidden = true,
