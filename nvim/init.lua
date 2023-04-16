@@ -1,8 +1,4 @@
 require('core')
-vim.cmd([[
-let $LANG='en_US.UTF-8'
-let $LC_MESSAGES='en_US.UTF-8'
-]])
 
 -- vim.api.nvim_create_autocmd({ 'FileType' }, {
 --   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
@@ -58,13 +54,6 @@ vim.keymap.set(
 vim.api.nvim_create_autocmd({ 'TabEnter' }, {
   command = 'tcd %:h'
 })
-
--- TODO: implement with nvim_create_user_command()
-vim.cmd([[
-command! -nargs=0 VV :tabnew $MYVIMRC | :tcd %:h
-command! -nargs=0 SV :source ~/.config/nvim/init.lua
-]])
-
 
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
