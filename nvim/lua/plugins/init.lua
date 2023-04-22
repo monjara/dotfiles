@@ -64,17 +64,15 @@ require('lazy').setup({
   {
     'phaazon/hop.nvim',
     branch = 'v2',
+    keys = {
+      { 's',         '<cmd>HopChar1MW<cr>', desc = 'hop' },
+      { '<space>ss', '<cmd>HopChar1MW<cr>', desc = 'hop' },
+      { '<space>sw', '<cmd>HopChar1BC<cr>', desc = 'hop' },
+      { '<space>sd', '<cmd>HopChar1AC<cr>', desc = 'hop' },
+    },
     config = function()
-      local api = vim.api
-
       require 'hop'.setup { keys = 'jfkdurghalsieownvmcxypq' }
-
-      api.nvim_set_keymap('', 's', ':HopChar1MW<CR>', {})
-      api.nvim_set_keymap('', '<space>ss', ':HopChar1MW<CR>', {})
-      api.nvim_set_keymap('', '<space>sw', ':HopChar1BC<CR>', {})
-      api.nvim_set_keymap('', '<space>sd', ':HopChar1AC<CR>', {})
-
-      api.nvim_create_autocmd({ 'BufEnter' }, {
+      vim.api.nvim_create_autocmd({ 'BufEnter' }, {
         pattern = { 'neo-tree' },
         callback = function()
           vim.api.nvim_set_keymap('n', 's', ':HopChar1<CR>', {})
@@ -184,6 +182,7 @@ require('lazy').setup({
   'mfussenegger/nvim-dap',
   {
     'simrat39/rust-tools.nvim',
+    ft = { 'rust', 'toml' },
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
