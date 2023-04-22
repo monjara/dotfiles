@@ -23,7 +23,7 @@ require('lazy').setup({
   },
   {
     'folke/tokyonight.nvim',
-    cond = { utils.is_not_vscode, utils.is_linux },
+    cond = utils.is_not_vscode and utils.is_linux,
     config = function()
       require('tokyonight').setup {
         style = 'night',
@@ -181,7 +181,7 @@ require('lazy').setup({
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
-    cond = { utils.is_not_vscode },
+    cond = utils.is_not_vscode,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
