@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local function load_options()
   local options = {
     fenc = 'utf-8',
@@ -37,4 +39,15 @@ local function load_options()
   end
 end
 
+local function load_globals()
+  local globals = {
+    python3_host_prog = utils.join_paths(utils.get_home(), '.anyenv/envs/pyenv/shims/python')
+  }
+
+  for k, v in pairs(globals) do
+    vim.g[k] = v
+  end
+end
+
 load_options()
+load_globals()

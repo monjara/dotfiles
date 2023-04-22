@@ -10,9 +10,6 @@ require('core')
 --   end
 -- })
 
-local utils = require('utils')
-vim.g.python3_host_prog = utils.join_paths(utils.get_home(), '.anyenv/envs/pyenv/shims/python')
-
 require('plugins')
 require('lsp')
 require('custom')
@@ -20,6 +17,7 @@ require('custom')
 vim.g.mapleader = ','
 vim.api.nvim_set_keymap('n', '<space>', '', { noremap = true })
 vim.api.nvim_set_keymap('v', '<space>', '', { noremap = true })
+vim.api.nvim_set_keymap('n', '<space>q', ':<C-u>q!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', [[\]], ',', {})
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
@@ -32,6 +30,7 @@ vim.api.nvim_set_keymap('n', 'ZQ', '', { noremap = true })
 
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<M-i>', [[<C-\><C-n>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('c', '<C-l>', '<cr>', {})
 
 vim.keymap.set(
   'n',
