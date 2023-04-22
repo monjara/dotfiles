@@ -34,6 +34,7 @@ require('lazy').setup({
   },
   {
     'dsznajder/vscode-es7-javascript-react-snippets',
+    lazy = true,
     cond = utils.is_not_vscode,
     ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
     build = 'yarn install --frozen-lockfile && yarn compile'
@@ -63,6 +64,7 @@ require('lazy').setup({
   },
   {
     'phaazon/hop.nvim',
+    lazy = true,
     branch = 'v2',
     keys = {
       { 's',         '<cmd>HopChar1MW<cr>', desc = 'hop' },
@@ -161,6 +163,7 @@ require('lazy').setup({
   },
   {
     'nvim-telescope/telescope.nvim',
+    lazy = true,
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
       { '<space>ff', '<cmd>Telescope find_files<cr>', desc = 'Telescope' },
@@ -189,6 +192,7 @@ require('lazy').setup({
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
+    lazy = true,
     branch = 'v2.x',
     cond = utils.is_not_vscode,
     dependencies = {
