@@ -17,6 +17,8 @@ require('lazy').setup({
   'tpope/vim-surround',
   {
     'lewis6991/gitsigns.nvim',
+    lazy = true,
+    event = { 'CursorHold', 'CursorHoldI' },
     config = function()
       require('gitsigns').setup()
     end
@@ -41,10 +43,16 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
+    lazy = true,
+    event = { 'CursorHold', 'CursorHoldI' },
     dependencies = {
       'windwp/nvim-ts-autotag'
     },
-    build = ':TSUpdate',
+    build = function()
+      if #vim.api.nvim_list_uis() ~= 0 then
+        vim.api.nvim_command('TSUpdate')
+      end
+    end,
     config = function()
       require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
@@ -172,16 +180,28 @@ require('lazy').setup({
       { '<space>fh', '<cmd>Telescope help_tags<cr>',  desc = 'Telescope' }
     }
   },
-  'neovim/nvim-lspconfig',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline',
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-vsnip',
-  'hrsh7th/vim-vsnip',
+  {
+    'neovim/nvim-lspconfig',
+    lazy = true,
+    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
+    dependencies = {
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
+    }
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    lazy = true,
+    event = 'InsertEnter',
+    dependencies = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-vsnip' },
+      { 'hrsh7th/vim-vsnip' },
+      { 'hrsh7th/cmp-cmdline' },
+    }
+  },
   'mfussenegger/nvim-dap',
   {
     'simrat39/rust-tools.nvim',
