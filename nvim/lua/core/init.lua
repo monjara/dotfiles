@@ -52,3 +52,5 @@ end
 
 load_options()
 load_globals()
+
+require('core.event')
