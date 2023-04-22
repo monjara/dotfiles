@@ -41,7 +41,8 @@ end
 
 local function load_globals()
   local globals = {
-    python3_host_prog = utils.join_paths(utils.get_home(), '.anyenv/envs/pyenv/shims/python')
+    python3_host_prog = utils.join_paths(utils.get_home(), '.anyenv/envs/pyenv/shims/python'),
+    mapleader = ','
   }
 
   for k, v in pairs(globals) do

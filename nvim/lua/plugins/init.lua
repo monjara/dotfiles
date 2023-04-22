@@ -43,7 +43,23 @@ require('lazy').setup({
     dependencies = {
       'windwp/nvim-ts-autotag'
     },
-    build = ':TSUpdate'
+    build = ':TSUpdate',
+    config = function()
+      require 'nvim-treesitter.configs'.setup {
+        ensure_installed = {
+          'javascript',
+          'typescript',
+          'lua',
+          'rust'
+        },
+        highlight = {
+          enable = true
+        },
+        autotag = {
+          enable = true
+        }
+      }
+    end
   },
   {
     'phaazon/hop.nvim',
@@ -146,18 +162,14 @@ require('lazy').setup({
     end
   },
   {
-    'ibhagwan/fzf-lua',
-    cond = utils.is_not_vscode,
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      local map = vim.keymap
-      local opts = { noremap = true, silent = true }
-
-      map.set('n', '<space>ff', ':FzfLua files<CR>', opts)
-      map.set('n', '<space>fm', ':FzfLua marks<CR>', opts)
-      map.set('n', '<space>fr', ':FzfLua grep<CR>', opts)
-      map.set('n', '<space>fp', ':FzfLua registers<CR>', opts)
-    end
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { '<space>ff', '<cmd>Telescope find_files<cr>', desc = 'Telescope' },
+      { '<space>fg', '<cmd>Telescope live_grep<cr>',  desc = 'Telescope' },
+      { '<space>fb', '<cmd>Telescope buffers<cr>',    desc = 'Telescope' },
+      { '<space>fh', '<cmd>Telescope help_tags<cr>',  desc = 'Telescope' }
+    }
   },
   'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
