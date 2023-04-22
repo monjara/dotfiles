@@ -23,7 +23,7 @@ require('lazy').setup({
   },
   {
     'folke/tokyonight.nvim',
-    cond = utils.is_not_vscode and utils.is_linux,
+    cond = utils.is_not_vscode,
     config = function()
       require('tokyonight').setup {
         style = 'night',
