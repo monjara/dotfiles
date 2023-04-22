@@ -14,7 +14,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'tpope/vim-surround',
+  {
+    'goolord/alpha-nvim',
+    lazy = true,
+    event = 'BufWinEnter',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end
+  },
+  {
+    'kylechui/nvim-surround',
+    lazy = true,
+    version = '*',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup({})
+    end
+  },
   {
     'lewis6991/gitsigns.nvim',
     lazy = true,
@@ -202,7 +219,6 @@ require('lazy').setup({
       { 'hrsh7th/cmp-cmdline' },
     }
   },
-  'mfussenegger/nvim-dap',
   {
     'simrat39/rust-tools.nvim',
     ft = { 'rust', 'toml' },
@@ -217,7 +233,7 @@ require('lazy').setup({
     cond = utils.is_not_vscode,
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
     },
     keys = {
