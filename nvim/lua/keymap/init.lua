@@ -13,6 +13,7 @@ vim.api.nvim_set_keymap('n', 'ZZ', '', { noremap = true })
 vim.api.nvim_set_keymap('n', 'ZQ', '', { noremap = true })
 
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<cr>', '', { noremap = true })
 vim.api.nvim_set_keymap('t', '<M-i>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('c', '<cr>', '', { noremap = true })
 vim.api.nvim_set_keymap('c', '<C-l>', '<cr>', { noremap = true })

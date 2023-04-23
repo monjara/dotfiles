@@ -20,7 +20,17 @@ require('lazy').setup({
     event = 'BufWinEnter',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
+  },
+  {
+    'folke/zen-mode.nvim',
+    lazy = true,
+    keys = {
+      { '<space>z', '<cmd>ZenMode<cr>' }
+    },
+    config = function()
+      require('zen-mode').setup {}
     end
   },
   {
@@ -108,85 +118,6 @@ require('lazy').setup({
     end
   },
   {
-    'kassio/neoterm',
-    lazy = true,
-    cond = utils.is_not_vscode,
-    event = { 'BufEnter' },
-    init = function()
-      vim.opt.runtimepath:append(utils.get_home() .. '/.config/nvim/plugged/neoterm')
-      vim.g.neoterm_default_mod = 'botright'
-      vim.g.neoterm_keep_term_open = 1
-      vim.g.neoterm_autoinsert = 0
-      vim.g.neoterm_autojump = 1
-    end,
-    config = function()
-      local function split_type()
-        local width = vim.api.nvim_win_get_width(0)
-        local height = vim.api.nvim_win_get_height(0) * 2.1
-
-        if height > width then
-          vim.g.neoterm_size = 10
-          return 'bel'
-        else
-          vim.g.neoterm_size = 50
-          return 'vert'
-        end
-      end
-
-      local function open_neoterm(cmd)
-        local split = split_type()
-        local command = split .. ' ' .. cmd
-        vim.api.nvim_command(command)
-      end
-
-      vim.keymap.set(
-        'n',
-        '<space>tt',
-        function()
-          open_neoterm('Ttoggle')
-        end,
-        { noremap = true, silent = true }
-      )
-
-      local map = vim.keymap
-      local opt = { noremap = true, silent = true }
-      map.set('n',
-        '<space>tn',
-        function()
-          open_neoterm('Tnew')
-        end,
-        opt
-      )
-
-      map.set(
-        'n',
-        '<space>tr',
-        function()
-          open_neoterm('Tredo')
-        end,
-        opt
-      )
-
-      map.set(
-        'n',
-        '<space>tc',
-        function()
-          open_neoterm('Tclear')
-        end,
-        opt
-      )
-
-      map.set(
-        'n',
-        '<space>td',
-        function()
-          open_neoterm('Tclose')
-        end,
-        opt
-      )
-    end
-  },
-  {
     'nvim-telescope/telescope.nvim',
     lazy = true,
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -236,6 +167,7 @@ require('lazy').setup({
   },
   {
     'simrat39/rust-tools.nvim',
+    lazy = true,
     ft = { 'rust', 'toml' },
     dependencies = {
       'nvim-lua/plenary.nvim',
