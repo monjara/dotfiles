@@ -15,11 +15,22 @@ local function createFloatingHelp(q)
     style = 'minimal',
     zindex = 45,
   }
-  local bufnr = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_open_win(bufnr, true, opts)
-  vim.opt_local.filetype = 'help'
-  vim.opt_local.buftype = 'help'
-  vim.api.nvim_command('help ' .. q['args'])
+
+  local win_id = 0
+  local status, result = pcall(
+    function()
+      local bufnr = vim.api.nvim_create_buf(false, true)
+      win_id = vim.api.nvim_open_win(bufnr, true, opts)
+      vim.opt_local.filetype = 'help'
+      vim.opt_local.buftype = 'help'
+      vim.api.nvim_command('help ' .. q['args'])
+    end
+  )
+  if not status then
+    vim.api.nvim_win_close(win_id, true)
+    return
+  end
+  return result
 end
 
 vim.api.nvim_create_user_command(
