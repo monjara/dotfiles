@@ -3,9 +3,9 @@ local win_id = 0
 local createPopup = function()
   local opts = {
     height = 1,
-    width = 20,
+    width = 16,
     row = 0,
-    col = vim.o.columns - 20,
+    col = vim.o.columns - 16,
     focusable = false,
     relative = 'editor',
     zindex = 45
@@ -22,7 +22,7 @@ end
 
 
 local closePopup = function()
-  vim.api.nvim_win_close(win_id, true)
+  vim.api.nvim_win_hide(win_id)
 end
 
 
