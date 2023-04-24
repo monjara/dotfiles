@@ -1,5 +1,6 @@
 require('custom.help')
 require('custom.recording')
+require('custom.lastline')
 
 local utils = require('utils')
 utils.create_custome_command('VV', 'tabnew ' .. utils.get_init_lua() .. ' | :tcd %:h', { nargs = 0 })
