@@ -68,6 +68,7 @@ return function()
       mappings = {
         ['<cr>'] = '',
         ['<C-l>'] = 'open',
+        ['<C-j>'] = 'open',
         ['T'] = 'open_split',
         ['t'] = 'open_vsplit',
         ['s'] = '',
