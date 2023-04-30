@@ -15,15 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   {
-    'goolord/alpha-nvim',
-    lazy = true,
-    event = 'BufWinEnter',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
-    end
-  },
-  {
     'folke/zen-mode.nvim',
     lazy = true,
     keys = {
@@ -102,19 +93,10 @@ require('lazy').setup({
     lazy = true,
     branch = 'v2',
     keys = {
-      { 's',         '<cmd>HopChar1MW<cr>', desc = 'hop' },
-      { '<space>ss', '<cmd>HopChar1MW<cr>', desc = 'hop' },
-      { '<space>sw', '<cmd>HopChar1BC<cr>', desc = 'hop' },
-      { '<space>sd', '<cmd>HopChar1AC<cr>', desc = 'hop' },
+      { 's', '<cmd>HopChar1MW<cr>', desc = 'hop' }
     },
     config = function()
       require 'hop'.setup { keys = 'jfkdurghalsieownvmcxypq' }
-      vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-        pattern = { 'neo-tree' },
-        callback = function()
-          vim.api.nvim_set_keymap('n', 's', ':HopChar1<CR>', {})
-        end
-      })
     end
   },
   {
@@ -123,7 +105,7 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
       { '<space>ff', '<cmd>Telescope find_files<cr>', desc = 'Telescope' },
-      { '<space>fg', '<cmd>Telescope live_grep<cr>',  desc = 'Telescope' },
+      { '<space>fr', '<cmd>Telescope live_grep<cr>',  desc = 'Telescope' },
       { '<space>fb', '<cmd>Telescope buffers<cr>',    desc = 'Telescope' },
       { '<space>fh', '<cmd>Telescope help_tags<cr>',  desc = 'Telescope' }
     },
