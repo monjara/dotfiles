@@ -72,7 +72,7 @@ rt.setup {
       vim.keymap.set('n', '<Leader>a', rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
     settings = {
-      ["rust_analyzer"] = {
+      ['rust_analyzer'] = {
         checkOnSave = {
           command = 'clippy',
         }
