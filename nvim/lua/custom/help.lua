@@ -25,6 +25,7 @@ local function createFloatingHelp(q)
       vim.opt_local.filetype = 'help'
       vim.opt_local.buftype = 'help'
       vim.api.nvim_command('help ' .. q['args'])
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', ':<C-u>q<cr>', { noremap = true })
     end
   )
   if not status then
