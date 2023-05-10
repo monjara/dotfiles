@@ -1,39 +1,40 @@
-vim.api.nvim_set_keymap('n', '<space>', '', { noremap = true })
-vim.api.nvim_set_keymap('v', '<space>', '', { noremap = true })
-vim.api.nvim_set_keymap('n', '<space>q', ':<C-u>q!<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<space>wq', ':<C-u>wq<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', [[\]], ',', {})
-vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
-vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gj', 'j', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gk', 'k', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>n', ':<C-u>nohl<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>o', ':<C-u>only<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'ZZ', '', { noremap = true })
-vim.api.nvim_set_keymap('n', 'ZQ', '', { noremap = true })
-vim.api.nvim_set_keymap('n', '<space>tt', ':<C-u>terminal<CR>', { noremap = true })
+local nmaps = {
+  { { 'n', 'v' }, '<space>',   '' },
+  { 'n',          '<space>q',  '<cmd>q!<cr>' },
+  { 'n',          '<space>wq', '<cmd>wq<cr>' },
+  { 'n',          [[\]],       ',' },
+  { 'n',          'j',         'gj' },
+  { 'n',          'k',         'gk' },
+  { 'n',          'gj',        'j' },
+  { 'n',          'gk',        'k' },
+  { 'n',          '<Leader>n', '<cmd>nohl<cr>' },
+  { 'n',          '<Leader>o', '<cmd>only<cr>' },
+  { 'n',          'ZZ',        '' },
+  { 'n',          'ZQ',        '' },
+  { 'n',          '<space>tt', '<cmd>terminal<CR>' },
+  { 'i',          'jj',        '<esc>' },
+  { { 'i', 'c' }, '<cr>',      '' },
+  { { 'i', 'c' }, '<C-l>',     '<cr>' },
+  { 't',          '<M-i>',     [[<C-\><C-n>]] },
+  {
+    'n',
+    '<space>yf',
+    function()
+      vim.api.nvim_command('let @" = expand("%:p")')
+      vim.api.nvim_command('let @+ = expand("%:p")')
+    end
+  },
+  {
+    'n',
+    '<space>yd',
+    function()
+      vim.api.nvim_command('let @" = expand("%:p:h")')
+      vim.api.nvim_command('let @+ = expand("%:p:h")')
+    end
+  }
+}
 
-vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<cr>', '', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-l>', '<cr>', { noremap = true })
-vim.api.nvim_set_keymap('t', '<M-i>', [[<C-\><C-n>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('c', '<cr>', '', { noremap = true })
-vim.api.nvim_set_keymap('c', '<C-l>', '<cr>', { noremap = true })
+for _, v in ipairs(nmaps) do
+  vim.keymap.set(v[1], v[2], v[3], { noremap = true, silent = true })
+end
 
-vim.keymap.set(
-  'n',
-  '<space>yf',
-  function()
-    vim.api.nvim_command('let @" = expand("%:p")')
-    vim.api.nvim_command('let @+ = expand("%:p")')
-  end
-)
-
-vim.keymap.set(
-  'n',
-  '<space>yd',
-  function()
-    vim.api.nvim_command('let @" = expand("%:p:h")')
-    vim.api.nvim_command('let @+ = expand("%:p:h")')
-  end
-)
