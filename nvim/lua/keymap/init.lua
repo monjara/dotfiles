@@ -37,4 +37,3 @@ local nmaps = {
 for _, v in ipairs(nmaps) do
   vim.keymap.set(v[1], v[2], v[3], { noremap = true, silent = true })
 end
-
