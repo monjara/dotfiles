@@ -11,6 +11,7 @@ vim.api.nvim_set_keymap('n', '<Leader>n', ':<C-u>nohl<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>o', ':<C-u>only<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'ZZ', '', { noremap = true })
 vim.api.nvim_set_keymap('n', 'ZQ', '', { noremap = true })
+vim.api.nvim_set_keymap('n', '<space>tt', ':<C-u>terminal<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<cr>', '', { noremap = true })
