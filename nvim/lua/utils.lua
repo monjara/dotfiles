@@ -39,4 +39,12 @@ utils.create_custome_command = function(name, command, opts)
   )
 end
 
+utils.keymap_set = function(tbl, opt)
+  local o = opt or { noremap = true, silent = true }
+
+  for _, v in ipairs(tbl) do
+    vim.keymap.set(v[1], v[2], v[3], o)
+  end
+end
+
 return utils

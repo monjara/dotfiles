@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local function createFloatingHelp(q)
   local lines = vim.o.lines - vim.o.cmdheight
   local columns = vim.o.columns
@@ -25,7 +27,11 @@ local function createFloatingHelp(q)
       vim.opt_local.filetype = 'help'
       vim.opt_local.buftype = 'help'
       vim.api.nvim_command('help ' .. q['args'])
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', ':<C-u>q<cr>', { noremap = true })
+
+      utils.keymap_set({
+        { 'n', 'q',     '<cmd>q<cr>' },
+        { 'n', '<esc>', '<cmd>q<cr>' },
+      }, { noremap = true, buffer = bufnr })
     end
   )
   if not status then

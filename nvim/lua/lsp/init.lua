@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 require('mason').setup({
   ui = {
     icons = {
@@ -20,21 +22,22 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<Space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>fo', vim.lsp.buf.format, bufopts)
+  local maps = {
+    { 'n', 'gD',         vim.lsp.buf.declaration },
+    { 'n', 'gd',         vim.lsp.buf.definition },
+    { 'n', 'K',          vim.lsp.buf.hover },
+    { 'n', 'gi',         vim.lsp.buf.implementation },
+    { 'n', '<C-k>',      vim.lsp.buf.signature_help },
+    { 'n', '<space>wa',  vim.lsp.buf.add_workspace_folder },
+    { 'n', '<space>wr',  vim.lsp.buf.remove_workspace_folder },
+    { 'n', '<space>wl',  function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end },
+    { 'n', '<space>D',   vim.lsp.buf.type_definition },
+    { 'n', '<Space>rn',  vim.lsp.buf.rename },
+    { 'n', '<space>ca',  vim.lsp.buf.code_action },
+    { 'n', 'gr',         vim.lsp.buf.references },
+    { 'n', '<leader>fo', vim.lsp.buf.format }
+  }
+  utils.keymap_set(maps, bufopts)
 end
 
 local lsp_flags = {

@@ -1,4 +1,6 @@
-local nmaps = {
+local utils = require('utils')
+
+local maps = {
   { { 'n', 'v' }, '<space>',   '' },
   { 'n',          '<space>q',  '<cmd>q!<cr>' },
   { 'n',          '<space>wq', '<cmd>wq<cr>' },
@@ -34,6 +36,4 @@ local nmaps = {
   }
 }
 
-for _, v in ipairs(nmaps) do
-  vim.keymap.set(v[1], v[2], v[3], { noremap = true, silent = true })
-end
+utils.keymap_set(maps)
