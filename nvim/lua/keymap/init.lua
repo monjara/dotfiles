@@ -16,6 +16,7 @@ local maps = {
   { 'n',          '<space>tt', '<cmd>terminal<CR>' },
   { 'i',          'jj',        '<esc>' },
   { 'i',          '{',         '{}<left>' },
+  { 'i',          '(',         '()<left>' },
   { 'i',          '[',         '[]<left>' },
   { 'i',          [[']],       [[''<left>]] },
   { 'i',          [["]],       [[""<left>]] },
