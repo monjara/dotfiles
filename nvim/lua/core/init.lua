@@ -31,7 +31,7 @@ local function load_options()
     expandtab = true,
     tabstop = 2,
     shiftwidth = 2,
-    softtabstop = 0,
+    softtabstop = 0
   }
 
   for k, v in pairs(options) do
