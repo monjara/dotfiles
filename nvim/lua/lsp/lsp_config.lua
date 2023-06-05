@@ -60,6 +60,11 @@ rt.setup {
   }
 }
 
+-- kotlin
+nvim_lsp.kotlin_language_server.setup {
+  flags = lsp_flags
+}
+
 -- ts
 nvim_lsp.tsserver.setup {
   flags = lsp_flags
