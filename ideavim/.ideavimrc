@@ -19,6 +19,7 @@ nmap <leader>fo <Action>(ReformatCode)
 nmap <space>ff <Action>(GotoFile)
 nmap <space>dd :NERDTreeFind<cr>
 
+imap <c-l> <action>(EditorChooseLookupItem)
 cnoremap <c-l> <cr>
 
 command! SV source ~/.ideavimrc
