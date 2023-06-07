@@ -18,6 +18,8 @@ nmap <leader>j :NERDTreeToggle<cr>
 nmap <leader>fo <Action>(ReformatCode)
 nmap <space>ff <Action>(GotoFile)
 nmap <space>dd :NERDTreeFind<cr>
+nmap ]g <Action>(GotoNextError) 
+nmap [g <Action>(GotoPreviousError)
 
 imap <c-l> <action>(EditorChooseLookupItem)
 cnoremap <c-l> <cr>
