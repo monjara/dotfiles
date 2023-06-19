@@ -34,6 +34,12 @@ require('lazy').setup({
     end
   },
   {
+    'windwp/nvim-autopairs',
+    lazy = true,
+    event = "InsertEnter",
+    opts = {}
+  },
+  {
     'lewis6991/gitsigns.nvim',
     lazy = true,
     event = { 'CursorHold', 'CursorHoldI' },
