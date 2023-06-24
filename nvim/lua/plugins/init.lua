@@ -164,7 +164,9 @@ require('lazy').setup({
   {
     'nvim-neo-tree/neo-tree.nvim',
     lazy = true,
-    branch = 'v2.x',
+    -- TODO マージされた後version指定
+    -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/1000
+    branch = 'main',
     cond = utils.is_not_vscode,
     dependencies = {
       'nvim-lua/plenary.nvim',
