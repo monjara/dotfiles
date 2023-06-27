@@ -18,6 +18,8 @@ nmap <leader>j :NERDTreeToggle<cr>
 nmap <leader>fo <Action>(ReformatCode)
 nmap <space>ff <Action>(GotoFile)
 nmap <space>dd :NERDTreeFind<cr>
+nmap <space>gs <Action>(Android.SyncProject)
+nmap <space>rp <Action>(RebuildGradleProject)
 nmap ]g <Action>(GotoNextError) 
 nmap [g <Action>(GotoPreviousError)
 
