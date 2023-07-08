@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -144,7 +146,12 @@ require('lazy').setup({
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-vsnip' },
+      {
+        'hrsh7th/cmp-vsnip',
+        config = function()
+          vim.g.vsnip_snippet_dir = utils.get_config() .. '/.vsnip'
+        end
+      },
       { 'hrsh7th/vim-vsnip' },
       { 'hrsh7th/cmp-cmdline' },
     }
