@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -49,7 +47,6 @@ require('lazy').setup({
   },
   {
     'folke/tokyonight.nvim',
-    cond = utils.is_not_vscode,
     config = function()
       require('tokyonight').setup {
         style = 'night',
@@ -61,7 +58,6 @@ require('lazy').setup({
   {
     'dsznajder/vscode-es7-javascript-react-snippets',
     lazy = true,
-    cond = utils.is_not_vscode,
     ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
     build = 'yarn install --frozen-lockfile && yarn compile'
   },
@@ -167,7 +163,6 @@ require('lazy').setup({
     -- TODO マージされた後version指定
     -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/1000
     branch = 'main',
-    cond = utils.is_not_vscode,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',

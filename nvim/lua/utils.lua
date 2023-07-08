@@ -1,6 +1,5 @@
 local utils = {}
 
-utils.is_not_vscode = vim.g.vscode == nil
 utils.is_mac = vim.fn.has('darwin') == 1
 utils.is_linux = vim.fn.has('linux') == 1
 
