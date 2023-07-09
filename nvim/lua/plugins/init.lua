@@ -102,33 +102,32 @@ require('lazy').setup({
     config = function()
       require 'hop'.setup { keys = 'jfkdurghalsieownvmcxypq' }
     end
+  }, {
+  'nvim-telescope/telescope.nvim',
+  lazy = true,
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  keys = {
+    { '<space>ff', '<cmd>Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <cr>', desc = 'Telescope' },
+    { '<space>fr', '<cmd>Telescope live_grep find_command=rg,--files,--hidden,--glob,!*.git <cr>',  desc = 'Telescope' },
+    { '<space>fb', '<cmd>Telescope buffers find_command=rg,--files,--hidden,--glob,!*.git <cr>',    desc = 'Telescope' },
+    { '<space>fh', '<cmd>Telescope help_tags<cr>',                                                  desc = 'Telescope' }
   },
-  {
-    'nvim-telescope/telescope.nvim',
-    lazy = true,
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    keys = {
-      { '<space>ff', '<cmd>Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <cr>', desc = 'Telescope' },
-      { '<space>fr', '<cmd>Telescope live_grep find_command=rg,--files,--hidden,--glob,!*.git <cr>',  desc = 'Telescope' },
-      { '<space>fb', '<cmd>Telescope buffers find_command=rg,--files,--hidden,--glob,!*.git <cr>',    desc = 'Telescope' },
-      { '<space>fh', '<cmd>Telescope help_tags<cr>',                                                  desc = 'Telescope' }
-    },
-    config = function()
-      require 'telescope'.setup({
-        defaults = {
-          mappings = {
-            i = {
-              ['<C-k>'] = require('telescope.actions').move_selection_previous,
-              ['<C-j>'] = require('telescope.actions').move_selection_next,
-              ['<C-l>'] = require('telescope.actions').select_default,
-              ['<CR>'] = function()
-              end
-            }
+  config = function()
+    require 'telescope'.setup({
+      defaults = {
+        mappings = {
+          i = {
+            ['<C-k>'] = require('telescope.actions').move_selection_previous,
+            ['<C-j>'] = require('telescope.actions').move_selection_next,
+            ['<C-l>'] = require('telescope.actions').select_default,
+            ['<CR>'] = function()
+            end
           }
         }
-      })
-    end
-  },
+      }
+    })
+  end
+},
   {
     'neovim/nvim-lspconfig',
     lazy = true,
@@ -146,13 +145,13 @@ require('lazy').setup({
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-vsnip' },
       {
-        'hrsh7th/cmp-vsnip',
+        'hrsh7th/vim-vsnip',
         config = function()
           vim.g.vsnip_snippet_dir = utils.get_config() .. '/.vsnip'
         end
       },
-      { 'hrsh7th/vim-vsnip' },
       { 'hrsh7th/cmp-cmdline' },
     }
   },
@@ -167,9 +166,7 @@ require('lazy').setup({
   {
     'nvim-neo-tree/neo-tree.nvim',
     lazy = true,
-    -- TODO マージされた後version指定
-    -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/1000
-    branch = 'main',
+    branch = 'v2.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
