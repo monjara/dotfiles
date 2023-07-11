@@ -176,5 +176,19 @@ require('lazy').setup({
       { '<space>dd', '<cmd>Neotree reveal position=current<cr>', desc = 'Neotree' },
     },
     config = require('plugins.config.neo-tree')
+  },
+  {
+    'xbase-lab/xbase',
+    lazy = true,
+    build = 'make install',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim'
+    },
+    config = function()
+      require 'xbase'.setup {}
+    end
   }
 })
