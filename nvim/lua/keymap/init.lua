@@ -19,7 +19,7 @@ local maps = {
   { 't',          '<M-i>',     [[<C-\><C-n>]] },
   {
     'n',
-    '<space>yf',
+    '<space>fp',
     function()
       vim.api.nvim_command('let @" = expand("%:p")')
       vim.api.nvim_command('let @+ = expand("%:p")')
@@ -27,7 +27,7 @@ local maps = {
   },
   {
     'n',
-    '<space>yd',
+    '<space>fd',
     function()
       vim.api.nvim_command('let @" = expand("%:p:h")')
       vim.api.nvim_command('let @+ = expand("%:p:h")')
