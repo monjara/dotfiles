@@ -9,8 +9,6 @@ local maps = {
   { 'n',          'k',         'gk' },
   { 'n',          'gj',        'j' },
   { 'n',          'gk',        'k' },
-  { 'n',          '<Leader>n', '<cmd>nohl<cr>' },
-  { 'n',          '<Leader>o', '<cmd>only<cr>' },
   { 'n',          'ZZ',        '' },
   { 'n',          'ZQ',        '' },
   { 'n',          '<space>tt', '<cmd>terminal<CR>' },
@@ -18,21 +16,50 @@ local maps = {
   { { 'i', 'c' }, '<C-l>',     '<cr>' },
   { 't',          '<M-i>',     [[<C-\><C-n>]] },
   {
+    -- yank and copy current file's absolute path to clipboard
     'n',
-    '<space>fp',
+    '<Leader>fp',
     function()
       vim.api.nvim_command('let @" = expand("%:p")')
       vim.api.nvim_command('let @+ = expand("%:p")')
     end
   },
   {
+    -- yank and copy directiory that current file existing to clipboard
     'n',
-    '<space>fd',
+    '<Leader>fd',
     function()
       vim.api.nvim_command('let @" = expand("%:p:h")')
       vim.api.nvim_command('let @+ = expand("%:p:h")')
     end
-  }
+  },
+  {
+    -- echo current file name
+    'n',
+    '<Leader>fe',
+    function()
+      vim.api.nvim_command('echo expand("%:p")')
+    end
+  },
+  {
+    -- toggle line number (call :set number!)
+    'n',
+    '<Leader>nn',
+    function()
+      vim.api.nvim_command('set number!')
+    end
+  },
+  {
+    -- TODO: toggle hlsearch
+    'n',
+    '<Leader>hl',
+    '<cmd>nohl<cr>'
+  },
+  {
+    'n',
+    '<Leader>o',
+    '<cmd>only<cr>'
+  },
 }
 
 utils.keymap_set(maps)
