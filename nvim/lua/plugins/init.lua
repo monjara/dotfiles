@@ -115,6 +115,9 @@ require('lazy').setup({
   config = function()
     require 'telescope'.setup({
       defaults = {
+        path_display = {
+          shorten = 3
+        },
         mappings = {
           i = {
             ['<C-k>'] = require('telescope.actions').move_selection_previous,
