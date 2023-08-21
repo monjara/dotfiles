@@ -18,6 +18,7 @@ nmap <leader>j :NERDTreeToggle<cr>
 nmap <leader>fo <Action>(ReformatCode)
 nmap <space>ff <Action>(GotoFile)
 nmap <space>dd :NERDTreeFind<cr>
+nmap <space>q :q<cr>
 
 " grade project
 nmap <space>as <Action>(Android.SyncProject)
