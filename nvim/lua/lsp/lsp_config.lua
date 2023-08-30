@@ -90,12 +90,18 @@ nvim_lsp.dockerls.setup {
   flags = lsp_flags
 }
 
+
+-- swift
 if vim.fn.has('mac') == 1 then
-  -- swift
   nvim_lsp.sourcekit.setup {
     flags = lsp_flags
   }
 end
+
+-- sh
+nvim_lsp.bashls.setup {
+  flags = lsp_flags
+}
 
 -- lspconfig
 local opts = { noremap = true, silent = true }
