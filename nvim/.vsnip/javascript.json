@@ -13,5 +13,9 @@
       "export default $TM_FILENAME_BASE",
       ""
     ]
+  },
+  "console.log": {
+    "prefix": ["clog"],
+    "body": "console.log('$1: ', $1)"
   }
 }
