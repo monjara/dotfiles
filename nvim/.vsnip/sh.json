@@ -1,6 +1,6 @@
 {
   "first line": {
-    "prefix": "!",
+    "prefix": ["!"],
     "body": "#!/bin/sh"
   }
 }

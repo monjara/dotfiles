@@ -1,6 +1,6 @@
 {
   "pub_fn": {
-    "prefix": "pf",
+    "prefix": ["pf"],
     "body": [
       "pub fn $1() {",
       "${2: content}",

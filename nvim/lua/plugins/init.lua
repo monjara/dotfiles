@@ -58,12 +58,6 @@ require('lazy').setup({
     end
   },
   {
-    'dsznajder/vscode-es7-javascript-react-snippets',
-    lazy = true,
-    ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
-    build = 'yarn install --frozen-lockfile && yarn compile'
-  },
-  {
     'nvim-treesitter/nvim-treesitter',
     lazy = true,
     event = { 'CursorHold', 'CursorHoldI' },

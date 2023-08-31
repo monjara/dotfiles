@@ -1,6 +1,6 @@
 {
   "vim_api": {
-    "prefix": "va",
+    "prefix": ["va"],
     "body": "vim.api.$1"
   }
 }
