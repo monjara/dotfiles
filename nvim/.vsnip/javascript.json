@@ -17,5 +17,9 @@
   "console.log": {
     "prefix": ["clog"],
     "body": "console.log('$1: ', $1)"
+  },
+  "className": {
+    "prefix": ["cn"],
+    "body": ["className='$1'"]
   }
 }
