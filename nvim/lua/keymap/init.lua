@@ -12,6 +12,7 @@ local maps = {
   { 'n',          'ZZ',        '' },
   { 'n',          'ZQ',        '' },
   { 'n',          '<space>tt', '<cmd>terminal<CR>' },
+  { 'n',          '<space>si', [[<cmd>%s/"/'/g<CR>]] },
   { 'i',          'jj',        '<esc>' },
   { { 'i', 'c' }, '<C-l>',     '<cr>' },
   { 't',          '<M-i>',     [[<C-\><C-n>]] },
