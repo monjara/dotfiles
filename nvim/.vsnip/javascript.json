@@ -16,6 +16,17 @@
       ""
     ]
   },
+  "function": {
+    "prefix": ["fc"],
+    "body": [
+      "const $TM_FILENAME_BASE = () => {",
+      "  return {}",
+      "}",
+      "",
+      "export default $TM_FILENAME_BASE",
+      ""
+    ]
+  },
   "console.log": {
     "prefix": ["clog"],
     "body": "console.log('$1: ', $1)"
@@ -23,5 +34,9 @@
   "className": {
     "prefix": ["cn"],
     "body": ["className='$1'"]
+  },
+  "import labels": {
+    "prefix": ["impl"],
+    "body": ["import l from '~/data/labels.json'"]
   }
 }
