@@ -2,6 +2,7 @@
   "jsx top component": {
     "prefix": ["rc"],
     "body": [
+      "import P from 'prop-types'",
       "import React from 'react'",
       "",
       "const $TM_FILENAME_BASE = () => {",
@@ -9,6 +10,7 @@
       "    <div>$TM_FILENAME_BASE</div>",
       "  )",
       "}",
+      "$TM_FILENAME_BASE.propTypes = {}",
       "",
       "export default $TM_FILENAME_BASE",
       ""

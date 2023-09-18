@@ -192,5 +192,11 @@ require('lazy').setup({
     config = function()
       require 'xbase'.setup {}
     end
+  },
+  {
+    'iamcco/markdown-preview.nvim',
+    lazy = true,
+    build = function() vim.fn['mkdp#util#install']() end,
+    ft = { 'markdown' }
   }
 })

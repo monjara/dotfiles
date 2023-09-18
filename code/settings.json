@@ -11,8 +11,7 @@
   "editor.scrollBeyondLastLine": false,
   "editor.minimap.enabled": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
+    "source.fixAll": true },
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.openDefaultKeybindings": true,
   "workbench.editorAssociations": {
