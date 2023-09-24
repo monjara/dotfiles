@@ -45,6 +45,15 @@
       ""
     ]
   },
+  "useForm": {
+    "prefix": ["uf"],
+    "body": [
+      "const { register, handleSubmit } = useForm({",
+      "  defaultValues: {",
+      "  }",
+      "})"
+    ]
+  },
   "console.log": {
     "prefix": ["clog"],
     "body": "console.log('$1: ', $1)"
