@@ -70,6 +70,21 @@ nvim_lsp.tsserver.setup {
   flags = lsp_flags
 }
 
+-- vue
+nvim_lsp.volar.setup {
+  flags = lsp_flags
+}
+
+-- css
+nvim_lsp.cssls.setup {
+  flags = lsp_flags
+}
+
+-- go
+nvim_lsp.gopls.setup {
+  flags = lsp_flags
+}
+
 
 -- terraform
 nvim_lsp.terraformls.setup {
