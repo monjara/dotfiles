@@ -80,6 +80,10 @@ nvim_lsp.cssls.setup {
   flags = lsp_flags
 }
 
+nvim_lsp.eslint.setup {
+  flags = lsp_flags
+}
+
 -- go
 nvim_lsp.gopls.setup {
   flags = lsp_flags
