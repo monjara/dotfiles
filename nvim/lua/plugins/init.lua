@@ -50,7 +50,10 @@ require('lazy').setup({
     event = { 'CursorHold', 'CursorHoldI' },
     config = function()
       require('gitsigns').setup()
-    end
+    end,
+    keys = {
+      { '<space>gd', '<cmd>Gitsigns diffthis<cr>', desc = 'gitsigns' }
+    },
   },
   {
     'folke/tokyonight.nvim',
