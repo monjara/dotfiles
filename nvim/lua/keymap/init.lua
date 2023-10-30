@@ -21,8 +21,8 @@ local maps = {
     'n',
     '<Leader>fp',
     function()
-      vim.api.nvim_command('let @" = expand("%:p")')
-      vim.api.nvim_command('let @+ = expand("%:p")')
+      vim.api.nvim_command('let @" = expand("%:.")')
+      vim.api.nvim_command('let @+ = expand("%:.")')
     end
   },
   {
