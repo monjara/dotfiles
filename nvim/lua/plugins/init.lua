@@ -52,8 +52,8 @@ require('lazy').setup({
       require('gitsigns').setup()
     end,
     keys = {
-      { '<space>gd', '<cmd>Gitsigns diffthis<cr>', desc = 'gitsigns' },
-      { '<space>gb', '<cmd>Gitsigns blame_line<cr>', desc = 'gitsigns' },
+      { '<space>gd',  '<cmd>Gitsigns diffthis<cr>',                  desc = 'gitsigns' },
+      { '<space>gb',  '<cmd>Gitsigns blame_line<cr>',                desc = 'gitsigns' },
       { '<space>gtb', '<cmd>Gitsigns toggle_current_line_blame<cr>', desc = 'gitsigns' }
     },
   },
@@ -106,35 +106,45 @@ require('lazy').setup({
     config = function()
       require 'hop'.setup { keys = 'jfkdurghalsieownvmcxypq' }
     end
-  }, {
-  'nvim-telescope/telescope.nvim',
-  lazy = true,
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  keys = {
-    { '<space>ff', '<cmd>Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <cr>', desc = 'Telescope' },
-    { '<space>fr', '<cmd>Telescope live_grep find_command=rg,--files,--hidden,--glob,!*.git <cr>',  desc = 'Telescope' },
-    { '<space>fb', '<cmd>Telescope buffers find_command=rg,--files,--hidden,--glob,!*.git <cr>',    desc = 'Telescope' },
-    { '<space>fh', '<cmd>Telescope help_tags<cr>',                                                  desc = 'Telescope' }
   },
-  config = function()
-    require 'telescope'.setup({
-      defaults = {
-        path_display = {
-          shorten = 3
-        },
-        mappings = {
-          i = {
-            ['<C-k>'] = require('telescope.actions').move_selection_previous,
-            ['<C-j>'] = require('telescope.actions').move_selection_next,
-            ['<C-l>'] = require('telescope.actions').select_default,
-            ['<CR>'] = function()
-            end
+  {
+    'nvim-telescope/telescope.nvim',
+    lazy = true,
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { '<space>ff', '<cmd>Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <cr>', desc = 'Telescope' },
+      { '<space>fr', '<cmd>Telescope live_grep find_command=rg,--files,--hidden,--glob,!*.git <cr>',  desc = 'Telescope' },
+      { '<space>fb', '<cmd>Telescope buffers find_command=rg,--files,--hidden,--glob,!*.git <cr>',    desc = 'Telescope' },
+      { '<space>fh', '<cmd>Telescope help_tags<cr>',                                                  desc = 'Telescope' }
+    },
+    config = function()
+      require 'telescope'.setup({
+        defaults = {
+          path_display = {
+            shorten = 3
+          },
+          mappings = {
+            i = {
+              ['<C-k>'] = require('telescope.actions').move_selection_previous,
+              ['<C-j>'] = require('telescope.actions').move_selection_next,
+              ['<C-l>'] = require('telescope.actions').select_default,
+              ['<CR>'] = function()
+              end
+            }
           }
         }
-      }
-    })
-  end
-},
+      })
+    end
+  },
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' }
+    },
+    config = function ()
+      require('spectre').setup()
+    end
+  },
   {
     'neovim/nvim-lspconfig',
     lazy = true,
