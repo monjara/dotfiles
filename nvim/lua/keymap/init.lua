@@ -14,7 +14,7 @@ local maps = {
   { 'n',          '<space>tt', '<cmd>terminal<CR>' },
   { 'n',          '<space>si', [[<cmd>%s/"/'/g<CR>]] },
   { 'i',          'jj',        '<esc>' },
-  { { 'i', 'c' }, '<C-l>',     '<cr>' },
+  { { 'i', 'c' }, '<C-l>',     '<esc>' },
   { 't',          '<M-i>',     [[<C-\><C-n>]] },
   {
     -- yank and copy current file's absolute path to clipboard
