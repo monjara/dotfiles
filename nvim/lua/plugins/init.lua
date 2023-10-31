@@ -25,6 +25,15 @@ require('lazy').setup({
     end
   },
   {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    }
+  },
+  {
     'kylechui/nvim-surround',
     lazy = true,
     version = '*',
@@ -141,7 +150,7 @@ require('lazy').setup({
     dependencies = {
       { 'nvim-lua/plenary.nvim' }
     },
-    config = function ()
+    config = function()
       require('spectre').setup()
     end
   },
