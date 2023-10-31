@@ -43,7 +43,7 @@ require('lazy').setup({
         },
         presets = {
           long_message_to_split = true, -- long messages will be sent to a split
-          lsp_doc_border = true, -- add a border to hover docs and signature help
+          lsp_doc_border = true,        -- add a border to hover docs and signature help
         },
       })
     end
@@ -67,6 +67,16 @@ require('lazy').setup({
     lazy = true,
     event = "InsertEnter",
     opts = {}
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "sindrets/diffview.nvim",
+      "ibhagwan/fzf-lua",
+    },
+    config = true
   },
   {
     'lewis6991/gitsigns.nvim',
