@@ -14,6 +14,31 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  { 'nvim-lua/plenary.nvim' },
+  { 'nvim-lua/popup.nvim' },
+  {
+    'petertriho/nvim-scrollbar',
+    config = function()
+      require('scrollbar').setup()
+    end
+  },
+  {
+    'kevinhwang91/nvim-hlslens',
+    config = function()
+      require('scrollbar.handlers.search').setup({})
+    end
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  },
   {
     'folke/zen-mode.nvim',
     lazy = true,
@@ -25,27 +50,9 @@ require('lazy').setup({
     end
   },
   {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
-    opts = {},
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
+    'vigoux/notifier.nvim',
     config = function()
-      require('noice').setup({
-        lsp = {
-          override = {
-            ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-            ['vim.lsp.util.stylize_markdown'] = true,
-            ['cmp.entry.get_documentation'] = true,
-          },
-        },
-        presets = {
-          long_message_to_split = true, -- long messages will be sent to a split
-          lsp_doc_border = true,        -- add a border to hover docs and signature help
-        },
-      })
+      require 'notifier'.setup {}
     end
   },
   {
@@ -84,6 +91,7 @@ require('lazy').setup({
     event = { 'CursorHold', 'CursorHoldI' },
     config = function()
       require('gitsigns').setup()
+      require('scrollbar.handlers.gitsigns').setup()
     end,
     keys = {
       { '<space>gd',  '<cmd>Gitsigns diffthis<cr>',                  desc = 'gitsigns' },
