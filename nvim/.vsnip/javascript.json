@@ -1,41 +1,6 @@
 {
-  "jsx top component": {
-    "prefix": ["rc"],
-    "body": [
-      "import P from 'prop-types'",
-      "import React from 'react'",
-      "",
-      "const $TM_FILENAME_BASE = () => {",
-      "  return (",
-      "    <div>$TM_FILENAME_BASE</div>",
-      "  )",
-      "}",
-      "$TM_FILENAME_BASE.propTypes = {}",
-      "",
-      "export default $TM_FILENAME_BASE",
-      ""
-    ]
-  },
-  "routes file": {
-    "prefix": ["rr"],
-    "body": [
-      "import React from 'react'",
-      "import { Routes, Route } from 'react-router'",
-      "",
-      "const $TM_FILENAME_BASE = () => {",
-      "  return (",
-      "    <Routes>",
-      "      <Route />",
-      "    </Routes>",
-      "  )",
-      "}",
-      "",
-      "export default $TM_FILENAME_BASE",
-      ""
-    ]
-  },
-  "function": {
-    "prefix": ["fc"],
+  "export function": {
+    "prefix": ["efc"],
     "body": [
       "const $TM_FILENAME_BASE = () => {",
       "  return {}",
@@ -45,25 +10,23 @@
       ""
     ]
   },
-  "useForm": {
-    "prefix": ["uf"],
+  "function": {
+    "prefix": ["fc"],
     "body": [
-      "const { register, handleSubmit } = useForm({",
-      "  defaultValues: {",
-      "  }",
-      "})"
+      "const $1 = () => {",
+      "}",
+      ""
     ]
   },
   "console.log": {
     "prefix": ["clog"],
     "body": "console.log('$1: ', $1)"
   },
-  "className": {
-    "prefix": ["cn"],
-    "body": ["className='$1'"]
-  },
-  "import labels": {
-    "prefix": ["impl"],
-    "body": ["import l from '~/data/labels.json'"]
+  "console.time": {
+    "prefix": ["ctime"],
+    "body": [
+      "console.time('time')",
+      "console.timeEnd('time')"
+    ]
   }
 }
