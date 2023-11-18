@@ -113,7 +113,13 @@ nvim_lsp.dockerls.setup {
 -- swift
 if vim.fn.has('mac') == 1 then
   nvim_lsp.sourcekit.setup {
-    flags = lsp_flags
+    flags = lsp_flags,
+    cmd = {
+      "/Applications/Xcode-15.1_beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"
+    },
+    root_dir = function(filename, _)
+      return require('lspconfig').util.find_git_ancestor(filename)
+    end,
   }
 end
 
