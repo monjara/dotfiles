@@ -9,6 +9,7 @@ require('mason').setup({
     }
   }
 })
+
 require('mason-lspconfig').setup({
   automatic_installation = true,
   ensure_installed = {
@@ -16,15 +17,24 @@ require('mason-lspconfig').setup({
   }
 })
 
-local nvim_lsp = require 'lspconfig'
+require('mason-lspconfig').setup_handlers {
+  function(server_name)
+    local skips = {
+      ['rust_analyzer'] = true,
+      ['lua_ls'] = true,
+      ['swift_mesonls'] = true,
+    }
 
-local lsp_flags = {
-  debounce_text_changes = 150,
+    if not skips[server_name] then
+      require('lspconfig')[server_name].setup {}
+    end
+  end,
 }
 
+local lspconfig = require 'lspconfig'
+
 -- lua
-nvim_lsp.lua_ls.setup {
-  flags = lsp_flags,
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -60,72 +70,14 @@ rt.setup {
   }
 }
 
--- kotlin
-nvim_lsp.kotlin_language_server.setup {
-  flags = lsp_flags
-}
-
--- ts
-nvim_lsp.tsserver.setup {
-  flags = lsp_flags
-}
-
--- vue
-nvim_lsp.volar.setup {
-  flags = lsp_flags
-}
-
--- css
-nvim_lsp.cssls.setup {
-  flags = lsp_flags
-}
-
-nvim_lsp.eslint.setup {
-  flags = lsp_flags
-}
-
--- go
-nvim_lsp.gopls.setup {
-  flags = lsp_flags
-}
-
-
--- terraform
-nvim_lsp.terraformls.setup {
-  flags = lsp_flags
-}
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.tf", "*.tfvars" },
-  callback = function()
-    vim.lsp.buf.format()
-  end
-})
-
-nvim_lsp.docker_compose_language_service.setup {
-  flags = lsp_flags
-}
-
-nvim_lsp.dockerls.setup {
-  flags = lsp_flags
-}
-
-
 -- swift
-if vim.fn.has('mac') == 1 then
-  nvim_lsp.sourcekit.setup {
-    flags = lsp_flags,
-    cmd = {
-      "/Applications/Xcode-15.1_beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"
-    },
-    root_dir = function(filename, _)
-      return require('lspconfig').util.find_git_ancestor(filename)
-    end,
-  }
-end
-
--- sh
-nvim_lsp.bashls.setup {
-  flags = lsp_flags
+lspconfig.sourcekit.setup {
+  cmd = {
+    '/Applications/Xcode-15.1_beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp'
+  },
+  root_dir = function(filename, _)
+    return require('lspconfig').util.find_git_ancestor(filename)
+  end,
 }
 
 -- lspconfig
@@ -163,3 +115,10 @@ vim.api.nvim_create_autocmd(
     end
   }
 )
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})
