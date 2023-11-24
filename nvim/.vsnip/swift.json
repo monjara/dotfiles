@@ -1,0 +1,18 @@
+{
+  "Button SwiftUI": {
+    "prefix": ["button"],
+    "body": [
+      "Button {",
+      "    $1",
+      "} label: {",
+      "    $2",
+      "}"
+    ]
+  },
+  "Mark Comment SwiftUI": {
+    "prefix": ["mark"],
+    "body": [
+      "// MARK:"
+    ]
+  }
+}
