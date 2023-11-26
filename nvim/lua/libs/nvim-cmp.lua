@@ -2,7 +2,7 @@ local utils = require('utils')
 return {
   'hrsh7th/nvim-cmp',
   lazy = true,
-  event = 'InsertEnter',
+  event = 'BufEnter',
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-buffer' },
