@@ -1,6 +1,9 @@
 return {
   'stevearc/conform.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
+  enabled = function ()
+    return vim.bo.filetype == 'swift'
+  end,
   config = function()
     local conform = require("conform")
     -- find .swiftformat config file in the working directory

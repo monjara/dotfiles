@@ -9,6 +9,18 @@
       "}"
     ]
   },
+  "LinerGradient SwiftUI": {
+    "prefix": ["LinerGradient"],
+    "body": [
+      "LinearGradient(gradient: $1, startPoint: $2, endPoint: $3)"
+    ]
+  },
+  "Gradient SwiftUI": {
+    "prefix": ["Gradient"],
+    "body": [
+      "Gradient(colors: [$1, $2]"
+    ]
+  },
   "Mark Comment SwiftUI": {
     "prefix": ["mark"],
     "body": [

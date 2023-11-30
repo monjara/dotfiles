@@ -1,6 +1,9 @@
 return {
   'mfussenegger/nvim-lint',
   event = { 'BufReadPre', 'BufNewFile' },
+  enabled = function ()
+    return vim.bo.filetype == 'swift'
+  end,
   config = function()
     local lint = require('lint')
 
