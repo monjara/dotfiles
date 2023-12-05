@@ -26,5 +26,72 @@
     "body": [
       "// MARK:"
     ]
+  },
+  "print": {
+    "prefix": ["pp"],
+    "body": [
+      "print(\"$1: \\($1)\\n\")"
+    ]
+  },
+  "do": {
+    "prefix": ["do"],
+    "body": [
+      "do {",
+      "    $1",
+      "} catch {",
+      "    $2",
+      "}"
+    ]
+  },
+  "readInt1 func": {
+    "prefix": ["ri1"],
+    "body": [
+      "func readInt1() -> Int {",
+      "    Int(readLine()!)!",
+      "}",
+      "let $1 = readInt1()"
+    ]
+  },
+  "readInt2 func": {
+    "prefix": ["ri2"],
+    "body": [
+      "func readInt2() -> (Int, Int) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "    precondition(values.count == 2)",
+      "    return (values[0], values[1])",
+      "}",
+      "let ($1) = readInt2()"
+    ]
+  },
+  "readInt3 func": {
+    "prefix": ["ri3"],
+    "body": [
+      "func readInt3() -> (Int, Int, Int) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "    precondition(values.count == 3)",
+      "    return (values[0], values[1], values[2])",
+      "}",
+      "let ($1) = readInt3()"
+    ]
+  },
+  "readInt4 func": {
+    "prefix": ["ri4"],
+    "body": [
+      "func readInt4() -> (Int, Int, Int, Int) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "    precondition(values.count == 4)",
+      "    return (values[0], values[1], values[2], values[3])",
+      "}",
+      "let ($1) = readInt4()"
+    ]
+  },
+  "readIntArray func": {
+    "prefix": ["ria"],
+    "body": [
+      "func readIntArray() -> [Int] {",
+      "    return readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "}",
+      "let nums = readIntArray()"
+    ]
   }
 }
