@@ -18,4 +18,3 @@ require('lazy').setup({
 })
 
 require('core')
-require('keymap')
