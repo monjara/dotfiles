@@ -14,7 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-lua/popup.nvim' },
-  { import = 'libs' }
+  { import = 'libs' },
+  --[[
+  --   local development
+  --   { dir = '~/Develop/lua/fuga' }
+  --]]
 })
 
 require('core')

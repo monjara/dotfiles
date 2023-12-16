@@ -1,5 +1,4 @@
 require('core.events')
 require('core.options')
-require('core.recording')
 require('core.lastline')
 require('core.keymap')
