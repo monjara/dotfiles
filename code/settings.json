@@ -11,7 +11,8 @@
   "editor.scrollBeyondLastLine": false,
   "editor.minimap.enabled": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true },
+    "source.fixAll": "explicit"
+  },
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.openDefaultKeybindings": true,
   "workbench.editorAssociations": {
@@ -66,7 +67,7 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
+    "editor.wordBasedSuggestions": "off"
   },
   "[cpp]": {
     "editor.tabSize": 4
@@ -307,5 +308,10 @@
   "vim.handleKeys": {
     "<C-f>": false
   },
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "[terraform][terraform-vars]": {
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": "explicit"
+    }
+  }
 }
