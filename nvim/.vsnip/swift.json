@@ -93,5 +93,13 @@
       "}",
       "let nums = readIntArray()"
     ]
+  },
+  "struct": {
+    "prefix": ["struct"],
+    "body": [
+      "struct $TM_FILENAME_BASE {",
+      "",
+      "}"
+    ]
   }
 }
