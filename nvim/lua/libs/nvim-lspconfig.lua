@@ -112,5 +112,12 @@ return {
         vim.api.nvim_command('set filetype=swift')
       end
     })
+
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+      pattern = { '*.ejs' },
+      callback = function()
+        vim.api.nvim_command('set filetype=html')
+      end
+    })
   end
 }
