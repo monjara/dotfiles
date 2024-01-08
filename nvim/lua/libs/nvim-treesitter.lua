@@ -16,7 +16,8 @@ return {
         'javascript',
         'typescript',
         'lua',
-        'rust'
+        'rust',
+        'vimdoc'
       },
       highlight = {
         enable = true

@@ -106,10 +106,31 @@ return {
       end
     })
 
+    vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+      pattern = { '*.swift' },
+      callback = function()
+        vim.api.nvim_create_user_command(
+          'SwiftFmt',
+          function()
+            -- TODO load .swift-fmt file
+            vim.api.nvim_command('!swift-format ' .. vim.api.nvim_buf_get_name(0) .. ' -i')
+          end,
+          { nargs = 0 }
+        )
+      end
+    })
+
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
       pattern = { '*.swiftinterface' },
       callback = function()
         vim.api.nvim_command('set filetype=swift')
+      end
+    })
+
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+      pattern = { '*.swift-format' },
+      callback = function()
+        vim.api.nvim_command('set filetype=json')
       end
     })
 
