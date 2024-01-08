@@ -1,4 +1,3 @@
-local utils = require('utils')
 return {
   'hrsh7th/nvim-cmp',
   lazy = true,
@@ -11,6 +10,7 @@ return {
     {
       'hrsh7th/vim-vsnip',
       config = function()
+        local utils = require('utils')
         vim.g.vsnip_snippet_dir = utils.get_config() .. '/.vsnip'
       end
     },
@@ -50,13 +50,6 @@ return {
             fallback()
           end
         end, { 'i', 's', 'c' }),
-        ['<M-j>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            fallback()
-          end
-        end, { 'i', 's', 'c' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
@@ -71,19 +64,12 @@ return {
             fallback()
           end
         end, { 'i', 's', 'c' }),
-        ['<M-k>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            fallback()
-          end
-        end, { 'i', 's', 'c' }),
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
-      }, {
         { name = 'buffer' },
+        { name = 'path' },
       })
     })
 
