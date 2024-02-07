@@ -101,5 +101,11 @@
       "",
       "}"
     ]
+  },
+  "script": {
+    "prefix": ["#!"],
+    "body": [
+      "#!/usr/bin/env swift"
+    ]
   }
 }
