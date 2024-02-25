@@ -112,6 +112,28 @@
       "let s = readString1()"
     ]
   },
+  "readString2 func": {
+    "prefix": ["rs2"],
+    "body": [
+      "func readString2() -> (String, String) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> String in String(v) }",
+      "    precondition(values.count == 2)",
+      "    return (values[0], values[1])",
+      "}",
+      "let ($1) = readString2()"
+    ]
+  },
+  "readString3 func": {
+    "prefix": ["rs3"],
+    "body": [
+      "func readString3() -> (String, String, String) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> String in String(v) }",
+      "    precondition(values.count == 3)",
+      "    return (values[0], values[1], values[2])",
+      "}",
+      "let ($1) = readString3()"
+    ]
+  },
   "struct": {
     "prefix": ["struct"],
     "body": [
