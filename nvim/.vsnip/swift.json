@@ -94,6 +94,24 @@
       "let nums = readIntArray()"
     ]
   },
+  "readStringArray func": {
+    "prefix": ["rsa"],
+    "body": [
+      "func readStrArray() -> [String] {",
+      "    return readLine()!.split(separator: \" \").map {v -> String in String(v)}",
+      "}",
+      "let arr = readStrArray()"
+    ]
+  },
+  "readString func": {
+    "prefix": ["rs1"],
+    "body": [
+      "func readString1() -> String {",
+      "    return readLine()!",
+      "}",
+      "let s = readString1()"
+    ]
+  },
   "struct": {
     "prefix": ["struct"],
     "body": [
