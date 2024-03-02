@@ -65,6 +65,10 @@ return {
       end,
     }
 
+    lspconfig.solargraph.setup {
+      ft = { 'ruby' }
+    }
+
     -- lspconfig
     local opts = { noremap = true, silent = true }
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
