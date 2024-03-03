@@ -56,6 +56,14 @@ return {
       cmd = {
         '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp'
       },
+      on_attach = function(_, bufnr)
+        vim.keymap.set(
+          'n',
+          '<leader>fo',
+          '<cmd>silent !swift-format ' .. vim.api.nvim_buf_get_name(0) .. ' -i<cr>',
+          { buffer = bufnr }
+        )
+      end,
       root_dir = function(filename, _)
         return root_pattern(filename, 'Package.swift')
             or root_pattern(filename, 'buildServer.json')
@@ -65,6 +73,7 @@ return {
       end,
     }
 
+    -- ruby
     lspconfig.solargraph.setup {
       ft = { 'ruby' }
     }
@@ -100,27 +109,12 @@ return {
         local o = { buffer = e.buf, noremap = true, silent = true }
         utils.keymap_set(maps, o)
       end
-    }
-    )
+    })
 
     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
       pattern = { '*.tf', '*.tfvars' },
       callback = function()
         vim.lsp.buf.format()
-      end
-    })
-
-    vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-      pattern = { '*.swift' },
-      callback = function()
-        vim.api.nvim_create_user_command(
-          'SwiftFmt',
-          function()
-            -- TODO load .swift-fmt file
-            vim.api.nvim_command('!swift-format ' .. vim.api.nvim_buf_get_name(0) .. ' -i')
-          end,
-          { nargs = 0 }
-        )
       end
     })
 
