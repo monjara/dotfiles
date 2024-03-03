@@ -69,7 +69,7 @@ return {
         }
       },
       filters = {
-        dotfiles = true,
+        dotfiles = false,
       },
       actions = {
         open_file = {
