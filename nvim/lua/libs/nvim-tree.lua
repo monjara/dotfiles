@@ -54,7 +54,7 @@ return {
       },
       renderer = {
         group_empty = true,
-        highlight_git = 'all',
+        highlight_git = 'name',
         icons = {
           git_placement = 'after',
           glyphs = {
