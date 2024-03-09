@@ -147,5 +147,27 @@
     "body": [
       "#!/usr/bin/env swift"
     ]
+  },
+  "SwiftUI View struct": {
+    "prefix": ["uistruct"],
+    "body": [
+      "//",
+      "//  $TM_FILENAME_BASE.swift",
+      "//",
+      "//  Created by ${VIM:\\$USER} on ${VIM:system('python -c \"import datetime, sys;sys.stdout.write(str(datetime.datetime.today().date()))\"')}.",
+      "//",
+      "",
+      "import SwiftUI",
+      "",
+      "struct $TM_FILENAME_BASE: View {",
+      "  var body: some View {",
+      "    Text(\"hello!\")",
+      "  }",
+      "}",
+      "",
+      "#Preview {",
+      "  $TM_FILENAME_BASE()",
+      "}"
+    ]
   }
 }
