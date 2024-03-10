@@ -169,5 +169,21 @@
       "  $TM_FILENAME_BASE()",
       "}"
     ]
+  },
+  "class": {
+    "prefix": ["cls"],
+    "body": [
+      "//",
+      "//  $TM_FILENAME_BASE.swift",
+      "//",
+      "//  Created by ${VIM:\\$USER} on ${VIM:system('python -c \"import datetime, sys;sys.stdout.write(str(datetime.datetime.today().date()))\"')}.",
+      "//",
+      "",
+      "import Foundation",
+      "",
+      "class $TM_FILENAME_BASE {",
+      "}"
+    ]
+
   }
 }

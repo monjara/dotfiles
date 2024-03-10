@@ -1,0 +1,13 @@
+{
+  "vsnip definition": {
+    "prefix": ["vsnip"],
+    "body": [
+      "\"${1:title}\": {",
+      "  \"prefix\": [],",
+      "  \"body\": [",
+      "",
+      "  ]",
+      "}"
+    ]
+  }
+}
