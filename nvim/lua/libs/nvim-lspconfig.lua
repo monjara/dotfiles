@@ -53,15 +53,15 @@ return {
 
     -- swift
     lspconfig.sourcekit.setup {
+      ft = { 'swift' },
       cmd = {
         '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp'
       },
-      on_attach = function(_, bufnr)
-        vim.keymap.set(
-          'n',
-          '<leader>fo',
-          '<cmd>silent !swift-format ' .. vim.api.nvim_buf_get_name(0) .. ' -i<cr>',
-          { buffer = bufnr }
+      on_attach = function()
+        vim.api.nvim_create_user_command(
+          'SwiftFormat',
+          '!swift format ' .. vim.api.nvim_buf_get_name(0) .. ' -i',
+          {}
         )
       end,
       root_dir = function(filename, _)
@@ -91,20 +91,25 @@ return {
         vim.bo[e.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         local maps = {
-          { 'n',          'gD',         vim.lsp.buf.declaration },
-          { 'n',          'gd',         vim.lsp.buf.definition },
-          { 'n',          'K',          vim.lsp.buf.hover },
-          { 'n',          'gi',         vim.lsp.buf.implementation },
-          { 'n',          '<C-k>',      vim.lsp.buf.signature_help },
-          { 'n',          '<space>wa',  vim.lsp.buf.add_workspace_folder },
-          { 'n',          '<space>wr',  vim.lsp.buf.remove_workspace_folder },
-          { 'n',          '<space>wl',  function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end },
-          { 'n',          '<space>D',   vim.lsp.buf.type_definition },
-          { 'n',          '<Space>rn',  vim.lsp.buf.rename },
-          { { 'n', 'v' }, '<space>ca',  vim.lsp.buf.code_action },
-          { 'n',          'gr',         vim.lsp.buf.references },
-          { 'n',          '<leader>fo', function() vim.lsp.buf.format { async = true } end }
+          { 'n',          'gD',        vim.lsp.buf.declaration },
+          { 'n',          'gd',        vim.lsp.buf.definition },
+          { 'n',          'K',         vim.lsp.buf.hover },
+          { 'n',          'gi',        vim.lsp.buf.implementation },
+          { 'n',          '<C-k>',     vim.lsp.buf.signature_help },
+          { 'n',          '<space>wa', vim.lsp.buf.add_workspace_folder },
+          { 'n',          '<space>wr', vim.lsp.buf.remove_workspace_folder },
+          { 'n',          '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end },
+          { 'n',          '<space>D',  vim.lsp.buf.type_definition },
+          { 'n',          '<Space>rn', vim.lsp.buf.rename },
+          { { 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action },
+          { 'n',          'gr',        vim.lsp.buf.references },
         }
+
+        if vim.bo[e.buf].filetype == 'swift' then
+          table.insert(maps, { 'n', '<leader>fo', function() vim.api.nvim_command('SwiftFormat') end })
+        else
+          table.insert(maps, { 'n', '<leader>fo', function() vim.lsp.buf.format { async = true } end })
+        end
 
         local o = { buffer = e.buf, noremap = true, silent = true }
         utils.keymap_set(maps, o)
