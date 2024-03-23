@@ -37,6 +37,22 @@
   "className": {
     "prefix": ["cn"],
     "body": ["className='$1'"]
+  },
+  "export function": {
+    "prefix": ["ef"],
+    "body": [
+      "export function $1() {",
+      "",
+      "}"
+    ]
+  },
+  "export default function": {
+    "prefix": ["edf"],
+    "body": [
+      "export default function $1() {",
+      "",
+      "}"
+    ]
   }
 }
 

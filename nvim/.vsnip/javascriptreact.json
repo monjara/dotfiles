@@ -51,4 +51,12 @@
       "})"
     ]
   },
+  "exoprt default function": {
+    "prefix": ["edf"],
+    "body": [
+      "export default function $1() {",
+      "",
+      "}"
+    ]
+  }
 }
