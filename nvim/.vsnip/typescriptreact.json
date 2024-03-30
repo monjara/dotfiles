@@ -53,6 +53,18 @@
       "",
       "}"
     ]
+  },
+  "use client": {
+    "prefix": ["uc"],
+    "body": [
+      "'use client'"
+    ]
+  },
+  "use server": {
+    "prefix": ["us"],
+    "body": [
+      "'use server'"
+    ]
   }
 }
 
