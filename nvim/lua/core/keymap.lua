@@ -2,6 +2,7 @@ local utils = require('utils')
 
 local maps = {
   { { 'n', 'v' }, '<space>',   '' },
+  { 'n',          '<space>w',  '<cmd>silent w!<cr>' },
   { 'n',          '<space>q',  '<cmd>q!<cr>' },
   { 'n',          '<space>wq', '<cmd>wq<cr>' },
   { 'n',          [[\]],       ',' },
