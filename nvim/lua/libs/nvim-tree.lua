@@ -19,7 +19,7 @@ return {
           buffer = bufnr,
           noremap = true,
           silent = true,
-          nowait = true
+          nowait = true,
         }
       end
 
@@ -27,11 +27,11 @@ return {
       api.config.mappings.default_on_attach(bufnr)
 
       -- custom mappings
-      for _, v in ipairs({
+      for _, v in ipairs {
         { 'n', '<C-l>', api.node.open.edit, opts('edit') },
-        { 'n', '<CR>',  'j',                opts('down') },
-        { 'n', 's',     's',                opts('hop') },
-      }) do
+        { 'n', '<CR>', 'j', opts('down') },
+        { 'n', 's', 's', opts('hop') },
+      } do
         vim.keymap.set(v[1], v[2], v[3], v[4])
       end
     end
@@ -63,8 +63,8 @@ return {
               width = window_w_int,
               height = window_h_int,
             }
-          end
-        }
+          end,
+        },
       },
       renderer = {
         group_empty = true,
@@ -77,22 +77,21 @@ return {
               untracked = '?',
               deleted = '-',
               renamed = 'R',
-              staged = '!'
-            }
-          }
-        }
+              staged = '!',
+            },
+          },
+        },
       },
       filters = {
         dotfiles = false,
       },
       actions = {
         open_file = {
-          quit_on_open = true
-        }
-      }
+          quit_on_open = true,
+        },
+      },
     }
 
     vim.keymap.set('n', '<space>dd', '<cmd>NvimTreeFindFile<cr>', {})
   end,
-
 }

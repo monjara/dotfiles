@@ -4,12 +4,10 @@ return {
   config = function()
     local trailspace = require('mini.trailspace')
 
-    trailspace.setup({})
-    vim.api.nvim_create_user_command(
-      'Trailspace',
-      function() trailspace.trim() end,
-      { nargs = 0 }
-    )
+    trailspace.setup {}
+    vim.api.nvim_create_user_command('Trailspace', function()
+      trailspace.trim()
+    end, { nargs = 0 })
   end,
   keys = {
     {
@@ -18,7 +16,7 @@ return {
         require('mini.trailspace').trim()
       end,
       desc = 'mini trim whitespace',
-      mode = { 'n' }
-    }
-  }
+      mode = { 'n' },
+    },
+  },
 }

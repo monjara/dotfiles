@@ -1,4 +1,4 @@
-for k, v in pairs({
+for k, v in pairs {
   fenc = 'utf-8',
   encoding = 'utf-8',
   shortmess = 'aoOTIcF',
@@ -29,13 +29,13 @@ for k, v in pairs({
   tabstop = 2,
   shiftwidth = 2,
   softtabstop = 0,
-  completeopt = { 'menu', 'menuone', 'noselect' }
-}) do
+  completeopt = { 'menu', 'menuone', 'noselect' },
+} do
   vim.opt[k] = v
 end
 
-for k, v in pairs({
-  mapleader = ','
-}) do
+for k, v in pairs {
+  mapleader = ',',
+} do
   vim.g[k] = v
 end

@@ -3,7 +3,7 @@ return {
   lazy = true,
   event = { 'CursorHold', 'CursorHoldI' },
   dependencies = {
-    'windwp/nvim-ts-autotag'
+    'windwp/nvim-ts-autotag',
   },
   build = function()
     if #vim.api.nvim_list_uis() ~= 0 then
@@ -11,20 +11,20 @@ return {
     end
   end,
   config = function()
-    require 'nvim-treesitter.configs'.setup {
+    require('nvim-treesitter.configs').setup {
       ensure_installed = {
         'javascript',
         'typescript',
         'lua',
         'rust',
-        'vimdoc'
+        'vimdoc',
       },
       highlight = {
-        enable = true
+        enable = true,
       },
       autotag = {
-        enable = true
-      }
+        enable = true,
+      },
     }
-  end
+  end,
 }

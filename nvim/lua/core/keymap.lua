@@ -1,22 +1,22 @@
 local utils = require('utils')
 
 local maps = {
-  { { 'n', 'v' }, '<space>',   '' },
-  { 'n',          '<space>w',  '<cmd>silent w!<cr>' },
-  { 'n',          '<space>q',  '<cmd>q!<cr>' },
-  { 'n',          '<space>wq', '<cmd>wq<cr>' },
-  { 'n',          [[\]],       ',' },
-  { 'n',          'j',         'gj' },
-  { 'n',          'k',         'gk' },
-  { 'n',          'gj',        'j' },
-  { 'n',          'gk',        'k' },
-  { 'n',          'ZZ',        '' },
-  { 'n',          'ZQ',        '' },
-  { 'n',          '<space>tt', '<cmd>terminal<CR>' },
-  { 'n',          '<space>si', [[<cmd>%s/"/'/g<CR>]] },
-  { 'i',          'jj',        '<esc>' },
-  { { 'i', 'c' }, '<C-l>',     '<esc>' },
-  { 't',          '<M-i>',     [[<C-\><C-n>]] },
+  { { 'n', 'v' }, '<space>', '' },
+  { 'n', '<space>w', '<cmd>silent w!<cr>' },
+  { 'n', '<space>q', '<cmd>q!<cr>' },
+  { 'n', '<space>wq', '<cmd>wq<cr>' },
+  { 'n', [[\]], ',' },
+  { 'n', 'j', 'gj' },
+  { 'n', 'k', 'gk' },
+  { 'n', 'gj', 'j' },
+  { 'n', 'gk', 'k' },
+  { 'n', 'ZZ', '' },
+  { 'n', 'ZQ', '' },
+  { 'n', '<space>tt', '<cmd>terminal<CR>' },
+  { 'n', '<space>si', [[<cmd>%s/"/'/g<CR>]] },
+  { 'i', 'jj', '<esc>' },
+  { { 'i', 'c' }, '<C-l>', '<esc>' },
+  { 't', '<M-i>', [[<C-\><C-n>]] },
   {
     -- yank and copy current file's absolute path to clipboard
     'n',
@@ -24,7 +24,7 @@ local maps = {
     function()
       vim.api.nvim_command('let @" = expand("%:.")')
       vim.api.nvim_command('let @+ = expand("%:.")')
-    end
+    end,
   },
   {
     -- yank and copy directiory that current file existing to clipboard
@@ -33,7 +33,7 @@ local maps = {
     function()
       vim.api.nvim_command('let @" = expand("%:p:h")')
       vim.api.nvim_command('let @+ = expand("%:p:h")')
-    end
+    end,
   },
   {
     -- echo current file name
@@ -41,7 +41,7 @@ local maps = {
     '<Leader>fe',
     function()
       vim.api.nvim_command('echo expand("%:p")')
-    end
+    end,
   },
   {
     -- toggle line number (call :set number!)
@@ -49,18 +49,18 @@ local maps = {
     '<Leader>nn',
     function()
       vim.api.nvim_command('set number!')
-    end
+    end,
   },
   {
     -- TODO: toggle hlsearch
     'n',
     '<Leader>hl',
-    '<cmd>nohl<cr>'
+    '<cmd>nohl<cr>',
   },
   {
     'n',
     '<Leader>o',
-    '<cmd>only<cr>'
+    '<cmd>only<cr>',
   },
 }
 

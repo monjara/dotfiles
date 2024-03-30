@@ -2,7 +2,7 @@ return {
   'mhartington/formatter.nvim',
   config = function()
     local util = require('formatter.util')
-    require('formatter').setup({
+    require('formatter').setup {
       logging = true,
       log_level = vim.log.levels.WARN,
       filetype = {
@@ -16,7 +16,10 @@ return {
             return {
               exe = 'stylua',
               args = {
+                '--indent-type=Spaces',
+                '--indent-width=2',
                 '--quote-style=AutoPreferSingle',
+                '--call-parentheses=NoSingleTable',
                 '--search-parent-directories',
                 '--stdin-filepath',
                 util.escape_path(util.get_current_buffer_file_path()),
@@ -31,6 +34,6 @@ return {
           require('formatter.filetypes.any').remove_trailing_whitespace,
         },
       },
-    })
+    }
   end,
 }

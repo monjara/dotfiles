@@ -2,7 +2,7 @@ return {
   'echasnovski/mini.splitjoin',
   event = 'VeryLazy',
   config = function()
-    require('mini.splitjoin').setup({
+    require('mini.splitjoin').setup {
       -- Module mappings. Use `''` (empty string) to disable one.
       -- Created for both Normal and Visual modes.
       mappings = {
@@ -37,6 +37,6 @@ return {
         hooks_pre = {},
         hooks_post = {},
       },
-    })
-  end
+    }
+  end,
 }

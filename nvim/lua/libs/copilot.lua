@@ -9,5 +9,5 @@ return {
     vim.keymap.set('i', '<C-g>', '<Plug>(copilot-suggest)')
 
     vim.g.copilot_no_tab_map = true
-  end
+  end,
 }

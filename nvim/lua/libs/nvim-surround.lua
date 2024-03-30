@@ -4,6 +4,6 @@ return {
   version = '*',
   event = 'VeryLazy',
   config = function()
-    require('nvim-surround').setup({})
-  end
+    require('nvim-surround').setup {}
+  end,
 }
