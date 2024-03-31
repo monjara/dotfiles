@@ -42,4 +42,8 @@ utils.keymap_set = function(tbl, opt)
   end
 end
 
+utils.is_filetye = function(buf, filetype)
+  return vim.bo[buf].filetype == filetype
+end
+
 return utils

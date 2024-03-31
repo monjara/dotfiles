@@ -7,7 +7,6 @@ return {
     { 'williamboman/mason-lspconfig.nvim' },
   },
   config = function()
-    local utils = require('utils')
     local lspconfig = require('lspconfig')
 
     local root_pattern = function(filename, pattern)
@@ -22,12 +21,7 @@ return {
             globals = { 'vim' },
           },
           format = {
-            enable = true,
-            defaultConfig = {
-              insert_final_newline = false,
-              indent_size = 2,
-              indent_style = 'space',
-            },
+            enable = false,
           },
         },
       },
@@ -74,88 +68,6 @@ return {
       ft = { 'ruby' },
     }
 
-    -- lspconfig
-    local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']g', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-
-    vim.api.nvim_create_autocmd({ 'LspAttach' }, {
-      group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-      callback = function(e)
-        vim.bo[e.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-        local maps = {
-          { 'n', 'gD', vim.lsp.buf.declaration },
-          { 'n', 'gd', vim.lsp.buf.definition },
-          { 'n', 'K', vim.lsp.buf.hover },
-          { 'n', 'gi', vim.lsp.buf.implementation },
-          { 'n', '<C-k>', vim.lsp.buf.signature_help },
-          { 'n', '<space>wa', vim.lsp.buf.add_workspace_folder },
-          { 'n', '<space>wr', vim.lsp.buf.remove_workspace_folder },
-          {
-            'n',
-            '<space>wl',
-            function()
-              print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-            end,
-          },
-          { 'n', '<space>D', vim.lsp.buf.type_definition },
-          { 'n', '<Space>rn', vim.lsp.buf.rename },
-          { { 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action },
-          { 'n', 'gr', vim.lsp.buf.references },
-        }
-
-        if vim.bo[e.buf].filetype == 'swift' then
-          table.insert(maps, {
-            'n',
-            '<leader>fo',
-            function()
-              vim.api.nvim_command('SwiftFormat')
-            end,
-          })
-        else
-          table.insert(maps, {
-            'n',
-            '<leader>fo',
-            function()
-              vim.lsp.buf.format { async = true }
-            end,
-          })
-        end
-
-        local o = { buffer = e.buf, noremap = true, silent = true }
-        utils.keymap_set(maps, o)
-      end,
-    })
-
-    vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-      pattern = { '*.tf', '*.tfvars' },
-      callback = function()
-        vim.lsp.buf.format()
-      end,
-    })
-
-    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-      pattern = { '*.swiftinterface' },
-      callback = function()
-        vim.api.nvim_command('set filetype=swift')
-      end,
-    })
-
-    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-      pattern = { '*.swift-format' },
-      callback = function()
-        vim.api.nvim_command('set filetype=json')
-      end,
-    })
-
-    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-      pattern = { '*.ejs' },
-      callback = function()
-        vim.api.nvim_command('set filetype=html')
-      end,
-    })
+    require('libs.nvim-lspconfig.init')
   end,
 }

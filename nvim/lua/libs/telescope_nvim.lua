@@ -2,28 +2,6 @@ return {
   'nvim-telescope/telescope.nvim',
   lazy = true,
   dependencies = { 'nvim-lua/plenary.nvim' },
-  keys = {
-    {
-      '<space>ff',
-      '<cmd>Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <cr>',
-      desc = 'Telescope',
-    },
-    {
-      '<space>fr',
-      '<cmd>Telescope live_grep find_command=rg,--files,--hidden,--glob,!*.git <cr>',
-      desc = 'Telescope',
-    },
-    {
-      '<space>fb',
-      '<cmd>Telescope buffers find_command=rg,--files,--hidden,--glob,!*.git <cr>',
-      desc = 'Telescope',
-    },
-    {
-      '<space>fh',
-      '<cmd>Telescope help_tags<cr>',
-      desc = 'Telescope',
-    },
-  },
   config = function()
     require('telescope').setup {
       defaults = {
@@ -40,5 +18,28 @@ return {
         },
       },
     }
+
+    require('utils').keymap_set({
+      {
+        'n',
+        '<space>ff',
+        '<cmd>Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <cr>',
+      },
+      {
+        'n',
+        '<space>fr',
+        '<cmd>Telescope live_grep find_command=rg,--files,--hidden,--glob,!*.git <cr>',
+      },
+      {
+        'n',
+        '<space>fb',
+        '<cmd>Telescope buffers find_command=rg,--files,--hidden,--glob,!*.git <cr>',
+      },
+      {
+        'n',
+        '<space>fh',
+        '<cmd>Telescope help_tags<cr>',
+      },
+    }, { silent = true, noremap = true })
   end,
 }
