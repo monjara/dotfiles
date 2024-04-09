@@ -1,0 +1,9 @@
+{
+  "package": {
+    "prefix": ["pkg"],
+    "body": [
+      "syntax = \"proto3\";",
+      "package $TM_FILENAME_BASE;"
+    ]
+  }
+}

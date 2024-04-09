@@ -1,7 +1,7 @@
 return {
   {
     'pmizio/typescript-tools.nvim',
-    ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+    ft = { 'typescript', 'typescriptreact' },
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opt = {},
   },
@@ -34,12 +34,17 @@ return {
         },
       }
 
-      -- typescript, typescriptreact, javascript, javascriptreact
+      -- typescript, typescriptreact, javascriptreact
       require('typescript-tools').setup {
         settings = {
           -- tsserver_locale = 'ja',
         },
       }
+
+      -- -- javascript
+      -- require('tsserver').setup {
+      --   ft = { 'javascript' },
+      -- }
 
       -- swift
       lspconfig.sourcekit.setup {
