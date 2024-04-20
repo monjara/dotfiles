@@ -1,7 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   lazy = true,
-  event = { 'CursorHold', 'CursorHoldI' },
+  event = { 'BufReadPost', 'BufNewFile', 'BufWritePre', 'VeryLazy' },
   dependencies = {
     'windwp/nvim-ts-autotag',
   },
@@ -10,6 +10,7 @@ return {
       vim.api.nvim_command('TSUpdate')
     end
   end,
+  main = 'nvim-treesitter.configs',
   config = function()
     require('nvim-treesitter.configs').setup {
       ensure_installed = {

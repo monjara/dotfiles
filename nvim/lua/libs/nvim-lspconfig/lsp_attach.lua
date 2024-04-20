@@ -4,7 +4,8 @@ M.setup = function()
   vim.api.nvim_create_autocmd({ 'LspAttach' }, {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(e)
-      vim.bo[e.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+      local bufnr = e.buf
+      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
       local maps = {
         { 'n', 'gD', vim.lsp.buf.declaration },
@@ -32,7 +33,7 @@ M.setup = function()
       }
 
       local utils = require('utils')
-      if utils.is_filetye(e.buf, 'swift') then
+      if utils.is_filetye(bufnr, 'swift') then
         table.insert(maps, {
           'n',
           '<leader>fo',
@@ -40,13 +41,23 @@ M.setup = function()
             vim.api.nvim_command('SwiftFormat')
           end,
         })
-      elseif utils.is_filetye(e.buf, 'lua') then
+      elseif utils.is_filetye(bufnr, 'lua') then
         table.insert(maps, {
           'n',
           '<leader>fo',
           function()
             -- formatter.nvim
             vim.api.nvim_command('Format')
+          end,
+        })
+      elseif utils.is_filetye(bufnr, 'rust') then
+        table.insert(maps, {
+          'n',
+          '<leader>fo',
+          function()
+            vim.cmd('!cargo fix --allow-dirty')
+            vim.lsp.buf.format { async = false }
+            vim.cmd('RustAnalyzer restart')
           end,
         })
       else
@@ -59,7 +70,7 @@ M.setup = function()
         })
       end
 
-      local o = { buffer = e.buf, noremap = true, silent = true }
+      local o = { buffer = bufnr, noremap = true, silent = true }
       utils.keymap_set(maps, o)
     end,
   })
