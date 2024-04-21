@@ -23,7 +23,7 @@ M.setup = function()
           end,
         },
         { 'n', '<space>D', vim.lsp.buf.type_definition },
-        { 'n', '<Space>rn', vim.lsp.buf.rename },
+        { 'n', '<space>rn', vim.lsp.buf.rename },
         { { 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action },
         { 'n', 'gr', vim.lsp.buf.references },
         { 'n', '<space>ef', vim.diagnostic.open_float },
@@ -55,9 +55,9 @@ M.setup = function()
           'n',
           '<leader>fo',
           function()
-            vim.cmd('!cargo fix --allow-dirty')
+            vim.cmd('silent !cargo fix --allow-dirty')
             vim.lsp.buf.format { async = false }
-            vim.cmd('RustAnalyzer restart')
+            vim.cmd('silent RustLsp reloadWorkspace')
           end,
         })
       else
