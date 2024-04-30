@@ -184,6 +184,16 @@
       "class $TM_FILENAME_BASE {",
       "}"
     ]
-
+  },
+  "header comment": {
+    "prefix": ["header_comment"],
+    "body": [
+      "//",
+      "//  $TM_FILENAME_BASE.swift",
+      "//",
+      "//  Created by ${VIM:\\$USER} on ${VIM:system('python -c \"import datetime, sys;sys.stdout.write(str(datetime.datetime.today().date()))\"')}.",
+      "//",
+      ""
+    ]
   }
 }
