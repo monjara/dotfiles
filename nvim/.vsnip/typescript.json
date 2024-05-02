@@ -1,5 +1,5 @@
 {
-  "export function": {
+  "export const": {
     "prefix": ["efc"],
     "body": [
       "const $TM_FILENAME_BASE = () => {",
@@ -27,6 +27,22 @@
     "body": [
       "console.time('time')",
       "console.timeEnd('time')"
+    ]
+  },
+  "export function": {
+    "prefix": ["ef"],
+    "body": [
+      "export function $1() {",
+      "",
+      "}"
+    ]
+  },
+  "export default function": {
+    "prefix": ["edf"],
+    "body": [
+      "export default function $1() {",
+      "",
+      "}"
     ]
   }
 }

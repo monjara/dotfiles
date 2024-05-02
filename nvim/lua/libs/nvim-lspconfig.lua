@@ -53,7 +53,7 @@ return {
           '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
         },
         on_attach = function()
-          vim.api.nvim_create_user_command('SwiftFormat', '!swift format ' .. vim.api.nvim_buf_get_name(0) .. ' -i', {})
+          vim.api.nvim_create_user_command('SwiftFormat', '!swift format ' .. vim.fn.expand('%') .. ' -i', {})
         end,
         root_dir = function(filename, _)
           return root_pattern(filename, 'Package.swift')
