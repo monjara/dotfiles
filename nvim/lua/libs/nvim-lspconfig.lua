@@ -41,20 +41,12 @@ return {
         },
       }
 
-      -- -- javascript
-      -- require('tsserver').setup {
-      --   ft = { 'javascript' },
-      -- }
-
       -- swift
       lspconfig.sourcekit.setup {
         ft = { 'swift' },
         cmd = {
           '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
         },
-        on_attach = function()
-          vim.api.nvim_create_user_command('SwiftFormat', '!swift format ' .. vim.fn.expand('%') .. ' -i', {})
-        end,
         root_dir = function(filename, _)
           return root_pattern(filename, 'Package.swift')
             or root_pattern(filename, 'buildServer.json')

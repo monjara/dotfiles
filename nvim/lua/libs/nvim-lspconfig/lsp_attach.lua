@@ -33,24 +33,16 @@ M.setup = function()
       }
 
       local utils = require('utils')
-      if utils.is_filetye(bufnr, 'swift') then
-        table.insert(maps, {
-          'n',
-          '<leader>fo',
-          function()
-            vim.api.nvim_command('SwiftFormat')
-          end,
-        })
-      elseif utils.is_filetye(bufnr, 'lua') then
-        table.insert(maps, {
-          'n',
-          '<leader>fo',
-          function()
-            -- formatter.nvim
-            vim.api.nvim_command('Format')
-          end,
-        })
-      elseif utils.is_filetye(bufnr, 'rust') then
+      -- if utils.is_filetye(bufnr, 'swift') then
+      --   table.insert(maps, {
+      --     'n',
+      --     '<leader>fo',
+      --     function()
+      --       vim.api.nvim_command('SwiftFormat')
+      --     end,
+      --   })
+      -- elseif utils.is_filetye(bufnr, 'rust') then
+      if utils.is_filetye(bufnr, 'rust') then
         table.insert(maps, {
           'n',
           '<leader>fo',
@@ -65,7 +57,8 @@ M.setup = function()
           'n',
           '<leader>fo',
           function()
-            vim.lsp.buf.format { async = true }
+            -- formatter.nvim
+            vim.api.nvim_command('Format')
           end,
         })
       end
