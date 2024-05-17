@@ -22,4 +22,3 @@ require('lazy').setup {
   --   { dir = '~/Develop/lua/fuga' }
   --]]
 }
-

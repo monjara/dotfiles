@@ -21,6 +21,7 @@ return {
       end
 
       -- lua
+      require('neodev').setup {}
       lspconfig.lua_ls.setup {
         settings = {
           Lua = {
