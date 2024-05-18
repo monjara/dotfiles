@@ -22,3 +22,6 @@ require('lazy').setup {
   --   { dir = '~/Develop/lua/fuga' }
   --]]
 }
+
+local rpc_path = require('utils').get_config() .. '/oxi'
+vim.cmd('set rtp+=' .. rpc_path)
