@@ -1,6 +1,5 @@
 return {
   function()
-    print('ssss')
     return {
       exe = 'swift',
       args = {
