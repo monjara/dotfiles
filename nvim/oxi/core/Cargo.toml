@@ -1,5 +1,5 @@
 [package]
-name = "foo"
+name = "core"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,4 +7,4 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-nvim-oxi.workspace = true
+nvim-oxi = { version = "0.4.2", features = ["neovim-0-9"] }

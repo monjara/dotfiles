@@ -4,13 +4,13 @@ cd `dirname $0`
 cd ..
 
 rm ./oxi/lua/*.so
-cd ./oxi
+cd ./oxi/core
 cargo build --release
-cd ../
+cd ../../
 
-for file in `ls oxi/target/release | grep dylib`; do
+for file in `ls oxi/core/target/release | grep dylib`; do
     if [[ $file =~ ^lib(.*)\.dylib$ ]]; then
-        cp ./oxi/target/release/$file ./oxi/lua/${BASH_REMATCH[1]}.so
+        cp ./oxi/core/target/release/$file ./oxi/lua/${BASH_REMATCH[1]}.so
     fi
 done
 
