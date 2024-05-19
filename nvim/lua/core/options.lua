@@ -1,6 +1,4 @@
 for k, v in pairs {
-  fenc = 'utf-8',
-  encoding = 'utf-8',
   shortmess = 'aoOTIcF',
   ignorecase = true,
   wildignorecase = true,
