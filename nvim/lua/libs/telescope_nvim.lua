@@ -40,6 +40,11 @@ return {
         '<space>fh',
         '<cmd>Telescope help_tags<cr>',
       },
+      {
+        'n',
+        '<space>fm',
+        '<cmd>Telescope marks<cr>',
+      },
     }, { silent = true, noremap = true })
   end,
 }
