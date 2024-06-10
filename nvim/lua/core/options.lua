@@ -1,39 +1,34 @@
-for k, v in pairs {
-  shortmess = 'aoOTIcF',
-  ignorecase = true,
-  wildignorecase = true,
-  hidden = true,
-  showcmd = true,
-  autoread = true,
-  backup = false,
-  clipboard = 'unnamedplus',
-  showmatch = true,
-  signcolumn = 'yes',
-  swapfile = false,
-  cursorline = true,
-  visualbell = true,
-  splitright = true,
-  cmdheight = 0,
-  laststatus = 0,
-  writebackup = false,
-  updatetime = 300,
-  virtualedit = 'onemore',
-  wildmode = 'list:longest',
-  autoindent = true,
-  smartindent = true,
-  cindent = true,
-  smarttab = true,
-  expandtab = true,
-  tabstop = 2,
-  shiftwidth = 2,
-  softtabstop = 0,
-  completeopt = { 'menu', 'menuone', 'noselect' },
-} do
-  vim.opt[k] = v
-end
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.pumblend = 0
+vim.opt.shortmess = 'aoOTIcF'
+vim.opt.ignorecase = true
+vim.opt.wildignorecase = true
+vim.opt.hidden = true
+vim.opt.showcmd = true
+vim.opt.autoread = true
+vim.opt.backup = false
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.showmatch = true
+vim.opt.signcolumn = 'yes'
+vim.opt.swapfile = false
+vim.opt.cursorline = true
+vim.opt.visualbell = true
+vim.opt.splitright = true
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 0
+vim.opt.writebackup = false
+vim.opt.updatetime = 300
+vim.opt.virtualedit = 'onemore'
+vim.opt.wildmode = 'list:longest'
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.cindent = true
+vim.opt.smarttab = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 0
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-for k, v in pairs {
-  mapleader = ',',
-} do
-  vim.g[k] = v
-end
+vim.g.mapleader = ','
