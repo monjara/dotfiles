@@ -9,7 +9,7 @@ return {
         swift = require('libs.formatter.swift'),
         ['*'] = {
           function()
-            vim.lsp.buf.format { async = false }
+            vim.lsp.buf.format { async = true }
             return {}
           end,
         },
