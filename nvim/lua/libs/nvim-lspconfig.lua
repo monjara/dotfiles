@@ -62,37 +62,6 @@ return {
         ft = { 'ruby' },
       }
 
-      -- yaml
-      lspconfig.yamlls.setup {
-        ft = { 'yaml' },
-        settings = {
-          yaml = {
-            customTags = {
-              '!Base64',
-              '!Cidr sequence',
-              '!And sequence',
-              '!Equals sequence',
-              '!If sequence',
-              '!Not sequence',
-              '!Or sequence',
-              '!Condition',
-              '!FindInMap sequence',
-              '!GetAtt',
-              '!GetAtt sequence',
-              '!GetAZs',
-              '!ImportValue',
-              '!Join sequence',
-              '!Select sequence',
-              '!Split sequence',
-              '!Sub',
-              '!Sub sequence',
-              '!Transform mapping',
-              '!Ref',
-            },
-          },
-        },
-      }
-
       -- default
       require('libs.nvim-lspconfig.init')
     end,
