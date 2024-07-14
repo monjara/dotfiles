@@ -1,0 +1,10 @@
+{
+  "cloudformation version format": {
+    "prefix": [
+      "cfv"
+    ],
+    "body": [
+      "AWSTemplateFormatVersion: \"2010-09-09\""
+    ]
+  }
+}
