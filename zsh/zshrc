@@ -104,7 +104,6 @@ alias memo='vi ~/Documents/memo.txt'
 # CircleCiCLI用alias
 alias civa='circleci config validate'
 alias cile='circleci local execute'
-alias l='exa'
 
 # .zsh_local読み込み
 [ -f $HOME/.zshrc_local ] && source $HOME/.zshrc_local

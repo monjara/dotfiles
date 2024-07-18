@@ -1,5 +1,6 @@
 return {
   'dense-analysis/ale',
+  ft = { 'yaml' },
   config = function()
     local g = vim.g
 
