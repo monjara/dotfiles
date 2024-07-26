@@ -1,7 +1,7 @@
 return {
   {
     'pmizio/typescript-tools.nvim',
-    ft = { 'typescript', 'typescriptreact' },
+    ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opt = {},
   },
@@ -37,8 +37,14 @@ return {
 
       -- typescript, typescriptreact, javascriptreact
       require('typescript-tools').setup {
+        ft = {
+          'typescript',
+          'typescriptreact',
+          'javascript',
+          'javascriptreact',
+        },
         settings = {
-          -- tsserver_locale = 'ja',
+          tsserver_locale = 'ja',
         },
       }
 
