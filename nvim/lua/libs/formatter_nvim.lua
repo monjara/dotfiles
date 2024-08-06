@@ -5,8 +5,8 @@ return {
       logging = true,
       log_level = vim.log.levels.WARN,
       filetype = {
-        lua = require('libs.formatter.lua'),
-        swift = require('libs.formatter.swift'),
+        lua = require('formatter.lua'),
+        swift = require('formatter.swift'),
         ['*'] = {
           function()
             vim.lsp.buf.format { async = true }
