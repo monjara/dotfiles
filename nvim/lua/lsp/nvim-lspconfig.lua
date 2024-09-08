@@ -37,16 +37,23 @@ return {
 
       -- typescript, typescriptreact, javascriptreact
       require('typescript-tools').setup {
-        ft = {
-          'typescript',
-          'typescriptreact',
-          'javascript',
-          'javascriptreact',
-        },
         settings = {
           tsserver_locale = 'ja',
         },
       }
+
+      lspconfig.biome.setup {}
+
+      local deno_root = lspconfig.util.search_ancestors(vim.fn.getcwd(), function(path)
+        if lspconfig.util.path.is_file(lspconfig.util.path.join(path, 'deno.lock')) then
+          return path
+        end
+      end)
+
+      -- denols
+      if deno_root ~= nil then
+        lspconfig.denols.setup {}
+      end
 
       -- swift
       lspconfig.sourcekit.setup {

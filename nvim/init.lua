@@ -17,6 +17,8 @@ require('lazy').setup {
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-lua/popup.nvim' },
   { import = 'libs' },
+  { import = 'lsp' },
+  { import = 'ui' },
   --[[
   --   local development
   --   { dir = '~/Develop/lua/fuga' }

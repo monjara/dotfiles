@@ -17,6 +17,8 @@ local maps = {
   { 'i', 'jj', '<esc>' },
   { { 'i', 'c' }, '<C-l>', '<esc>' },
   { 't', '<M-i>', [[<C-\><C-n>]] },
+  { 'n', '<space>j', '<cmd>bnext<cr>' },
+  { 'n', '<space>k', '<cmd>bprevious<cr>' },
   {
     -- yank and copy current file's absolute path to clipboard
     'n',

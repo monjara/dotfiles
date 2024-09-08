@@ -1,40 +1,41 @@
 local utils = {}
 
-utils.is_mac = vim.fn.has('darwin') == 1
-utils.is_linux = vim.fn.has('linux') == 1
+function utils.is_mac()
+  return vim.fn.has('darwin') == 1
+end
 
-utils.get_separator = function()
+function utils.is_linux()
+  return vim.fn.has('linux') == 1
+end
+
+function utils.get_separator()
   return '/'
 end
 
-utils.join_paths = function(...)
+function utils.join_paths(...)
   local separator = utils.get_separator()
   return table.concat({ ... }, separator)
 end
 
-utils.get_home = function()
+function utils.get_home()
   return os.getenv('HOME')
 end
 
-local function get_config_dir()
+function utils.get_config()
   return vim.fn.stdpath('config')
 end
 
-utils.get_config = function()
-  return get_config_dir()
+function utils.get_init_lua()
+  return utils.get_config() .. '/init.lua'
 end
 
-utils.get_init_lua = function()
-  return get_config_dir() .. '/init.lua'
-end
-
-utils.create_custome_command = function(name, command, opts)
+function utils.create_custome_command(name, command, opts)
   vim.api.nvim_create_user_command(name, function()
     vim.api.nvim_command(command)
   end, opts)
 end
 
-utils.keymap_set = function(tbl, opt)
+function utils.keymap_set(tbl, opt)
   local o = opt or { noremap = true, silent = true }
 
   for _, v in ipairs(tbl) do
@@ -42,7 +43,7 @@ utils.keymap_set = function(tbl, opt)
   end
 end
 
-utils.is_filetye = function(buf, filetype)
+function utils.is_filetye(buf, filetype)
   return vim.bo[buf].filetype == filetype
 end
 
