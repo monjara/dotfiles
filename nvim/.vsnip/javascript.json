@@ -36,5 +36,11 @@
       "console.time('time')",
       "console.timeEnd('time')"
     ]
+  },
+  "THREE": {
+    "prefix": ["three", "THREE", "new three", "new THREE"],
+    "body": [
+      "new THREE.$1($2)"
+    ]
   }
 }
