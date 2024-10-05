@@ -35,6 +35,42 @@ return {
     vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSignInfo' })
     vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 
+    local function copy_path(state)
+      -- NeoTree is based on [NuiTree](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree)
+      -- The node is based on [NuiNode](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree#nuitreenode)
+      local node = state.tree:get_node()
+      local filepath = node:get_id()
+      local filename = node.name
+      local modify = vim.fn.fnamemodify
+
+      local results = {
+        filepath,
+        modify(filepath, ':.'),
+        modify(filepath, ':~'),
+        filename,
+        modify(filename, ':r'),
+        modify(filename, ':e'),
+      }
+
+      vim.ui.select({
+        results[1],
+        results[2],
+        results[3],
+        results[4],
+        results[5],
+        results[6],
+      }, {
+        prompt = 'Choose to copy to clipboard:',
+      }, function(choice, index)
+        if choice == nil then
+          vim.notify('Selection cancelled')
+        end
+
+        local result = results[index]
+        vim.fn.setreg('*', result)
+      end)
+    end
+
     require('neo-tree').setup {
       close_if_last_window = false,
       popup_border_style = 'rounded',
@@ -117,6 +153,7 @@ return {
           ['d'] = 'delete',
           ['r'] = 'rename',
           ['y'] = 'copy_to_clipboard',
+          ['Y'] = copy_path,
           ['x'] = 'cut_to_clipboard',
           ['p'] = 'paste_from_clipboard',
           ['c'] = 'copy',
