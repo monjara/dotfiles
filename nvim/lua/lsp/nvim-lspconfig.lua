@@ -75,6 +75,10 @@ return {
         ft = { 'ruby' },
       }
 
+      lspconfig.glsl_analyzer.setup {
+        ft = { 'glsl' },
+      }
+
       -- default
       -- require('libs.nvim-lspconfig.init')
 

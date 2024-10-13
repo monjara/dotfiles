@@ -22,6 +22,14 @@
   "less.validate": false,
   "scss.validate": false,
   "files.autoGuessEncoding": true,
+  "files.exclude": {
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "node_modules/.pnpm/**": true
+  },
   "explorer.confirmDelete": false,
   "notebook.cellToolbarLocation": {
     "default": "right",
@@ -334,5 +342,6 @@
     "!Sub sequence",
     "!Transform mapping",
     "!Ref"
-  ]
+  ],
+  "github.copilot.advanced": {},
 }
