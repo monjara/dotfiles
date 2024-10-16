@@ -1,0 +1,8 @@
+{
+  "println": {
+    "prefix": ["clog", "fmt"],
+    "body": [
+      "fmt.Println(\"$1: \", $1)"
+    ]
+  }
+}
