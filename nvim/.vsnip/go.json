@@ -4,5 +4,11 @@
     "body": [
       "fmt.Println(\"$1: \", $1)"
     ]
+  },
+  "printf": {
+    "prefix": ["printf"],
+    "body": [
+      "fmt.Printf(\"$1: %v %T\\n\", $1, $1)"
+    ]
   }
 }
