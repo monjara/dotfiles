@@ -44,6 +44,14 @@ return {
 
       lspconfig.biome.setup {}
 
+      lspconfig.gopls.setup {
+        settings = {
+          gopls = {
+            staticcheck = true,
+          },
+        },
+      }
+
       local deno_root = lspconfig.util.search_ancestors(vim.fn.getcwd(), function(path)
         if lspconfig.util.path.is_file(lspconfig.util.path.join(path, 'deno.lock')) then
           return path
