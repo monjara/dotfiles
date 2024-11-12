@@ -11,20 +11,20 @@
       // "shift shift": "file_finder::Toggle"
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrev",
-      "ctrl-l": "menu::Confirm",
-    },
+      "ctrl-l": "menu::Confirm"
+    }
   },
   {
     "context": "Editor",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
-    },
+    }
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work in normal & visual mode
-    },
+      "g d": "editor::GoToDefinition",
+    }
   },
   {
     "context": "vim_mode == normal && !menu",
@@ -33,15 +33,20 @@
       "space d d": "project_panel::ToggleFocus",
       "space f f": "file_finder::Toggle",
       ", f o": "editor::Format",
-      "space q": "pane::CloseActiveItem",
-    },
+      "space q": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen || MarkdownPreview || KeyContextView",
+    "bindings": {
+    }
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
       "j j": "vim::NormalBefore",
-      "ctrl-s": "editor::AcceptInlineCompletion",
-    },
+      "ctrl-s": "editor::AcceptInlineCompletion"
+    }
   },
   {
     "context": "EmptyPane || SharedScreen",
@@ -50,6 +55,6 @@
       // work when no editor exists
       // "space f": "file_finder::Toggle"
       "space f f": "file_finder::Toggle",
-    },
-  },
+    }
+  }
 ]
