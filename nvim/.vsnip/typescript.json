@@ -44,5 +44,11 @@
       "",
       "}"
     ]
+  },
+  "biome ignore": {
+    "prefix": ["biome ignore"],
+    "body": [
+      "// biome-ignore lint:"
+    ]
   }
 }

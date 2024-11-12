@@ -141,7 +141,6 @@ return {
             },
             { 'n', '<space>D', vim.lsp.buf.type_definition },
             { 'n', '<space>rn', vim.lsp.buf.rename },
-            { { 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action },
             { 'n', 'gr', vim.lsp.buf.references },
             { 'n', '<space>ef', vim.diagnostic.open_float },
             { 'n', '[g', vim.diagnostic.goto_prev },
@@ -164,11 +163,18 @@ return {
               'n',
               '<leader>fo',
               function()
-                vim.cmd('silent !cargo fix --allow-dirty')
-                vim.lsp.buf.format { async = false }
-                vim.cmd('silent RustLsp reloadWorkspace')
+                vim.lsp.buf.format { async = true }
               end,
             })
+            table.insert(maps, {
+              { 'n', 'v' },
+              '<space>ca',
+              function()
+                vim.cmd.RustLsp('codeAction')
+              end,
+            })
+
+            -- default setting
           else
             table.insert(maps, {
               'n',
@@ -178,6 +184,8 @@ return {
                 vim.api.nvim_command('Format')
               end,
             })
+
+            table.insert(maps, { { 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action })
           end
 
           utils.keymap_set(maps, { buffer = bufnr, noremap = true, silent = true })
