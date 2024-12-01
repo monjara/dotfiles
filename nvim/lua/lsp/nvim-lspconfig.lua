@@ -139,7 +139,7 @@ return {
                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
               end,
             },
-            { 'n', '<space>D', vim.lsp.buf.type_definition },
+            { 'n', 'gt', vim.lsp.buf.type_definition },
             { 'n', '<space>rn', vim.lsp.buf.rename },
             { 'n', 'gr', vim.lsp.buf.references },
             { 'n', '<space>ef', vim.diagnostic.open_float },
@@ -173,9 +173,19 @@ return {
                 vim.cmd.RustLsp('codeAction')
               end,
             })
-
-            -- default setting
+          elseif utils.is_filetye(bufnr, 'typescript', 'typescriptreact', 'javascript', 'javascriptreact') then
+            table.insert(maps, {
+              'n',
+              '<leader>fo',
+              function()
+                vim.api.nvim_command('TSToolsSortImports')
+                vim.api.nvim_command('TSToolsRemoveUnusedImports')
+                vim.lsp.buf.format { async = true }
+              end,
+            })
+            table.insert(maps, { { 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action })
           else
+            -- default setting
             table.insert(maps, {
               'n',
               '<leader>fo',

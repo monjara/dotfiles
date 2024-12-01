@@ -43,8 +43,16 @@ function utils.keymap_set(tbl, opt)
   end
 end
 
-function utils.is_filetye(buf, filetype)
-  return vim.bo[buf].filetype == filetype
+function utils.is_filetye(buf, ...)
+  local result = false
+  for _, v in ipairs { ... } do
+    local r = vim.bo[buf].filetype == v
+    if r then
+      result = true
+      break
+    end
+  end
+  return result
 end
 
 return utils
