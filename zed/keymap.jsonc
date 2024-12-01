@@ -33,7 +33,8 @@
       "space d d": "project_panel::ToggleFocus",
       "space f f": "file_finder::Toggle",
       ", f o": "editor::Format",
-      "space q": "pane::CloseActiveItem"
+      "space q": "pane::CloseActiveItem",
+      "space c a": "editor::ToggleCodeActions"
     }
   },
   {
