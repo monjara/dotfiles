@@ -53,7 +53,7 @@ return {
       }
 
       local deno_root = lspconfig.util.search_ancestors(vim.fn.getcwd(), function(path)
-        if lspconfig.util.path.is_file(lspconfig.util.path.join(path, 'deno.lock')) then
+        if (vim.loop.fs_stat(lspconfig.util.path.join(path, 'deno.lock')) or {}).type == 'file' then
           return path
         end
       end)
@@ -143,8 +143,8 @@ return {
             { 'n', '<space>rn', vim.lsp.buf.rename },
             { 'n', 'gr', vim.lsp.buf.references },
             { 'n', '<space>ef', vim.diagnostic.open_float },
-            { 'n', '[g', vim.diagnostic.goto_prev },
-            { 'n', ']g', vim.diagnostic.goto_next },
+            { 'n', 'g[', vim.diagnostic.goto_prev },
+            { 'n', 'g]', vim.diagnostic.goto_next },
             { 'n', '<space>el', vim.diagnostic.setloclist },
           }
 
@@ -179,7 +179,6 @@ return {
               '<leader>fo',
               function()
                 vim.api.nvim_command('TSToolsSortImports')
-                vim.api.nvim_command('TSToolsRemoveUnusedImports')
                 vim.lsp.buf.format { async = true }
               end,
             })
