@@ -18,12 +18,26 @@
     "context": "Editor",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
+      "shift-u": "editor::SelectLargerSyntaxNode",
+      "shift-d": "editor::SelectSmallerSyntaxNode"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "use_key_equivalents": true,
+    "bindings": {
+      "up": "editor::ContextMenuPrev",
+      "ctrl-k": "editor::ContextMenuPrev",
+      "down": "editor::ContextMenuNext",
+      "ctrl-j": "editor::ContextMenuNext",
+      "pageup": "editor::ContextMenuFirst",
+      "pagedown": "editor::ContextMenuLast"
     }
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "g d": "editor::GoToDefinition",
+      "g d": "editor::GoToDefinition"
     }
   },
   {
@@ -32,15 +46,19 @@
       // "shift-y": ["workspace::SendKeystrokes", "y $"] // use nvim's Y behavior
       "space d d": "project_panel::ToggleFocus",
       "space f f": "file_finder::Toggle",
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-shift-p": "command_palette::Toggle",
       ", f o": "editor::Format",
       "space q": "pane::CloseActiveItem",
-      "space c a": "editor::ToggleCodeActions"
+      "space c a": "editor::ToggleCodeActions",
+
+      // task
+      "space t n": "editor::SpawnNearestTask"
     }
   },
   {
     "context": "EmptyPane || SharedScreen || MarkdownPreview || KeyContextView",
-    "bindings": {
-    }
+    "bindings": {}
   },
   {
     "context": "vim_mode == insert",
@@ -55,7 +73,7 @@
       // put key-bindings here (in addition to above) if you want them to
       // work when no editor exists
       // "space f": "file_finder::Toggle"
-      "space f f": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle"
     }
   }
 ]
