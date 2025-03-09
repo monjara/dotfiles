@@ -44,6 +44,8 @@ return {
 
       lspconfig.biome.setup {}
 
+      lspconfig.prismals.setup {}
+
       lspconfig.gopls.setup {
         settings = {
           gopls = {
@@ -53,7 +55,7 @@ return {
       }
 
       local deno_root = lspconfig.util.search_ancestors(vim.fn.getcwd(), function(path)
-        if (vim.loop.fs_stat(lspconfig.util.path.join(path, 'deno.lock')) or {}).type == 'file' then
+        if (vim.loop.fs_stat(table.concat { path, 'deno.lock' }) or {}).type == 'file' then
           return path
         end
       end)
@@ -74,7 +76,7 @@ return {
             or root_pattern(filename, 'buildServer.json')
             or root_pattern(filename, '*.xcodeproj')
             or root_pattern(filename, '*.xcworkspace')
-            or lspconfig.util.find_git_ancestor(filename)
+            or vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
         end,
       }
 
