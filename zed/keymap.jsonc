@@ -10,7 +10,7 @@
     "bindings": {
       // "shift shift": "file_finder::Toggle"
       "ctrl-j": "menu::SelectNext",
-      "ctrl-k": "menu::SelectPrev",
+      "ctrl-k": "menu::SelectPrevious",
       "ctrl-l": "menu::Confirm"
     }
   },
@@ -27,8 +27,8 @@
     "context": "Editor && showing_completions",
     "use_key_equivalents": true,
     "bindings": {
-      "up": "editor::ContextMenuPrev",
-      "ctrl-k": "editor::ContextMenuPrev",
+      "up": "editor::ContextMenuPrevious",
+      "ctrl-k": "editor::ContextMenuPrevious",
       "down": "editor::ContextMenuNext",
       "ctrl-j": "editor::ContextMenuNext",
       "pageup": "editor::ContextMenuFirst",
@@ -41,8 +41,8 @@
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-l": "editor::ConfirmCodeAction",
-      "up": "editor::ContextMenuPrev",
-      "ctrl-k": "editor::ContextMenuPrev",
+      "up": "editor::ContextMenuPrevious",
+      "ctrl-k": "editor::ContextMenuPrevious",
       "down": "editor::ContextMenuNext",
       "ctrl-j": "editor::ContextMenuNext",
       "pageup": "editor::ContextMenuFirst",
@@ -86,7 +86,9 @@
     "context": "vim_mode == insert",
     "bindings": {
       "j j": "vim::NormalBefore",
-      "ctrl-s": "editor::AcceptEditPrediction"
+      "ctrl-s": "editor::AcceptEditPrediction",
+      "cmd-j": "copilot::NextSuggestion",
+      "cmd-k": "copilot::PreviousSuggestion"
     }
   },
   {
@@ -110,7 +112,7 @@
       "escape": "project_panel::ToggleFocus",
       "h": "project_panel::CollapseSelectedEntry",
       "j": "menu::SelectNext",
-      "k": "menu::SelectPrev",
+      "k": "menu::SelectPrevious",
       "l": "project_panel::ExpandSelectedEntry",
       "o": "project_panel::OpenPermanent",
       "shift-d": "project_panel::Delete",
