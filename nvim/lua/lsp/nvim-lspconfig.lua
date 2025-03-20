@@ -89,6 +89,10 @@ return {
         ft = { 'glsl' },
       }
 
+      lspconfig.taplo.setup {
+        ft = { 'toml' },
+      }
+
       -- default
       -- require('libs.nvim-lspconfig.init')
 
