@@ -52,7 +52,9 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "g d": "editor::GoToDefinition"
+      "g d": "editor::GoToDefinition",
+      "t": ["easy_motion::Word", "both"],
+      "s": ["easy_motion::NChar", 1]
     }
   },
   {
@@ -74,8 +76,8 @@
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
-      "s": ["vim::PushSneak", {}],
-      "S": ["vim::PushSneakBackward", {}]
+      // "s": ["vim::PushSneak", {}],
+      // "S": ["vim::PushSneakBackward", {}]
     }
   },
   {
