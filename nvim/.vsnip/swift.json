@@ -1,0 +1,199 @@
+{
+  "Button SwiftUI": {
+    "prefix": ["button"],
+    "body": [
+      "Button {",
+      "    $1",
+      "} label: {",
+      "    $2",
+      "}"
+    ]
+  },
+  "LinerGradient SwiftUI": {
+    "prefix": ["LinerGradient"],
+    "body": [
+      "LinearGradient(gradient: $1, startPoint: $2, endPoint: $3)"
+    ]
+  },
+  "Gradient SwiftUI": {
+    "prefix": ["Gradient"],
+    "body": [
+      "Gradient(colors: [$1, $2]"
+    ]
+  },
+  "Mark Comment SwiftUI": {
+    "prefix": ["mark"],
+    "body": [
+      "// MARK:"
+    ]
+  },
+  "print": {
+    "prefix": ["pp"],
+    "body": [
+      "print(\"$1: \\($1)\\n\")"
+    ]
+  },
+  "do": {
+    "prefix": ["do"],
+    "body": [
+      "do {",
+      "    $1",
+      "} catch {",
+      "    $2",
+      "}"
+    ]
+  },
+  "readInt1 func": {
+    "prefix": ["ri1"],
+    "body": [
+      "func readInt1() -> Int {",
+      "    Int(readLine()!)!",
+      "}",
+      "let $1 = readInt1()"
+    ]
+  },
+  "readInt2 func": {
+    "prefix": ["ri2"],
+    "body": [
+      "func readInt2() -> (Int, Int) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "    precondition(values.count == 2)",
+      "    return (values[0], values[1])",
+      "}",
+      "let ($1) = readInt2()"
+    ]
+  },
+  "readInt3 func": {
+    "prefix": ["ri3"],
+    "body": [
+      "func readInt3() -> (Int, Int, Int) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "    precondition(values.count == 3)",
+      "    return (values[0], values[1], values[2])",
+      "}",
+      "let ($1) = readInt3()"
+    ]
+  },
+  "readInt4 func": {
+    "prefix": ["ri4"],
+    "body": [
+      "func readInt4() -> (Int, Int, Int, Int) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "    precondition(values.count == 4)",
+      "    return (values[0], values[1], values[2], values[3])",
+      "}",
+      "let ($1) = readInt4()"
+    ]
+  },
+  "readIntArray func": {
+    "prefix": ["ria"],
+    "body": [
+      "func readIntArray() -> [Int] {",
+      "    return readLine()!.split(separator: \" \").map {v -> Int in Int(String(v))! }",
+      "}",
+      "let nums = readIntArray()"
+    ]
+  },
+  "readStringArray func": {
+    "prefix": ["rsa"],
+    "body": [
+      "func readStrArray() -> [String] {",
+      "    return readLine()!.split(separator: \" \").map {v -> String in String(v)}",
+      "}",
+      "let arr = readStrArray()"
+    ]
+  },
+  "readString func": {
+    "prefix": ["rs1"],
+    "body": [
+      "func readString1() -> String {",
+      "    return readLine()!",
+      "}",
+      "let s = readString1()"
+    ]
+  },
+  "readString2 func": {
+    "prefix": ["rs2"],
+    "body": [
+      "func readString2() -> (String, String) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> String in String(v) }",
+      "    precondition(values.count == 2)",
+      "    return (values[0], values[1])",
+      "}",
+      "let ($1) = readString2()"
+    ]
+  },
+  "readString3 func": {
+    "prefix": ["rs3"],
+    "body": [
+      "func readString3() -> (String, String, String) {",
+      "    let values = readLine()!.split(separator: \" \").map {v -> String in String(v) }",
+      "    precondition(values.count == 3)",
+      "    return (values[0], values[1], values[2])",
+      "}",
+      "let ($1) = readString3()"
+    ]
+  },
+  "struct": {
+    "prefix": ["struct"],
+    "body": [
+      "struct $TM_FILENAME_BASE {",
+      "",
+      "}"
+    ]
+  },
+  "script": {
+    "prefix": ["#!"],
+    "body": [
+      "#!/usr/bin/env swift"
+    ]
+  },
+  "SwiftUI View struct": {
+    "prefix": ["uistruct"],
+    "body": [
+      "//",
+      "//  $TM_FILENAME_BASE.swift",
+      "//",
+      "//  Created by ${VIM:\\$USER} on ${VIM:system('python -c \"import datetime, sys;sys.stdout.write(str(datetime.datetime.today().date()))\"')}.",
+      "//",
+      "",
+      "import SwiftUI",
+      "",
+      "struct $TM_FILENAME_BASE: View {",
+      "  var body: some View {",
+      "    Text(\"hello!\")",
+      "  }",
+      "}",
+      "",
+      "#Preview {",
+      "  $TM_FILENAME_BASE()",
+      "}"
+    ]
+  },
+  "class": {
+    "prefix": ["cls"],
+    "body": [
+      "//",
+      "//  $TM_FILENAME_BASE.swift",
+      "//",
+      "//  Created by ${VIM:\\$USER} on ${VIM:system('python -c \"import datetime, sys;sys.stdout.write(str(datetime.datetime.today().date()))\"')}.",
+      "//",
+      "",
+      "import Foundation",
+      "",
+      "class $TM_FILENAME_BASE {",
+      "}"
+    ]
+  },
+  "header comment": {
+    "prefix": ["header_comment"],
+    "body": [
+      "//",
+      "//  $TM_FILENAME_BASE.swift",
+      "//",
+      "//  Created by ${VIM:\\$USER} on ${VIM:system('python -c \"import datetime, sys;sys.stdout.write(str(datetime.datetime.today().date()))\"')}.",
+      "//",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "jsx top component": {
+    "prefix": ["rc"],
+    "body": [
+      "import P from 'prop-types'",
+      "import React from 'react'",
+      "",
+      "const $TM_FILENAME_BASE = () => {",
+      "  return (",
+      "    <div>$TM_FILENAME_BASE</div>",
+      "  )",
+      "}",
+      "$TM_FILENAME_BASE.propTypes = {}",
+      "",
+      "export default $TM_FILENAME_BASE",
+      ""
+    ]
+  },
+  "routes file": {
+    "prefix": ["rr"],
+    "body": [
+      "import React from 'react'",
+      "import { Routes, Route } from 'react-router'",
+      "",
+      "const $TM_FILENAME_BASE = () => {",
+      "  return (",
+      "    <Routes>",
+      "      <Route />",
+      "    </Routes>",
+      "  )",
+      "}",
+      "",
+      "export default $TM_FILENAME_BASE",
+      ""
+    ]
+  },
+  "className": {
+    "prefix": ["cn"],
+    "body": ["className='$1'"]
+  },
+  "export function": {
+    "prefix": ["ef"],
+    "body": [
+      "export function $1() {",
+      "",
+      "}"
+    ]
+  },
+  "use client": {
+    "prefix": ["uc"],
+    "body": [
+      "'use client'"
+    ]
+  },
+  "use server": {
+    "prefix": ["us"],
+    "body": [
+      "'use server'"
+    ]
+  }
+}
+

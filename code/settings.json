@@ -1,0 +1,347 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.fontFamily": "Menlo, 'DejaVu Sans Mono', Consolas, 'Lucida Console', monospace",
+  "editor.renderLineHighlight": "none",
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.scrollBeyondLastLine": false,
+  "editor.minimap.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.settings.openDefaultKeybindings": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "files.autoGuessEncoding": true,
+  "files.exclude": {
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "node_modules/.pnpm/**": true
+  },
+  "explorer.confirmDelete": false,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "[graphql]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    },
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "[cpp]": {
+    "editor.tabSize": 4
+  },
+  "git.confirmSync": false,
+  "window.zoomLevel": 1,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": "explicit"
+    }
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": "explicit"
+    }
+  },
+  "Lua.diagnostics.globals": [
+    "vim"
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.surround": true,
+  "vim.leader": ",",
+  "vim.sneak": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "n"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "<space>",
+        "f",
+        "r"
+      ],
+      "commands": [
+        "workbench.action.findInFiles"
+      ]
+    },
+    {
+      "before": [
+        "<space>",
+        "f",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<space>",
+        "t",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.terminal.toggleTerminal"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "x"
+      ],
+      "commands": [
+        "workbench.action.closePanel",
+        "notifications.clearAll"
+      ]
+    },
+    {
+      "before": [
+        "[",
+        "g"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "g"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
+    },
+    {
+      "before": [
+        "s"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "s"
+      ]
+    },
+    {
+      "before": [
+        "<space>",
+        "d",
+        "d"
+      ],
+      "commands": [
+        "workbench.explorer.fileView.focus"
+      ],
+      "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+      "before": [
+        "<space>",
+        "d",
+        "c"
+      ],
+      "commands": [
+        "workbench.explorer.fileView.focus"
+      ],
+      "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+      "before": [
+        "<leader>",
+        "f",
+        "o"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ],
+      "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+      "before": [
+        "<space>",
+        "f",
+        "p"
+      ],
+      "commands": [
+        "copyRelativeFilePath"
+      ]
+    },
+    {
+      "before": [
+        "<space>",
+        "f",
+        "e"
+      ],
+      "commands": [
+        "search.action.focusSearchList"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        "selectPrevSuggestion"
+      ],
+      "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<space>",
+        "n"
+      ],
+      "commands": [
+        "editor.action.addSelectionToNextFindMatch"
+      ]
+    },
+    {
+      "before": [
+        "<space>",
+        "N"
+      ],
+      "commands": [
+        "editor.action.moveSelectionToPreviousFindMatch"
+      ]
+    },
+    {
+      "before": [
+        "<space>",
+        "<space>",
+        "n"
+      ],
+      "commands": [
+        "editor.action.moveSelectionToNextFindMatch"
+      ]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-f>": false
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "[terraform][terraform-vars]": {
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": "explicit"
+    }
+  },
+  "yaml.customTags": [
+    "!Base64",
+    "!Cidr sequence",
+    "!And sequence",
+    "!Equals sequence",
+    "!If sequence",
+    "!Not sequence",
+    "!Or sequence",
+    "!Condition",
+    "!FindInMap sequence",
+    "!GetAtt",
+    "!GetAtt sequence",
+    "!GetAZs",
+    "!ImportValue",
+    "!Join sequence",
+    "!Select sequence",
+    "!Split sequence",
+    "!Sub",
+    "!Sub sequence",
+    "!Transform mapping",
+    "!Ref"
+  ],
+  "github.copilot.advanced": {},
+}

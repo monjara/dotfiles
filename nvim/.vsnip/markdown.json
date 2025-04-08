@@ -1,0 +1,12 @@
+{
+  "1:N": {
+    "prefix": ["1:n"],
+    "body": "||--o{"
+  },
+  "link": {
+    "prefix": ["link"],
+    "body": [
+      "[${1:title}](${2:url})"
+    ]
+  }
+}

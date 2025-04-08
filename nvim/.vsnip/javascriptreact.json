@@ -1,0 +1,62 @@
+{
+  "jsx top component": {
+    "prefix": ["rc"],
+    "body": [
+      "import P from 'prop-types'",
+      "import React from 'react'",
+      "",
+      "const $TM_FILENAME_BASE = () => {",
+      "  return (",
+      "    <div>$TM_FILENAME_BASE</div>",
+      "  )",
+      "}",
+      "$TM_FILENAME_BASE.propTypes = {}",
+      "",
+      "export default $TM_FILENAME_BASE",
+      ""
+    ]
+  },
+  "routes file": {
+    "prefix": ["rr"],
+    "body": [
+      "import React from 'react'",
+      "import { Routes, Route } from 'react-router'",
+      "",
+      "const $TM_FILENAME_BASE = () => {",
+      "  return (",
+      "    <Routes>",
+      "      <Route />",
+      "    </Routes>",
+      "  )",
+      "}",
+      "",
+      "export default $TM_FILENAME_BASE",
+      ""
+    ]
+  },
+  "className": {
+    "prefix": ["cn"],
+    "body": ["className='$1'"]
+  },
+  "import labels": {
+    "prefix": ["impl"],
+    "body": ["import l from '~/data/labels.json'"]
+  },
+  "useForm": {
+    "prefix": ["uf"],
+    "body": [
+      "const { register, handleSubmit } = useForm({",
+      "  defaultValues: {",
+      "  }",
+      "})"
+    ]
+  },
+  "exoprt default function": {
+    "prefix": ["edf"],
+    "body": [
+      "export default function $1() {",
+      "",
+      "}"
+    ]
+  }
+}

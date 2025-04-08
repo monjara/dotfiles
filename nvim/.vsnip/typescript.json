@@ -1,0 +1,54 @@
+{
+  "export const": {
+    "prefix": ["efc"],
+    "body": [
+      "const $TM_FILENAME_BASE = () => {",
+      "  return {}",
+      "}",
+      "",
+      "export default $TM_FILENAME_BASE",
+      ""
+    ]
+  },
+  "function": {
+    "prefix": ["fc"],
+    "body": [
+      "const $1 = () => {",
+      "}",
+      ""
+    ]
+  },
+  "console.log": {
+    "prefix": ["clog"],
+    "body": "console.log('$1: ', $1)"
+  },
+  "console.time": {
+    "prefix": ["ctime"],
+    "body": [
+      "console.time('time')",
+      "console.timeEnd('time')"
+    ]
+  },
+  "export function": {
+    "prefix": ["ef"],
+    "body": [
+      "export function $1() {",
+      "",
+      "}"
+    ]
+  },
+  "export default function": {
+    "prefix": ["edf"],
+    "body": [
+      "export default function $1() {",
+      "",
+      "}"
+    ]
+  },
+  "biome ignore": {
+    "prefix": ["biome ignore"],
+    "body": [
+      "// biome-ignore lint:"
+    ]
+  }
+}

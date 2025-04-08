@@ -1,0 +1,5 @@
+imap jj <esc>
+set autoindent
+set ignorecase
+set smartcase
+set clipboard=unnamed

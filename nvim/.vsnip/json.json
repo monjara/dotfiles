@@ -1,0 +1,21 @@
+{
+  "vsnip definition": {
+    "prefix": ["vsnip"],
+    "body": [
+      "\"${1:title}\": {",
+      "  \"prefix\": [],",
+      "  \"body\": [",
+      "",
+      "  ]",
+      "}"
+    ]
+  },
+  "biome package.json": {
+    "prefix": ["biome"],
+    "body": [
+      "\"format\": \"biome format --write src\",",
+      "\"lint\": \"biome lint --write src\",",
+      "\"check\": \"biome check --write src\""
+    ]
+  }
+}
