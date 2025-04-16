@@ -64,7 +64,7 @@
   },
   "[typescriptreact]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[dart]": {
     "editor.formatOnSave": true,
@@ -133,6 +133,15 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "K",
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ],
+      "when": "editorTextFocus"
+    },
     {
       "before": [
         "<leader>",
