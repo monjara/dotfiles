@@ -12,6 +12,7 @@
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
       "ctrl-l": "menu::Confirm"
+      "z b": "editor::ScrollCursorBottom",
     }
   },
   {

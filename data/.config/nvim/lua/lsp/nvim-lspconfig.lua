@@ -1,11 +1,5 @@
 return {
   {
-    'pmizio/typescript-tools.nvim',
-    ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opt = {},
-  },
-  {
     'neovim/nvim-lspconfig',
     lazy = true,
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
@@ -14,116 +8,6 @@ return {
       { 'williamboman/mason-lspconfig.nvim' },
     },
     config = function()
-      local lspconfig = require('lspconfig')
-
-      local root_pattern = function(filename, pattern)
-        return lspconfig.util.root_pattern(pattern)(filename)
-      end
-
-      -- lua
-      require('neodev').setup {}
-      lspconfig.lua_ls.setup {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { 'vim' },
-            },
-            format = {
-              enable = false,
-            },
-          },
-        },
-      }
-
-      -- typescript, typescriptreact, javascriptreact
-      require('typescript-tools').setup {
-        settings = {
-          tsserver_locale = 'ja',
-        },
-      }
-
-      lspconfig.biome.setup {}
-
-      lspconfig.prismals.setup {}
-
-      lspconfig.gopls.setup {
-        settings = {
-          gopls = {
-            staticcheck = true,
-          },
-        },
-      }
-
-      local deno_root = lspconfig.util.search_ancestors(vim.fn.getcwd(), function(path)
-        if (vim.loop.fs_stat(table.concat { path, 'deno.lock' }) or {}).type == 'file' then
-          return path
-        end
-      end)
-
-      -- denols
-      if deno_root ~= nil then
-        lspconfig.denols.setup {}
-      end
-
-      -- swift
-      lspconfig.sourcekit.setup {
-        ft = { 'swift' },
-        cmd = {
-          '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
-        },
-        root_dir = function(filename, _)
-          return root_pattern(filename, 'Package.swift')
-            or root_pattern(filename, 'buildServer.json')
-            or root_pattern(filename, '*.xcodeproj')
-            or root_pattern(filename, '*.xcworkspace')
-            or vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
-        end,
-      }
-
-      -- ruby
-      lspconfig.solargraph.setup {
-        ft = { 'ruby' },
-      }
-
-      lspconfig.glsl_analyzer.setup {
-        ft = { 'glsl' },
-      }
-
-      lspconfig.taplo.setup {
-        ft = { 'toml' },
-      }
-
-      -- default
-      -- require('libs.nvim-lspconfig.init')
-
-      vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-        pattern = { '*.tf', '*.tfvars' },
-        callback = function()
-          vim.lsp.buf.format()
-        end,
-      })
-
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-        pattern = { '*.swiftinterface' },
-        callback = function()
-          vim.api.nvim_command('set filetype=swift')
-        end,
-      })
-
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-        pattern = { '*.swift-format' },
-        callback = function()
-          vim.api.nvim_command('set filetype=json')
-        end,
-      })
-
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-        pattern = { '*.ejs' },
-        callback = function()
-          vim.api.nvim_command('set filetype=html')
-        end,
-      })
-
       vim.api.nvim_create_autocmd({ 'LspAttach' }, {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(e)

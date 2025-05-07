@@ -30,5 +30,13 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 0
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
+vim.o.winborder = 'single'
 vim.g.mapleader = ','
+
+vim.opt.laststatus = 0
+vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
+local width = vim.api.nvim_win_get_width(0)
+local line = string.rep('─', width)
+vim.opt.statusline = line
+vim.opt.statusline = line
