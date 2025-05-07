@@ -32,7 +32,10 @@
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "check_on_save": false
+        "check_on_save": false,
+        "check": {
+          "command": "clippy"
+        }
       }
     }
   }

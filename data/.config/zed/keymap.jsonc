@@ -12,7 +12,6 @@
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
       "ctrl-l": "menu::Confirm"
-      "z b": "editor::ScrollCursorBottom",
     }
   },
   {
@@ -25,7 +24,7 @@
       "space n": ["editor::SelectNext", { "replace_newest": false }], // Add selection to Next Find Match
       "space shift-n": ["editor::SelectPrevious", { "replace_newest": false }],
       "space space n": ["editor::SelectNext", { "replace_newest": true }],
-      "space space shift-n": ["editor::SelectPrevious", { "replace_newest": true }],
+      "space space shift-n": ["editor::SelectPrevious", { "replace_newest": true }]
     }
   },
   {
