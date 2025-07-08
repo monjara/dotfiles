@@ -7,16 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "project_panel": {
+    "hide_gitignore": true
+  },
   "icon_theme": "Colored Zed Icons Theme Dark",
   "features": {
-    // "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
   },
-  "assistant": {
+  "agent": {
+    "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
-    },
-    "version": "2"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    }
   },
   "vim_mode": true,
   "ui_font_size": 18,
