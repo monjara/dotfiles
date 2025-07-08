@@ -5,9 +5,12 @@ return {
   config = function()
     require('telescope').setup {
       defaults = {
-        path_display = {
-          shorten = 3,
+        layout_config = {
+          width = {
+            padding = 0
+          }
         },
+        path_display = { 'smart' },
         mappings = {
           n = {
             ['<C-k>'] = require('telescope.actions').preview_scrolling_up,
