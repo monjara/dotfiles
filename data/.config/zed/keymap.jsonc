@@ -24,7 +24,10 @@
       "space n": ["editor::SelectNext", { "replace_newest": false }], // Add selection to Next Find Match
       "space shift-n": ["editor::SelectPrevious", { "replace_newest": false }],
       "space space n": ["editor::SelectNext", { "replace_newest": true }],
-      "space space shift-n": ["editor::SelectPrevious", { "replace_newest": true }]
+      "space space shift-n": [
+        "editor::SelectPrevious",
+        { "replace_newest": true }
+      ]
     }
   },
   {
@@ -57,7 +60,6 @@
     "context": "VimControl && !menu",
     "bindings": {
       "g d": "editor::GoToDefinition",
-      "t": ["easy_motion::Word", "both"],
       "s": ["easy_motion::NChar", 1]
     }
   },

@@ -7,10 +7,10 @@ return {
       defaults = {
         layout_config = {
           width = {
-            padding = 0
-          }
+            padding = 0,
+          },
         },
-        path_display = { 'smart' },
+        -- path_display = { 'smart' },
         mappings = {
           n = {
             ['<C-k>'] = require('telescope.actions').preview_scrolling_up,

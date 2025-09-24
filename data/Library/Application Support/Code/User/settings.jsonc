@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "Default Dark+",
   "editor.bracketPairColorization.enabled": true,
   "editor.fontFamily": "Menlo, 'DejaVu Sans Mono', Consolas, 'Lucida Console', monospace",
   "editor.renderLineHighlight": "none",
@@ -60,11 +59,20 @@
     "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
   },
   "[typescriptreact]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
   },
   "[dart]": {
     "editor.formatOnSave": true,
@@ -353,4 +361,10 @@
     "!Ref"
   ],
   "github.copilot.advanced": {},
+  "diffEditor.ignoreTrimWhitespace": false,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "markdown.marp.html": "all",
+  "files.insertFinalNewline": true,
+  "editor.unicodeHighlight.invisibleCharacters": false
 }

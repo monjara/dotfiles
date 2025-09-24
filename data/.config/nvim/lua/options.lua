@@ -30,8 +30,21 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 0
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-vim.o.winborder = 'single'
+vim.o.winborder = 'none'
 vim.g.mapleader = ','
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopeFindPre",
+  callback = function()
+    vim.opt_local.winborder = "none"
+    vim.api.nvim_create_autocmd("WinLeave", {
+      once = true,
+      callback = function()
+        vim.opt_local.winborder = "rounded"
+      end,
+    })
+  end,
+})
 
 vim.opt.laststatus = 0
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
