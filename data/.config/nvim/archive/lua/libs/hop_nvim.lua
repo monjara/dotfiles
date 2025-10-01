@@ -3,7 +3,7 @@ return {
   version = '*',
   lazy = true,
   keys = {
-    { 't', '<cmd>HopWord<cr>',    desc = 'hop', mode = { 'n', 'v' } },
+    { 't', '<cmd>HopWord<cr>', desc = 'hop', mode = { 'n', 'v' } },
     { 's', '<cmd>HopChar1MW<cr>', desc = 'hop', mode = { 'n', 'v' } },
   },
   config = function()

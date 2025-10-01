@@ -1,0 +1,12 @@
+[tasks.check]
+command = "stylua"
+args = [
+"check",
+"."
+]
+
+[tasks.format]
+command = "stylua"
+args = [
+"."
+]

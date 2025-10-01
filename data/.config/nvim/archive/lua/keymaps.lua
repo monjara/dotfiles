@@ -19,7 +19,7 @@ vim.keymap.set('t', '<M-i>', [[<C-\><C-n>]], opt)
 vim.keymap.set('n', '<space>j', '<cmd>bnext<cr>', opt)
 vim.keymap.set('n', '<space>k', '<cmd>bprevious<cr>', opt)
 vim.keymap.set(
--- yank and copy current file's absolute path to clipboard
+  -- yank and copy current file's absolute path to clipboard
   'n',
   '<Leader>fp',
   function()
@@ -29,7 +29,7 @@ vim.keymap.set(
   opt
 )
 vim.keymap.set(
--- yank and copy directiory that current file existing to clipboard
+  -- yank and copy directiory that current file existing to clipboard
   'n',
   '<Leader>fd',
   function()
@@ -39,7 +39,7 @@ vim.keymap.set(
   opt
 )
 vim.keymap.set(
--- echo current file name
+  -- echo current file name
   'n',
   '<Leader>fe',
   function()
@@ -48,7 +48,7 @@ vim.keymap.set(
   opt
 )
 vim.keymap.set(
--- toggle line number (call :set number!)
+  -- toggle line number (call :set number!)
   'n',
   '<Leader>nn',
   function()
@@ -57,7 +57,7 @@ vim.keymap.set(
   opt
 )
 vim.keymap.set(
--- TODO: toggle hlsearch
+  -- TODO: toggle hlsearch
   'n',
   '<Leader>hl',
   '<cmd>nohl<cr>',

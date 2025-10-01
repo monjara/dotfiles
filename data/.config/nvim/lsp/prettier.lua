@@ -1,4 +1,0 @@
-return {
-  ft = {'typescript', 'typescriptreact'}
-}
-

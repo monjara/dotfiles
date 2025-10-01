@@ -33,14 +33,14 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.o.winborder = 'none'
 vim.g.mapleader = ','
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "TelescopeFindPre",
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TelescopeFindPre',
   callback = function()
-    vim.opt_local.winborder = "none"
-    vim.api.nvim_create_autocmd("WinLeave", {
+    vim.opt_local.winborder = 'none'
+    vim.api.nvim_create_autocmd('WinLeave', {
       once = true,
       callback = function()
-        vim.opt_local.winborder = "rounded"
+        vim.opt_local.winborder = 'rounded'
       end,
     })
   end,
