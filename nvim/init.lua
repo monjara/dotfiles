@@ -87,4 +87,4 @@ vim.keymap.set(
   { desc = 'Grug Far' }
 )
 
-vim.lsp.enable { 'lua_ls', 'jsonls' }
+vim.lsp.enable { 'lua_ls', 'jsonls', 'taplo' }

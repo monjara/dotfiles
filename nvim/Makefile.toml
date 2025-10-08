@@ -1,12 +1,7 @@
 [tasks.check]
 command = "stylua"
-args = [
-"check",
-"."
-]
+args = ["check", "."]
 
 [tasks.format]
 command = "stylua"
-args = [
-"."
-]
+args = ["."]

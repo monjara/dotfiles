@@ -22,43 +22,43 @@ rustaceanvim = "6.9.2"
 "oil.nvim" = "2.15.0"
 tree-sitter-lua = "0.0.36"
 tree-sitter-rust = "0.0.51"
-"lazydev.nvim" = { version = "1.9.0", config = true}
-"fidget.nvim" = { version= "1.6.0", config = true }
+"lazydev.nvim" = { version = "1.9.0", config = true }
+"fidget.nvim" = { version = "1.6.0", config = true }
 github-nvim-theme = "1.1.2"
-"gitsigns.nvim" = { version= "1.0.2", config = true }
+"gitsigns.nvim" = { version = "1.0.2", config = true }
 "tokyonight.nvim" = { git = "https://github.com/folke/tokyonight.nvim" }
 "vlime" = { git = "https://github.com/vlime/vlime" }
 
-[plugins."grug-far.nvim" ]
+[plugins."grug-far.nvim"]
 git = "https://github.com/MagicDuck/grug-far.nvim"
 rev = "1.6.49"
 
-[plugins."blink.cmp" ]
+[plugins."blink.cmp"]
 git = "https://github.com/Saghen/blink.cmp"
 rev = "v1.7.0"
 
-[plugins."plenary.nvim" ]
+[plugins."plenary.nvim"]
 git = "https://github.com/nvim-lua/plenary.nvim"
 rev = "v0.1.4"
 
-[plugins.nvim-spectre ]
+[plugins.nvim-spectre]
 git = "https://github.com/nvim-pack/nvim-spectre"
 rev = "72f56f7585903cd7bf92c665351aa585e150af0f"
 
 
-[plugins."sonokai" ]
+[plugins."sonokai"]
 git = "https://github.com/sainnhe/sonokai"
 rev = "v0.3.3"
 
-[plugins."copilot.vim" ]
+[plugins."copilot.vim"]
 git = "https://github.com/github/copilot.vim"
 rev = "v1.56.0"
 
-[plugins.nvim-lspconfig ]
+[plugins.nvim-lspconfig]
 git = "https://github.com/neovim/nvim-lspconfig"
 rev = "v2.5.0"
 
-[plugins."vim-repeat" ]
+[plugins."vim-repeat"]
 git = "https://github.com/tpope/vim-repeat"
 rev = "v1.2"
 
@@ -66,8 +66,7 @@ rev = "v1.2"
 git = "smoka7/hop.nvim"
 rev = "v2.7.2"
 
-[plugins."fff.nvim" ]
+[plugins."fff.nvim"]
 git = "dmtrKovalenko/fff.nvim"
 rev = "61081a55ca27c88b73ae56ace082de11babcbce0"
 build = "cargo build --release"
-
