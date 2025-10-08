@@ -1,7 +1,0 @@
-{
-  "first line": {
-    "prefix": ["!"],
-    "body": "#!/bin/sh"
-  }
-}
-

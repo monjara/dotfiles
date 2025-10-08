@@ -1,8 +1,0 @@
-{
-  "pyright ignore": {
-    "prefix": ["pi"],
-    "body": [
-      "# pyright ignore"
-    ]
-  }
-}

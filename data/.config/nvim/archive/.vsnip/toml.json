@@ -1,8 +1,0 @@
-{
-  "taskipy header": {
-    "prefix": ["taskipy"],
-    "body": [
-      "[tool.taskipy.tasks]"
-    ]
-  }
-}
