@@ -8,5 +8,5 @@ require('blink.cmp').setup {
     ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
     ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
     ['<C-h>'] = { 'show', 'show_documentation', 'hide_documentation' },
-  }
+  },
 }

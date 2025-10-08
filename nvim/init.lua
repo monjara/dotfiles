@@ -7,6 +7,7 @@ vim.opt.termguicolors = true
 vim.opt.laststatus = 0
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.signcolumn = 'yes:3'
+vim.opt.autoread = true
 
 vim.diagnostic.config {
   virtual_text = { current_line = true },
@@ -75,16 +76,12 @@ end, { desc = 'Format current buffer with LSP' })
 
 vim.keymap.set('n', '<tab>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<S-tab>', '<cmd>bprevious<cr>', { desc = 'previous buffer' })
+vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>', { desc = 'delete current buffer' })
 
-vim.keymap.set(
-  'n',
-  '<space>fr',
-  function()
-    require('grug-far').open({
-      engine = 'astgrep',
-    })
-  end,
-  { desc = 'Grug Far' }
-)
+vim.keymap.set('n', '<space>fr', function()
+  require('grug-far').open {
+    engine = 'astgrep',
+  }
+end, { desc = 'Grug Far' })
 
-vim.lsp.enable { 'lua_ls', 'jsonls', 'taplo' }
+vim.lsp.enable { 'lua_ls', 'jsonls', 'taplo', 'ts_ls' }

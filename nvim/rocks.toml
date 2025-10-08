@@ -15,19 +15,27 @@ auto_setup = false
 # List of Neovim plugins to install alongside their versions.
 # If the plugin name contains a dot then you must add quotes to the key name!
 [plugins]
+"fidget.nvim" = "1.6.0"
+"gitsigns.nvim" = "1.0.2"
+"lazydev.nvim" = "1.9.0"
+"oil.nvim" = "2.15.0"
 "rocks-config.nvim" = "3.1.2"
 "rocks-git.nvim" = "2.5.6"
 "rocks.nvim" = "2.46.1"
+"trouble.nvim" = "3.7.1"
+github-nvim-theme = "1.1.2"
+nvim-web-devicons = "0.100"
 rustaceanvim = "6.9.2"
-"oil.nvim" = "2.15.0"
+tree-sitter-javascript = "0.0.39"
+tree-sitter-jsx = "0.0.30"
 tree-sitter-lua = "0.0.36"
 tree-sitter-rust = "0.0.51"
-"lazydev.nvim" = { version = "1.9.0", config = true }
-"fidget.nvim" = { version = "1.6.0", config = true }
-github-nvim-theme = "1.1.2"
-"gitsigns.nvim" = { version = "1.0.2", config = true }
-"tokyonight.nvim" = { git = "https://github.com/folke/tokyonight.nvim" }
-"vlime" = { git = "https://github.com/vlime/vlime" }
+tree-sitter-tsx = "0.0.36"
+tree-sitter-typescript = "0.0.37"
+
+[plugins."tokyonight.nvim"]
+git = "https://github.com/folke/tokyonight.nvim"
+rev = "v4.13.0"
 
 [plugins."grug-far.nvim"]
 git = "https://github.com/MagicDuck/grug-far.nvim"
