@@ -84,4 +84,10 @@ vim.keymap.set('n', '<space>fr', function()
   }
 end, { desc = 'Grug Far' })
 
-vim.lsp.enable { 'lua_ls', 'jsonls', 'taplo', 'ts_ls' }
+vim.lsp.enable {
+  'lua_ls',
+  'jsonls',
+  'taplo',
+  'ts_ls',
+  'biome'
+}

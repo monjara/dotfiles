@@ -33,13 +33,17 @@ tree-sitter-rust = "0.0.51"
 tree-sitter-tsx = "0.0.36"
 tree-sitter-typescript = "0.0.37"
 
+[plugins."nvim-autopairs" ]
+git = "https://github.com/windwp/nvim-autopairs"
+rev = "0.10.0"
+
 [plugins."tokyonight.nvim"]
 git = "https://github.com/folke/tokyonight.nvim"
 rev = "v4.13.0"
 
 [plugins."grug-far.nvim"]
 git = "https://github.com/MagicDuck/grug-far.nvim"
-rev = "1.6.49"
+rev = "1.6.51"
 
 [plugins."blink.cmp"]
 git = "https://github.com/Saghen/blink.cmp"
