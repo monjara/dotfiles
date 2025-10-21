@@ -32,6 +32,9 @@ tree-sitter-lua = "0.0.36"
 tree-sitter-rust = "0.0.51"
 tree-sitter-tsx = "0.0.36"
 tree-sitter-typescript = "0.0.37"
+"mini.pairs" = "0.16.0"
+"mini.jump" = "0.15.0"
+"mini.starter" = "0.16.0"
 
 [plugins."nvim-autopairs" ]
 git = "https://github.com/windwp/nvim-autopairs"
