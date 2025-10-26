@@ -42,6 +42,7 @@ tree-sitter-lua = "0.0.36"
 tree-sitter-rust = "0.0.51"
 tree-sitter-tsx = "0.0.36"
 tree-sitter-typescript = "0.0.37"
+"mini.pick" = "0.16.0"
 
 [plugins."nvim-autopairs"]
 git = "https://github.com/windwp/nvim-autopairs"
@@ -87,8 +88,3 @@ rev = "v1.2"
 [plugins.hop]
 git = "smoka7/hop.nvim"
 rev = "v2.7.2"
-
-[plugins."fff.nvim"]
-git = "dmtrKovalenko/fff.nvim"
-rev = "61081a55ca27c88b73ae56ace082de11babcbce0"
-build = "cargo build --release"

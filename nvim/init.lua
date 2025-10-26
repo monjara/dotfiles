@@ -17,14 +17,6 @@ vim.diagnostic.config {
 
 vim.keymap.set('i', 'jj', '<esc>', {})
 
-vim.keymap.set('n', '<C-p>', function()
-  require('fff').find_files()
-end, { desc = 'FFFind files' })
-
-vim.keymap.set('n', '<space>ff', function()
-  require('fff').find_files()
-end, { desc = 'FFFind files' })
-
 vim.keymap.set('n', '<space>rr', '<cmd>lua require("spectre").toggle()<CR>', {
   desc = 'Toggle Spectre',
 })
@@ -80,11 +72,9 @@ vim.keymap.set('n', '<tab>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<S-tab>', '<cmd>bprevious<cr>', { desc = 'previous buffer' })
 vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>', { desc = 'delete current buffer' })
 
-vim.keymap.set('n', '<space>fr', function()
-  require('grug-far').open {
-    engine = 'astgrep',
-  }
-end, { desc = 'Grug Far' })
+vim.keymap.set('n', '<space>fr', '<cmd>Pick grep_live<cr>', { desc = 'min.pick live grep' })
+vim.keymap.set('n', '<space>ff', '<cmd>Pick files<cr>', { desc = 'min.pick find file' })
+vim.keymap.set('n', '<space>fb', '<cmd>Pick buffers<cr>', { desc = 'min.pick find file' })
 
 vim.keymap.set('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
 vim.keymap.set('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
