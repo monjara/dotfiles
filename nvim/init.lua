@@ -3,11 +3,13 @@ require('setup_rocks')
 vim.cmd([[colorscheme tokyonight-night]])
 
 vim.g.mapleader = ','
-vim.opt.termguicolors = true
-vim.opt.laststatus = 0
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.signcolumn = 'yes:3'
 vim.opt.autoread = true
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 0
+vim.opt.signcolumn = 'yes:3'
+vim.opt.splitkeep = 'screen'
+vim.opt.termguicolors = true
 
 vim.diagnostic.config {
   virtual_text = { current_line = true },
@@ -86,8 +88,6 @@ end, { desc = 'Grug Far' })
 
 vim.keymap.set('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
 vim.keymap.set('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
-
-vim.keymap.set('n', ':', 'q:', { noremap = true })
 
 vim.lsp.enable {
   'lua_ls',
