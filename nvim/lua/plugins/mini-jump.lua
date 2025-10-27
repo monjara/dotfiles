@@ -1,1 +1,1 @@
-require "mini.jump".setup {}
+require('mini.jump').setup {}

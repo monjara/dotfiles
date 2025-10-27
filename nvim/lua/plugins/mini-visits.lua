@@ -1,1 +1,1 @@
-require "mini.visits".setup {}
+require('mini.visits').setup {}

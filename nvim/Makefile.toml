@@ -5,3 +5,6 @@ args = ["check", "."]
 [tasks.format]
 command = "stylua"
 args = ["."]
+
+[tasks.fmt]
+alias = "format"

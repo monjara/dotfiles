@@ -1,4 +1,4 @@
-require "mini.pick".setup {
+require('mini.pick').setup {
   -- Delays (in ms; should be at least 1)
   delay = {
     -- Delay between forcing asynchronous behavior
@@ -10,41 +10,41 @@ require "mini.pick".setup {
 
   -- Keys for performing actions. See `:h MiniPick-actions`.
   mappings = {
-    caret_left        = '<Left>',
-    caret_right       = '<Right>',
+    caret_left = '<Left>',
+    caret_right = '<Right>',
 
-    choose            = '<CR>',
-    choose_in_split   = '<C-s>',
+    choose = '<CR>',
+    choose_in_split = '<C-s>',
     choose_in_tabpage = '<C-t>',
-    choose_in_vsplit  = '<C-v>',
-    choose_marked     = '<M-CR>',
+    choose_in_vsplit = '<C-v>',
+    choose_marked = '<M-CR>',
 
-    delete_char       = '<BS>',
+    delete_char = '<BS>',
     delete_char_right = '<Del>',
-    delete_left       = '<C-u>',
-    delete_word       = '<C-w>',
+    delete_left = '<C-u>',
+    delete_word = '<C-w>',
 
-    mark              = '<C-x>',
-    mark_all          = '<C-a>',
+    mark = '<C-x>',
+    mark_all = '<C-a>',
 
-    move_down         = '<C-n>',
-    move_start        = '<C-g>',
-    move_up           = '<C-p>',
+    move_down = '<C-n>',
+    move_start = '<C-g>',
+    move_up = '<C-p>',
 
-    paste             = '<C-r>',
+    paste = '<C-r>',
 
-    refine            = '<C-Space>',
-    refine_marked     = '<M-Space>',
+    refine = '<C-Space>',
+    refine_marked = '<M-Space>',
 
-    scroll_down       = '<C-f>',
-    scroll_left       = '<C-h>',
-    scroll_right      = '<C-l>',
-    scroll_up         = '<C-b>',
+    scroll_down = '<C-f>',
+    scroll_left = '<C-h>',
+    scroll_right = '<C-l>',
+    scroll_up = '<C-b>',
 
-    stop              = '<Esc>',
+    stop = '<Esc>',
 
-    toggle_info       = '<S-Tab>',
-    toggle_preview    = '<Tab>',
+    toggle_info = '<S-Tab>',
+    toggle_preview = '<Tab>',
   },
 
   -- General options
@@ -58,15 +58,15 @@ require "mini.pick".setup {
 
   -- Source definition. See `:h MiniPick-source`.
   source = {
-    items         = nil,
-    name          = nil,
-    cwd           = nil,
+    items = nil,
+    name = nil,
+    cwd = nil,
 
-    match         = nil,
-    show          = nil,
-    preview       = nil,
+    match = nil,
+    show = nil,
+    preview = nil,
 
-    choose        = nil,
+    choose = nil,
     choose_marked = nil,
   },
 

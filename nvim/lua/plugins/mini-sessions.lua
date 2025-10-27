@@ -1,1 +1,1 @@
-require "mini.sessions".setup {}
+require('mini.sessions').setup {}
