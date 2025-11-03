@@ -21,6 +21,7 @@ auto_setup = false
 "mini.animate" = "0.16.0"
 "mini.cursorword" = "0.16.0"
 "mini.diff" = "0.16.0"
+"mini.hues" = "0.16.0"
 "mini.indentscope" = "0.16.0"
 "mini.jump" = "0.15.0"
 "mini.pairs" = "0.16.0"
@@ -47,14 +48,6 @@ tree-sitter-typescript = "0.0.37"
 [plugins."nvim-autopairs"]
 git = "https://github.com/windwp/nvim-autopairs"
 rev = "0.10.0"
-
-[plugins."tokyonight.nvim"]
-git = "https://github.com/folke/tokyonight.nvim"
-rev = "v4.14.1"
-
-[plugins."grug-far.nvim"]
-git = "https://github.com/MagicDuck/grug-far.nvim"
-rev = "1.6.52"
 
 [plugins."blink.cmp"]
 git = "https://github.com/Saghen/blink.cmp"

@@ -28,13 +28,13 @@ end
 M.init = function()
   vim.keymap.set('i', 'jj', '<esc>', {})
 
-  vim.keymap.set('n', '<space>rr', '<cmd>lua require("spectre").toggle()<CR>', {
+  vim.keymap.set('n', '<space>rr', '<cmd>lua require("spectre").toggle()<cr>', {
     desc = 'Toggle Spectre',
   })
-  vim.keymap.set('n', '<space>rw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+  vim.keymap.set('n', '<space>rw', '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', {
     desc = 'Search current word',
   })
-  vim.keymap.set('n', '<space>rp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+  vim.keymap.set('n', '<space>rp', '<cmd>lua require("spectre").open_file_search({select_word=true})<cr>', {
     desc = 'Search on current file',
   })
 
