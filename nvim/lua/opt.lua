@@ -1,7 +1,7 @@
 local M = {}
 
 M.init = function()
-  vim.cmd [[colorscheme tokyonight-night]]
+  vim.cmd([[colorscheme tokyonight-night]])
 
   vim.g.mapleader = ','
   vim.opt.autoread = true

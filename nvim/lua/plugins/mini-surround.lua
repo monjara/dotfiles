@@ -5,7 +5,7 @@ vim.keymap.set({ 'n', 'v' }, 'zF', '<nop>', { desc = 'disable zF' })
 vim.keymap.set({ 'n', 'v' }, 'zh', '<nop>', { desc = 'disable zh' })
 vim.keymap.set({ 'n', 'v' }, 'zr', '<nop>', { desc = 'disable zr' })
 
-require 'mini.surround'.setup {
+require('mini.surround').setup {
   -- Add custom surroundings to be used on top of builtin ones. For more
   -- information with examples, see `:h MiniSurround.config`.
   custom_surroundings = nil,
@@ -15,12 +15,12 @@ require 'mini.surround'.setup {
 
   -- Module mappings. Use `''` (empty string) to disable one.
   mappings = {
-    add = 'za',        -- Add surrounding in Normal and Visual modes
-    delete = 'zd',     -- Delete surrounding
-    find = 'zf',       -- Find surrounding (to the right)
-    find_left = 'zF',  -- Find surrounding (to the left)
-    highlight = 'zh',  -- Highlight surrounding
-    replace = 'zr',    -- Replace surrounding
+    add = 'za', -- Add surrounding in Normal and Visual modes
+    delete = 'zd', -- Delete surrounding
+    find = 'zf', -- Find surrounding (to the right)
+    find_left = 'zF', -- Find surrounding (to the left)
+    highlight = 'zh', -- Highlight surrounding
+    replace = 'zr', -- Replace surrounding
 
     suffix_last = 'l', -- Suffix to search with "prev" method
     suffix_next = 'n', -- Suffix to search with "next" method
