@@ -38,6 +38,7 @@ M.init = function()
     desc = 'Search on current file',
   })
 
+
   vim.keymap.set({ 'n', 'v' }, 's', '<cmd>HopChar1<cr>', { desc = 'hop char 1' })
   vim.keymap.set('n', '<space>dd', '<cmd>Oil<cr>', { desc = 'Open parent directory' })
   vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = 'Open parent directory' })
@@ -89,6 +90,7 @@ M.init = function()
 
   vim.keymap.set('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
   vim.keymap.set('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
+  vim.keymap.set('n', '<leader>o', "<cmd>only<cr>", { expr = true, silent = true })
 
   vim.keymap.set('v', '<leader>ga', function()
     require('gitsigns').stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
