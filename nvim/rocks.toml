@@ -13,9 +13,9 @@ auto_setup = false
 "gitsigns.nvim" = "1.0.2"
 "lazydev.nvim" = "1.9.0"
 "mini.animate" = "0.16.0"
+"mini.completion" = "0.16.0"
 "mini.cursorword" = "0.16.0"
 "mini.diff" = "0.16.0"
-"mini.hues" = "0.16.0"
 "mini.indentscope" = "0.16.0"
 "mini.jump" = "0.15.0"
 "mini.pairs" = "0.16.0"
@@ -33,17 +33,13 @@ auto_setup = false
 "trouble.nvim" = "3.7.1"
 github-nvim-theme = "1.1.2"
 nvim-web-devicons = "0.100"
-rustaceanvim = "6.9.4"
+rustaceanvim = "6.9.7"
 tree-sitter-lua = "0.0.36"
 tree-sitter-rust = "0.0.51"
 
 [plugins."nvim-autopairs"]
 git = "https://github.com/windwp/nvim-autopairs"
 rev = "0.10.0"
-
-[plugins."blink.cmp"]
-git = "https://github.com/Saghen/blink.cmp"
-rev = "v1.7.0"
 
 [plugins."plenary.nvim"]
 git = "https://github.com/nvim-lua/plenary.nvim"
