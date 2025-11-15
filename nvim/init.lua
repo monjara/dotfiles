@@ -11,5 +11,5 @@ vim.lsp.enable {
   'cssls',
   'css_variables',
   'tailwindcss',
-  'pylsp',
+  'pyright',
 }
