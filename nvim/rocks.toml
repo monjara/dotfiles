@@ -36,6 +36,12 @@ rustaceanvim = "6.9.7"
 tree-sitter-lua = "0.0.36"
 tree-sitter-rust = "0.0.51"
 tree-sitter-python = "0.0.46"
+tree-sitter-typescript = "0.0.38"
+tree-sitter-tsx = "0.0.37"
+tree-sitter-css = "0.0.39"
+
+[plugins."typescript-tools.nvim"]
+git = "https://github.com/pmizio/typescript-tools.nvim"
 
 [plugins."nvim-autopairs"]
 git = "https://github.com/windwp/nvim-autopairs"

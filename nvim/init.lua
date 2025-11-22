@@ -6,7 +6,6 @@ vim.lsp.enable {
   'lua_ls',
   'jsonls',
   'taplo',
-  'ts_ls',
   'biome',
   'cssls',
   'css_variables',
