@@ -11,7 +11,7 @@ auto_setup = false
 [plugins]
 "fidget.nvim" = "1.6.0"
 "gitsigns.nvim" = "1.0.2"
-"lazydev.nvim" = "1.9.0"
+"lazydev.nvim" = "1.10.0"
 "mini.animate" = "0.16.0"
 "mini.cursorword" = "0.16.0"
 "mini.diff" = "0.16.0"
@@ -26,15 +26,15 @@ auto_setup = false
 "mini.visits" = "0.16.0"
 "oil.nvim" = "2.15.0"
 "rocks-config.nvim" = "3.1.2"
-"rocks-git.nvim" = "2.5.6"
+"rocks-git.nvim" = "2.5.7"
 "rocks.nvim" = "2.46.1"
-"tokyonight.nvim" = "4.11.0"
+"tokyonight.nvim" = "4.14.1"
 "trouble.nvim" = "3.7.1"
 github-nvim-theme = "1.1.2"
 nvim-web-devicons = "0.100"
 rustaceanvim = "6.9.7"
 tree-sitter-lua = "0.0.36"
-tree-sitter-rust = "0.0.51"
+tree-sitter-rust = "0.0.55"
 tree-sitter-python = "0.0.46"
 tree-sitter-typescript = "0.0.38"
 tree-sitter-tsx = "0.0.37"
@@ -42,6 +42,7 @@ tree-sitter-css = "0.0.39"
 
 [plugins."typescript-tools.nvim"]
 git = "https://github.com/pmizio/typescript-tools.nvim"
+rev = "c2f5910074103705661e9651aa841e0d7eea9932"
 
 [plugins."nvim-autopairs"]
 git = "https://github.com/windwp/nvim-autopairs"
@@ -57,6 +58,7 @@ rev = "72f56f7585903cd7bf92c665351aa585e150af0f"
 
 [plugins."blink.cmp"]
 git = "https://github.com/saghen/blink.cmp"
+rev = "v1.8.0"
 
 [plugins."sonokai"]
 git = "https://github.com/sainnhe/sonokai"
@@ -64,7 +66,7 @@ rev = "v0.3.3"
 
 [plugins."copilot.vim"]
 git = "https://github.com/github/copilot.vim"
-rev = "v1.56.0"
+rev = "v1.57.0"
 
 [plugins.nvim-lspconfig]
 git = "https://github.com/neovim/nvim-lspconfig"
@@ -80,3 +82,4 @@ rev = "v2.7.2"
 
 [plugins."friendly-snippets"]
 git = "https://github.com/rafamadriz/friendly-snippets"
+rev = "572f5660cf05f8cd8834e096d7b4c921ba18e175"
