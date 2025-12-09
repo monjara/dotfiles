@@ -82,6 +82,7 @@ M.init = function()
   vim.keymap.set('n', '<tab>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
   vim.keymap.set('n', '<S-tab>', '<cmd>bprevious<cr>', { desc = 'previous buffer' })
   vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>', { desc = 'delete current buffer' })
+  vim.keymap.set('n', '<space>q', '<cmd>q!<cr>', { desc = 'quit' })
 
   vim.keymap.set('n', '<space>fr', '<cmd>Pick grep_live<cr>', { desc = 'min.pick live grep' })
   vim.keymap.set('n', '<space>ff', '<cmd>Pick files<cr>', { desc = 'min.pick find file' })
