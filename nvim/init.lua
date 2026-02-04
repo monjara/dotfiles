@@ -1,6 +1,5 @@
-require('setup_rocks').init()
-require('opt').init()
-require('keymap').init()
+require('config.lazy')
+require('keymap')
 
 vim.lsp.enable {
   'lua_ls',

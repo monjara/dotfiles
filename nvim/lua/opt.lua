@@ -1,7 +1,6 @@
 local M = {}
 
 M.init = function()
-  vim.cmd([[colorscheme tokyonight-night]])
 
   vim.g.mapleader = ','
   vim.opt.autoread = true
@@ -11,6 +10,7 @@ M.init = function()
   vim.opt.signcolumn = 'yes:3'
   vim.opt.splitkeep = 'screen'
   vim.opt.termguicolors = true
+  vim.opt.ignorecase = true
 
   vim.diagnostic.config {
     virtual_text = { current_line = true },

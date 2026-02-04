@@ -1,6 +1,6 @@
 [config]
 plugins_dif = "plugins/"
-auto_setup = false
+auto_setup = true
 
 # List of non-Neovim rocks.
 # This includes things like `toml` or other lua packages.
