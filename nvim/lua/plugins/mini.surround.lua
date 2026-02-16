@@ -1,5 +1,6 @@
 return {
   'nvim-mini/mini.surround',
+  version = false,
   config = function()
     require('mini.surround').setup {
       -- Add custom surroundings to be used on top of builtin ones. For more
@@ -11,12 +12,12 @@ return {
 
       -- Module mappings. Use `''` (empty string) to disable one.
       mappings = {
-        add = 'za',        -- Add surrounding in Normal and Visual modes
-        delete = 'zd',     -- Delete surrounding
-        find = 'zf',       -- Find surrounding (to the right)
-        find_left = 'zF',  -- Find surrounding (to the left)
-        highlight = 'zh',  -- Highlight surrounding
-        replace = 'zr',    -- Replace surrounding
+        add = 'ys',        -- Add surrounding in Normal and Visual modes
+        delete = 'yd',     -- Delete surrounding
+        find = '',         -- Find surrounding (to the right)
+        find_left = '',    -- Find surrounding (to the left)
+        highlight = '',    -- Highlight surrounding
+        replace = 'yr',    -- Replace surrounding
 
         suffix_last = 'l', -- Suffix to search with "prev" method
         suffix_next = 'n', -- Suffix to search with "next" method
@@ -42,12 +43,4 @@ return {
       silent = false,
     }
   end,
-  keys = {
-    { 'za', '<nop>', { desc = 'disable za' } },
-    { 'zd', '<nop>', { desc = 'disable zd' } },
-    { 'zf', '<nop>', { desc = 'disable zf' } },
-    { 'zF', '<nop>', { desc = 'disable zF' } },
-    { 'zh', '<nop>', { desc = 'disable zh' } },
-    { 'zr', '<nop>', { desc = 'disable zr' } }
-  }
 }

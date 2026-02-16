@@ -91,8 +91,8 @@ return {
 
       -- Float window config (table or callable returning it)
       config = function()
-        local width  = math.floor(vim.o.columns * 0.80)
-        local height = math.floor(vim.o.lines   * 0.40)
+        local width  = math.floor(vim.o.columns * 0.90)
+        local height = math.floor(vim.o.lines   * 0.90)
 
         return {
           relative = "editor",

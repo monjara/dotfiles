@@ -1,5 +1,0 @@
-# dotfiles
-
-```sh
-./symlink.swift
-```

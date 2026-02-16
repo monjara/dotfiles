@@ -10,4 +10,5 @@ vim.lsp.enable {
   'css_variables',
   'tailwindcss',
   'pyright',
+  'nixd',
 }
