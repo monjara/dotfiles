@@ -14,6 +14,7 @@ vim.lsp.enable {
   'pyright',
   'tailwindcss',
   'taplo',
+  'tombi',
 }
 
 
