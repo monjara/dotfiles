@@ -110,3 +110,5 @@ vim.keymap.set('v', '<leader>gc', function()
     vim.notify('Commit canceled')
   end
 end, { desc = 'git commit' })
+
+vim.keymap.set('n', '<space>c', 'echo "%:p"', { desc = "echo current file path" })

@@ -1,5 +1,7 @@
 return {
   'nvim-mini/mini.trailspace',
   version = false,
-  opts = true,
+  config  = function()
+    require('mini.trailspace').setup({})
+  end,
 }

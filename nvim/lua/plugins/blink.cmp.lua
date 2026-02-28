@@ -28,6 +28,8 @@ return {
     keymap = {
       preset = 'default',
       ['<cr>'] = { 'select_and_accept', 'fallback' },
+      ['<c-k>'] = { 'select_prev', 'fallback' },
+      ['<c-j>'] = { 'select_next', 'fallback' },
     },
 
     appearance = {

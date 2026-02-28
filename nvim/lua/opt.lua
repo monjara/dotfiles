@@ -11,6 +11,7 @@ M.init = function()
   vim.opt.splitkeep = 'screen'
   vim.opt.termguicolors = true
   vim.opt.ignorecase = true
+  vim.opt.winborder = 'rounded'
 
   vim.diagnostic.config {
     virtual_text = { current_line = true },

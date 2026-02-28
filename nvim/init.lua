@@ -2,13 +2,19 @@ require('config.lazy')
 require('keymap')
 
 vim.lsp.enable {
-  'lua_ls',
-  'jsonls',
-  'taplo',
+  "eslint",
+  "html",
   'biome',
-  'cssls',
   'css_variables',
-  'tailwindcss',
-  'pyright',
+  'cssls',
+  'fish_lsp',
+  'jsonls',
+  'lua_ls',
   'nixd',
+  'pyright',
+  'tailwindcss',
+  'taplo',
 }
+
+
+vim.cmd [[colorscheme tokyonight]]
