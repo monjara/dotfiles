@@ -16,9 +16,13 @@ return {
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayEnumMemberValueHints = true,
       },
+      tsserver_file_preferences = {
+        includeInlayParameterNameHints = "all",
+        includeCompletionsForModuleExports = true,
+      },
       jsx_close_tag = {
-          enable = true,
-          filetypes = { "javascriptreact", "typescriptreact" },
+        enable = true,
+        filetypes = { "javascriptreact", "typescriptreact" },
       },
     },
   },

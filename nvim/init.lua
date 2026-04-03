@@ -15,6 +15,7 @@ vim.lsp.enable {
   'tailwindcss',
   'taplo',
   'tombi',
+  'postgres_lsp',
 }
 
 
