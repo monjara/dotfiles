@@ -21,3 +21,10 @@ vim.lsp.enable {
 }
 
 vim.cmd([[colorscheme tokyonight]])
+
+-- Undotree
+vim.cmd([[packadd nvim.undotree]])
+vim.keymap.set("n", "<leader>u", require("undotree").open)
+
+-- Difftool
+vim.cmd([[packadd nvim.difftool]])
