@@ -8,5 +8,5 @@ return {
 
     accent = 'red',
   },
-  priority = 1000
+  priority = 1000,
 }

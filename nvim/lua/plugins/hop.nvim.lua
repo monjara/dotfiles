@@ -1,12 +1,12 @@
 return {
   'smoka7/hop.nvim',
-  version = "*",
+  version = '*',
   keys = {
     { 's', '<cmd>HopChar1<cr>', { desc = 'hop char 1', silent = true } },
   },
   config = function()
-    require 'hop'.setup {
+    require('hop').setup {
       keys = 'jfkdurghalsieownvmcxypq',
     }
-  end
+  end,
 }

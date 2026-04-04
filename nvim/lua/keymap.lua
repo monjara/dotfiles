@@ -111,4 +111,4 @@ vim.keymap.set('v', '<leader>gc', function()
   end
 end, { desc = 'git commit' })
 
-vim.keymap.set('n', '<space>c', 'echo "%:p"', { desc = "echo current file path" })
+vim.keymap.set('n', '<space>c', 'echo "%:p"', { desc = 'echo current file path' })

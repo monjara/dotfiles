@@ -11,7 +11,7 @@
 ---
 --- `biome` supports monorepos by default. It will automatically find the `biome.json` corresponding to the package you are working on, as described in the [documentation](https://biomejs.dev/guides/big-projects/#monorepo). This works without the need of spawning multiple instances of `biome`, saving memory.
 
-local util = require 'lspconfig.util'
+local util = require('lspconfig.util')
 
 ---@type vim.lsp.Config
 return {
@@ -54,7 +54,7 @@ return {
     }
     -- Give the root markers equal priority by wrapping them in a table
     root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers, { '.git' } }
-        or vim.list_extend(root_markers, { '.git' })
+      or vim.list_extend(root_markers, { '.git' })
 
     -- We fallback to the current working directory if no project root is found
     local project_root = vim.fs.root(bufnr, root_markers) or vim.fn.getcwd()

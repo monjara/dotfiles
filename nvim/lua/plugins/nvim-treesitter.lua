@@ -4,17 +4,17 @@ return {
   build = ':TSUpdate',
   branch = 'main',
   dependencie = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    'nvim-treesitter/nvim-treesitter-textobjects',
   },
   main = 'nvim-treesitter.configs',
   opts = {
     highlight = { enable = true },
   },
   {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = 'CursorMoved'
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    event = 'CursorMoved',
   },
   {
-    "HiPhish/rainbow-delimiters.nvim",
-  }
+    'HiPhish/rainbow-delimiters.nvim',
+  },
 }

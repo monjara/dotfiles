@@ -1,5 +1,5 @@
 return {
   'nvim-mini/mini.indentscope',
   version = false,
-  opts = true
+  opts = true,
 }

@@ -1,14 +1,14 @@
 return {
-  "pmizio/typescript-tools.nvim",
+  'pmizio/typescript-tools.nvim',
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "neovim/nvim-lspconfig"
+    'nvim-lua/plenary.nvim',
+    'neovim/nvim-lspconfig',
   },
   opts = {
     settings = {
       -- Example: Enable inlay hints
       inlayHints = {
-        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHints = 'all',
         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
         includeInlayVariableTypeHints = true,
@@ -17,12 +17,12 @@ return {
         includeInlayEnumMemberValueHints = true,
       },
       tsserver_file_preferences = {
-        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHints = 'all',
         includeCompletionsForModuleExports = true,
       },
       jsx_close_tag = {
         enable = true,
-        filetypes = { "javascriptreact", "typescriptreact" },
+        filetypes = { 'javascriptreact', 'typescriptreact' },
       },
     },
   },

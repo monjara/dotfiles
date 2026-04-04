@@ -1,2 +1,5 @@
 rocks/*
 archives/*
+
+# direnv
+.direnv/*

@@ -15,5 +15,5 @@ return {
     -- vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'Comment' })
     -- -- call autocmd ColorScheme manually
     -- vim.api.nvim_exec_autocmds('ColorScheme', {})
-  end
+  end,
 }
