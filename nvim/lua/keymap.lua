@@ -23,7 +23,7 @@ local function selection_has_diff()
   return false
 end
 
-vim.keymap.set('i', 'jj', '<esc>', {})
+vim.keymap.set('i', 'jk', '<esc>', {})
 
 vim.keymap.set('n', '<space>rr', '<cmd>lua require("spectre").toggle()<cr>', {
   desc = 'Toggle Spectre',
