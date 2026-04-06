@@ -19,7 +19,7 @@ set autoindent
 set smartindent
 set hidden
 
-inoremap jk <Esc>
+inoremap jj <Esc>
 nnoremap s <Cmd>call autoload#Stargate(1)<CR>
 nnoremap <space>dd <Cmd>e .<CR>
 
