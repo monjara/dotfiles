@@ -1,5 +1,5 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
+  'monjara/nvim-treesitter',
   lazy = false,
   build = ':TSUpdate',
   branch = 'main',

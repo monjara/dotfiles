@@ -3,9 +3,9 @@ return {
   version = false,
   keys = {
     { '<space>fr', '<cmd>Pick grep_live<cr>', { desc = 'min.pick live grep' } },
-    { '<space>ff', '<cmd>Pick files<cr>', { desc = 'min.pick find file' } },
-    { '<c-p>', '<cmd>Pick files<cr>', { desc = 'min.pick find file' } },
-    { '<space>fb', '<cmd>Pick buffers<cr>', { desc = 'min.pick find file' } },
+    { '<space>ff', '<cmd>Pick files<cr>',     { desc = 'min.pick find file' } },
+    { '<c-p>',     '<cmd>Pick files<cr>',     { desc = 'min.pick find file' } },
+    { '<space>fb', '<cmd>Pick buffers<cr>',   { desc = 'min.pick find file' } },
   },
   opts = {
     -- Delays (in ms; should be at least 1)
@@ -25,7 +25,7 @@ return {
       choose = '<CR>',
       choose_in_split = '<C-s>',
       choose_in_tabpage = '<C-t>',
-      choose_in_vsplit = '<C-v>',
+      choose_in_vsplit = '<C-d>',
       choose_marked = '<M-CR>',
 
       delete_char = '<BS>',
@@ -45,10 +45,10 @@ return {
       refine = '<C-Space>',
       refine_marked = '<M-Space>',
 
-      scroll_down = '<C-f>',
+      scroll_down = '<C-j>',
       scroll_left = '<C-h>',
       scroll_right = '<C-l>',
-      scroll_up = '<C-b>',
+      scroll_up = '<C-k>',
 
       stop = '<Esc>',
 
