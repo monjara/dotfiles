@@ -114,4 +114,26 @@ vim.keymap.set('v', '<leader>gc', function()
   end
 end, { desc = 'git commit' })
 
-vim.keymap.set('n', '<space>c', 'echo "%:p"', { desc = 'echo current file path' })
+local copy_to_clipboard = function(text)
+  vim.fn.setreg('+', text)
+  print('Copied: ' .. text)
+end
+
+vim.api.nvim_create_user_command("CopyRelativePath", function()
+  local path = vim.fn.expand("%")
+  copy_to_clipboard(path)
+end, {})
+
+vim.api.nvim_create_user_command("CopyAbsolutePath", function()
+  local path = vim.fn.expand("%:p")
+  copy_to_clipboard(path)
+end, {})
+
+vim.api.nvim_create_user_command("CopyFileName", function()
+  local path = vim.fn.expand("%:t")
+  copy_to_clipboard(path)
+end, {})
+
+vim.keymap.set("n", "<leader>yr", '<cmd>CopyRelativePath<cr>', { desc = "Copy relative path to clipboard" })
+vim.keymap.set("n", "<leader>ya", '<cmd>CopyAbsolutePath<cr>', { desc = "Copy absolute path to clipboard" })
+vim.keymap.set("n", "<leader>yf", '<cmd>CopyFileName<cr>', { desc = "Copy file name to clipboard" })

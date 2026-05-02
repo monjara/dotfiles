@@ -3,12 +3,12 @@ require('keymap')
 
 vim.lsp.enable {
   'astro',
-  'eslint',
-  'html',
   'biome',
   'css_variables',
   'cssls',
+  'eslint',
   'fish_lsp',
+  'html',
   'jsonls',
   'lua_ls',
   'marksman',
@@ -18,6 +18,7 @@ vim.lsp.enable {
   'tailwindcss',
   'taplo',
   'tombi',
+  'ty',
 }
 
 vim.cmd([[colorscheme tokyonight]])
