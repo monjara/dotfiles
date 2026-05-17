@@ -7,6 +7,7 @@ M.init = function()
   vim.g.loaded_python3_provider = 0
   vim.g.mapleader = ','
   vim.g.terminal_emulator = 'fish'
+  vim.opt.exrc = true
   vim.opt.autoread = true
   vim.opt.clipboard = 'unnamedplus'
   vim.opt.cmdheight = 0
