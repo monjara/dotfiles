@@ -18,6 +18,7 @@
             cargo-make
             stylua
             nixfmt
+            tailwindcss-language-server
           ];
         };
       }
