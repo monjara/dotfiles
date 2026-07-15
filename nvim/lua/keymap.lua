@@ -73,10 +73,10 @@ vim.keymap.set('n', 'g]', function()
 end, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', '<space>el', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 vim.keymap.set('n', '<leader>fo', function()
-  require('conform').format({
+  require('conform').format {
     async = true,
-    lsp_format = "fallback",
-  })
+    lsp_format = 'fallback',
+  }
 end, { desc = 'Format current buffer with LSP' })
 
 vim.keymap.set('n', '<tab>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
@@ -122,21 +122,21 @@ local copy_to_clipboard = function(text)
   print('Copied: ' .. text)
 end
 
-vim.api.nvim_create_user_command("CopyRelativePath", function()
-  local path = vim.fn.expand("%")
+vim.api.nvim_create_user_command('CopyRelativePath', function()
+  local path = vim.fn.expand('%')
   copy_to_clipboard(path)
 end, {})
 
-vim.api.nvim_create_user_command("CopyAbsolutePath", function()
-  local path = vim.fn.expand("%:p")
+vim.api.nvim_create_user_command('CopyAbsolutePath', function()
+  local path = vim.fn.expand('%:p')
   copy_to_clipboard(path)
 end, {})
 
-vim.api.nvim_create_user_command("CopyFileName", function()
-  local path = vim.fn.expand("%:t")
+vim.api.nvim_create_user_command('CopyFileName', function()
+  local path = vim.fn.expand('%:t')
   copy_to_clipboard(path)
 end, {})
 
-vim.keymap.set("n", "<leader>yr", '<cmd>CopyRelativePath<cr>', { desc = "Copy relative path to clipboard" })
-vim.keymap.set("n", "<leader>ya", '<cmd>CopyAbsolutePath<cr>', { desc = "Copy absolute path to clipboard" })
-vim.keymap.set("n", "<leader>yf", '<cmd>CopyFileName<cr>', { desc = "Copy file name to clipboard" })
+vim.keymap.set('n', '<leader>yr', '<cmd>CopyRelativePath<cr>', { desc = 'Copy relative path to clipboard' })
+vim.keymap.set('n', '<leader>ya', '<cmd>CopyAbsolutePath<cr>', { desc = 'Copy absolute path to clipboard' })
+vim.keymap.set('n', '<leader>yf', '<cmd>CopyFileName<cr>', { desc = 'Copy file name to clipboard' })

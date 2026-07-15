@@ -6,28 +6,28 @@ return {
         return vim.fs.root(bufnr, files)
       end
 
-      if root_has({
-            "biome.json",
-            "biome.jsonc",
-          })
-      then
-        return { "biome-check" }
+      if root_has {
+        'biome.json',
+        'biome.jsonc',
+      } then
+        return { 'biome-check' }
       end
 
-      if root_has({
-            "prettier.config.js",
-            "prettier.config.mjs",
-            ".prettierrc",
-            ".prettierrc.json",
-          })
+      if
+        root_has {
+          'prettier.config.js',
+          'prettier.config.mjs',
+          '.prettierrc',
+          '.prettierrc.json',
+        }
       then
-        return { "prettier" }
+        return { 'prettier' }
       end
 
       return {}
     end
 
-    require('conform').setup({
+    require('conform').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
         typescript = make_js_formatter,
@@ -39,7 +39,7 @@ return {
         scss = make_js_formatter,
         html = make_js_formatter,
         yaml = make_js_formatter,
-      }
-    })
-  end
+      },
+    }
+  end,
 }

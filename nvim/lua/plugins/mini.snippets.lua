@@ -32,6 +32,6 @@ return {
         -- Insert selected snippet
         insert = nil,
       },
-    }
-  }
+    },
+  },
 }

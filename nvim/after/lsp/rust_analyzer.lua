@@ -24,13 +24,13 @@
 local function reload_workspace(bufnr)
   local clients = vim.lsp.get_clients { bufnr = bufnr, name = 'rust_analyzer' }
   for _, client in ipairs(clients) do
-    vim.notify 'Reloading Cargo Workspace'
+    vim.notify('Reloading Cargo Workspace')
     ---@diagnostic disable-next-line:param-type-mismatch
     client:request('rust-analyzer/reloadWorkspace', nil, function(err)
       if err then
         error(tostring(err))
       end
-      vim.notify 'Cargo workspace reloaded'
+      vim.notify('Cargo workspace reloaded')
     end, 0)
   end
 end
@@ -42,7 +42,7 @@ end
 local function default_sysroot_src()
   local sysroot = vim.tbl_get(vim.lsp.config['rust_analyzer'], 'settings', 'rust-analyzer', 'cargo', 'sysroot')
   if not sysroot then
-    local rustc = os.getenv 'RUSTC' or 'rustc'
+    local rustc = os.getenv('RUSTC') or 'rustc'
     local result = vim.system({ rustc, '--print', 'sysroot' }, { text = true }):wait()
 
     local stdout = result.stdout
@@ -64,11 +64,11 @@ end
 
 local function is_library(fname)
   local user_home = vim.fs.normalize(vim.env.HOME)
-  local cargo_home = os.getenv 'CARGO_HOME' or user_home .. '/.cargo'
+  local cargo_home = os.getenv('CARGO_HOME') or user_home .. '/.cargo'
   local registry = cargo_home .. '/registry/src'
   local git_registry = cargo_home .. '/git/checkouts'
 
-  local rustup_home = os.getenv 'RUSTUP_HOME' or user_home .. '/.rustup'
+  local rustup_home = os.getenv('RUSTUP_HOME') or user_home .. '/.rustup'
   local toolchains = rustup_home .. '/toolchains'
 
   local sysroot_src = user_sysroot_src() or default_sysroot_src()
@@ -99,7 +99,7 @@ return {
     if cargo_crate_dir == nil then
       on_dir(
         vim.fs.root(fname, { 'rust-project.json' })
-        or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+          or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
       )
       return
     end
@@ -164,13 +164,13 @@ return {
         chainingHints = { enable = true },
         typeHints = { enable = true, hideClosureInitialization = true },
         parameterHints = { enable = true },
-        closureReturnTypeHints = { enable = "with_block" },
-        lifetimeElisionHints = { enable = "skip_trivial", useParameterNames = true },
+        closureReturnTypeHints = { enable = 'with_block' },
+        lifetimeElisionHints = { enable = 'skip_trivial', useParameterNames = true },
         maxLength = 25,
         bindingModeHints = { enable = true },
         closureCaptureHints = { enable = true },
-        discriminantHints = { enable = "fieldless" },
-        expressionAdjustmentHints = { enable = "reborrow" },
+        discriminantHints = { enable = 'fieldless' },
+        expressionAdjustmentHints = { enable = 'reborrow' },
         rangeExclusiveHints = { enable = true },
       },
     },

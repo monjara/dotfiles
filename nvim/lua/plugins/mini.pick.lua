@@ -3,9 +3,9 @@ return {
   version = false,
   keys = {
     { '<space>fr', '<cmd>Pick grep_live<cr>', { desc = 'min.pick live grep' } },
-    { '<space>ff', '<cmd>Pick files<cr>',     { desc = 'min.pick find file' } },
-    { '<c-p>',     '<cmd>Pick files<cr>',     { desc = 'min.pick find file' } },
-    { '<space>fb', '<cmd>Pick buffers<cr>',   { desc = 'min.pick find file' } },
+    { '<space>ff', '<cmd>Pick files<cr>', { desc = 'min.pick find file' } },
+    { '<c-p>', '<cmd>Pick files<cr>', { desc = 'min.pick find file' } },
+    { '<space>fb', '<cmd>Pick buffers<cr>', { desc = 'min.pick find file' } },
   },
   opts = {
     -- Delays (in ms; should be at least 1)
