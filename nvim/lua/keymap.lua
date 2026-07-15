@@ -73,7 +73,10 @@ vim.keymap.set('n', 'g]', function()
 end, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', '<space>el', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 vim.keymap.set('n', '<leader>fo', function()
-  vim.lsp.buf.format { async = true }
+  require('conform').format({
+    async = true,
+    lsp_format = "fallback",
+  })
 end, { desc = 'Format current buffer with LSP' })
 
 vim.keymap.set('n', '<tab>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
