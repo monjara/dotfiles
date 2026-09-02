@@ -5,12 +5,12 @@ vim.lsp.enable {
   'astro',
   'biome',
   'css_variables',
-  'cssls',
   'eslint',
   'fish_lsp',
   'html',
   'jsonls',
   'lua_ls',
+  'markdown_oxide',
   'marksman',
   'nixd',
   'postgres_lsp',
@@ -19,6 +19,8 @@ vim.lsp.enable {
   'taplo',
   'tombi',
   'ty',
+  'vscode-css-languageserver',
+  'vtsls',
 }
 
 vim.cmd([[colorscheme tokyonight]])
@@ -29,3 +31,5 @@ vim.keymap.set('n', '<leader>u', require('undotree').open)
 
 -- Difftool
 vim.cmd([[packadd nvim.difftool]])
+
+-- require('vim._core.ui2').enable {}

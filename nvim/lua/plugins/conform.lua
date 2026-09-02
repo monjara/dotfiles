@@ -39,6 +39,7 @@ return {
         scss = make_js_formatter,
         html = make_js_formatter,
         yaml = make_js_formatter,
+        markdown = { 'dprint' },
       },
     }
   end,

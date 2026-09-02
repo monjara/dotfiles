@@ -140,3 +140,7 @@ end, {})
 vim.keymap.set('n', '<leader>yr', '<cmd>CopyRelativePath<cr>', { desc = 'Copy relative path to clipboard' })
 vim.keymap.set('n', '<leader>ya', '<cmd>CopyAbsolutePath<cr>', { desc = 'Copy absolute path to clipboard' })
 vim.keymap.set('n', '<leader>yf', '<cmd>CopyFileName<cr>', { desc = 'Copy file name to clipboard' })
+
+vim.api.nvim_create_user_command('ColumnT', function()
+  vim.cmd('%!column -t')
+end, { range = true })
