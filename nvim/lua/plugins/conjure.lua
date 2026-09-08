@@ -1,7 +1,7 @@
 return {
   {
     'Olical/conjure',
-    ft = { 'clojure', 'fennel', 'python' }, -- etc
+    ft = { 'clojure', 'fennel' }, -- etc
     lazy = true,
     init = function()
       -- Set configuration options here
@@ -21,6 +21,28 @@ return {
       local config = cmp.get_config()
       table.insert(config.sources, { name = 'conjure' })
       return cmp.setup(config)
+    end,
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    ft = 'clojure',
+
+    dependencies = {
+      'PaterJason/cmp-conjure',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+    },
+
+    config = function()
+      local cmp = require('cmp')
+
+      cmp.setup {
+        sources = {
+          { name = 'conjure' },
+          { name = 'nvim_lsp' },
+          { name = 'buffer' },
+        },
+      }
     end,
   },
 }

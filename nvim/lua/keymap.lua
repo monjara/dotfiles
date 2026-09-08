@@ -144,3 +144,26 @@ vim.keymap.set('n', '<leader>yf', '<cmd>CopyFileName<cr>', { desc = 'Copy file n
 vim.api.nvim_create_user_command('ColumnT', function()
   vim.cmd('%!column -t')
 end, { range = true })
+
+vim.api.nvim_create_user_command('ToggleWrap', function()
+  local wrap = vim.wo.wrap
+  vim.wo.wrap = not wrap
+end, { range = false })
+
+vim.api.nvim_create_user_command('Filetype', function()
+  local filetype = vim.bo.filetype
+  vim.notify('Current filetype: ' .. filetype)
+end, { range = false })
+
+vim.keymap.set('n', 'z.', function()
+  local win = vim.api.nvim_get_current_win()
+  local width = vim.api.nvim_win_get_width(win)
+  local cursor_col = vim.fn.virtcol('.')
+  local leftcol = math.max(0, cursor_col - math.floor(width / 2))
+
+  vim.fn.winrestview {
+    leftcol = leftcol,
+  }
+end, {
+  desc = 'Center cursor horizontally',
+})

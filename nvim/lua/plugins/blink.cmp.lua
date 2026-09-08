@@ -25,6 +25,9 @@ return {
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
+    enabled = function()
+      return vim.bo.filetype ~= 'clojure' or vim.bo.filetype ~= 'fennel'
+    end,
     keymap = {
       preset = 'default',
       ['<cr>'] = { 'select_and_accept', 'fallback' },
