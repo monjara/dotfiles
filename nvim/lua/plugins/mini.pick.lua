@@ -1,12 +1,11 @@
+local rg_command = {
+  'rg',
+  '--hidden',
+}
+
 return {
   'nvim-mini/mini.pick',
   version = false,
-  keys = {
-    { '<space>fr', '<cmd>Pick grep_live<cr>', { desc = 'min.pick live grep' } },
-    { '<space>ff', '<cmd>Pick files<cr>', { desc = 'min.pick find file' } },
-    { '<c-p>', '<cmd>Pick files<cr>', { desc = 'min.pick find file' } },
-    { '<space>fb', '<cmd>Pick buffers<cr>', { desc = 'min.pick find file' } },
-  },
   opts = {
     -- Delays (in ms; should be at least 1)
     delay = {
@@ -105,5 +104,26 @@ return {
         }
       end,
     },
+  },
+  keys = {
+    { '<space>fr', '<cmd>Pick grep_live tool="rg"<cr>', desc = 'min.pick live grep' },
+    { '<space>ff', '<cmd>Pick files tool="rg"<cr>', desc = 'min.pick find file' },
+    -- {
+    --   '<space>ff',
+    --   function()
+    --     require('mini.pick').builtin.cli {
+    --       command = {
+    --         'rg',
+    --         '--hidden',
+    --         '--files',
+    --         '--glob',
+    --         '!.git/**',
+    --       },
+    --     }
+    --   end,
+    --   desc = 'min.pick find file',
+    -- },
+    { '<c-p>', '<cmd>Pick files tool="rg"<cr>', desc = 'min.pick find file' },
+    { '<space>fb', '<cmd>Pick buffers<cr>', desc = 'min.pick find file' },
   },
 }

@@ -23,7 +23,8 @@ vim.lsp.enable {
   'vtsls',
 }
 
-vim.cmd([[colorscheme tokyonight]])
+-- colorscheme catppuccin-nvim " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+vim.cmd([[colorscheme catppuccin-mocha]])
 
 -- Undotree
 vim.cmd([[packadd nvim.undotree]])

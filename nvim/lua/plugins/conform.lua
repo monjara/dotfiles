@@ -1,5 +1,18 @@
 return {
   'stevearc/conform.nvim',
+  keys = {
+    {
+      '<leader>fo',
+      function()
+        require('conform').format {
+          async = true,
+          lsp_format = 'fallback',
+        }
+      end,
+      mode = { 'n', 'v' },
+      { desc = 'Format current buffer with LSP' },
+    },
+  },
   config = function()
     local make_js_formatter = function(bufnr)
       local root_has = function(files)
