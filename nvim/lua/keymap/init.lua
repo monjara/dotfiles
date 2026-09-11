@@ -3,8 +3,6 @@ require('keymap.lsp')
 
 vim.keymap.set('i', 'jj', '<esc>', {})
 
-vim.keymap.set('n', '<space>q', '<cmd>q!<cr>', { desc = 'quit' })
-
 vim.keymap.set('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
 vim.keymap.set('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
 vim.keymap.set('n', '<leader>o', '<cmd>only<cr>', { silent = true })
