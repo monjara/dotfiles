@@ -1,5 +1,6 @@
 require('keymap.buffer')
 require('keymap.lsp')
+require('keymap.command')
 
 vim.keymap.set('i', 'jj', '<esc>', {})
 
