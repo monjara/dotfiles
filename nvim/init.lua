@@ -21,6 +21,7 @@ vim.lsp.enable {
   'ty',
   'vscode-css-languageserver',
   'vtsls',
+  'clojure_lsp'
 }
 
 -- colorscheme catppuccin-nvim " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
