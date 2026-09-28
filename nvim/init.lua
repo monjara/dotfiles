@@ -4,11 +4,13 @@ require('keymap')
 vim.lsp.enable {
   'astro',
   'biome',
+  'clojure_lsp',
   'css_variables',
   'eslint',
   'fish_lsp',
   'html',
   'jsonls',
+  'just',
   'lua_ls',
   'markdown_oxide',
   'marksman',
@@ -21,7 +23,6 @@ vim.lsp.enable {
   'ty',
   'vscode-css-languageserver',
   'vtsls',
-  'clojure_lsp'
 }
 
 -- colorscheme catppuccin-nvim " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha

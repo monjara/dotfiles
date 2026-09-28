@@ -1,5 +1,6 @@
 return {
   'stevearc/conform.nvim',
+
   keys = {
     {
       '<localleader>fo',
@@ -13,6 +14,7 @@ return {
       { desc = 'Format current buffer with LSP' },
     },
   },
+
   config = function()
     local make_js_formatter = function(bufnr)
       local root_has = function(files)
@@ -20,24 +22,40 @@ return {
       end
 
       if root_has {
-        'biome.json',
-        'biome.jsonc',
-      } then
+            'biome.json',
+            'biome.jsonc',
+          }
+      then
         return { 'biome-check' }
       end
 
-      if
-        root_has {
-          'prettier.config.js',
-          'prettier.config.mjs',
-          '.prettierrc',
-          '.prettierrc.json',
-        }
+      if root_has {
+            'prettier.config.js',
+            'prettier.config.mjs',
+            '.prettierrc',
+            '.prettierrc.json',
+          }
       then
         return { 'prettier' }
       end
 
       return {}
+    end
+
+    local make_lisp_formatter = function(bufnr)
+      local root_has = function(files)
+        return vim.fs.root(bufnr, files)
+      end
+
+      if root_has {
+            'cljfmt.edn',
+            '.cljfmt.edn',
+          }
+      then
+        return { 'cljfmt', 'clj-kondo' }
+      end
+
+      return { 'clj-kondo' }
     end
 
     require('conform').setup {
@@ -53,6 +71,8 @@ return {
         html = make_js_formatter,
         yaml = make_js_formatter,
         markdown = { 'dprint' },
+        clojure = make_lisp_formatter,
+        edn = make_lisp_formatter,
       },
     }
   end,
