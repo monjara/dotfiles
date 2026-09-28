@@ -1,17 +1,20 @@
 return {
   'nvim-mini/mini.snippets',
   version = '*',
-  opts = {
+  config = function()
+    local MiniSnippets = require('mini.snippets')
+
+    MiniSnippets.setup(
     -- No need to copy this inside `setup()`. Will be used automatically.
     {
-      -- Array of snippets and loaders (see |MiniSnippets.config| for details).
-      -- Nothing is defined by default. Add manually to have snippets to match.
-      snippets = {},
+      snippets = {
+        MiniSnippets.gen_loader.from_lang()
+      },
 
       -- Module mappings. Use `''` (empty string) to disable one.
       mappings = {
         -- Expand snippet at cursor position. Created globally in Insert mode.
-        expand = '<C-j>',
+        expand = '<C-s>',
 
         -- Interact with default `expand.insert` session.
         -- Created for the duration of active session(s)
@@ -32,6 +35,6 @@ return {
         -- Insert selected snippet
         insert = nil,
       },
-    },
-  },
+    })
+  end,
 }

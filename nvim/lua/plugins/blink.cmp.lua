@@ -1,7 +1,10 @@
 return {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+    'nvim-mini/mini.snippets',
+  },
 
   -- use a release tag to download pre-built binaries
   version = '1.*',
@@ -52,6 +55,10 @@ return {
         },
       },
       documentation = { auto_show = true },
+    },
+
+    snippets = {
+      preset = 'mini_snippets'
     },
 
     -- Default list of enabled providers defined so that you can extend it
