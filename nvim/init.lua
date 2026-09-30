@@ -1,11 +1,14 @@
 require('config.lazy')
 require('keymap')
+require('filetype')
 
 vim.lsp.enable {
   'astro',
   'biome',
   'clojure_lsp',
   'css_variables',
+  'docker_compose_language_service',
+  'docker_language_server',
   'eslint',
   'fish_lsp',
   'html',
