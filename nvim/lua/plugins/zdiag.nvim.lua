@@ -5,19 +5,19 @@ return {
     {
       '<space>b',
       '<cmd>Zdiag<cr>',
-      desc = 'Open diagnostics view'
+      desc = 'Open diagnostics view',
     },
 
     -- 以下はzdiagバッファ限定
     {
       '<C-space>',
       function()
-        require('zdiag').jump_to_source({
-          mode = 'buffer'
-        })
+        require('zdiag').jump_to_source {
+          mode = 'buffer',
+        }
       end,
       ft = 'zdiag',
-      desc = 'Jump to source'
+      desc = 'Jump to source',
     },
     {
       'q',
@@ -25,34 +25,30 @@ return {
         require('zdiag').close()
       end,
       ft = 'zdiag',
-      desc = 'Close diagnostics view'
+      desc = 'Close diagnostics view',
     },
     {
       'g]',
       function()
-        require('zdiag').call(
-          function()
-            vim.diagnostic.jump {
-              count = 1,
-              float = true,
-            }
-          end
-        )
+        require('zdiag').call(function()
+          vim.diagnostic.jump {
+            count = 1,
+            float = true,
+          }
+        end)
       end,
       ft = 'zdiag',
-      desc = 'Go to previous diagnostic message'
+      desc = 'Go to previous diagnostic message',
     },
     {
       'g[',
       function()
-        require('zdiag').call(
-          function()
-            vim.diagnostic.jump {
-              count = -1,
-              float = true,
-            }
-          end
-        )
+        require('zdiag').call(function()
+          vim.diagnostic.jump {
+            count = -1,
+            float = true,
+          }
+        end)
       end,
       ft = 'zdiag',
       desc = 'Go to next diagnostic message',
@@ -101,11 +97,9 @@ return {
     {
       'gl',
       function()
-        require('zdiag').call(
-          function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-          end
-        )
+        require('zdiag').call(function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end)
       end,
       ft = 'zdiag',
       desc = 'Toggle LSP inlay hints',

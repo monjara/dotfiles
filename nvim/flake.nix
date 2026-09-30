@@ -19,6 +19,7 @@
             stylua
             nixfmt
             tailwindcss-language-server
+            just-lsp
           ];
         };
       }

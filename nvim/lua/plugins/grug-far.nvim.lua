@@ -5,7 +5,7 @@ return {
   config = function()
     -- optional setup call to override plugin options
     -- alternatively you can set options with vim.g.grug_far = { ... }
-    require('grug-far').setup({
+    require('grug-far').setup {
       windowCreationCommand = 'edit',
       keymaps = {
         replace = { n = '<leader>r' },
@@ -20,6 +20,6 @@ return {
         -- available options: "prev" | "left" | "right" | "above" | "below"
         preferredLocation = 'prev',
       },
-    });
-  end
+    }
+  end,
 }

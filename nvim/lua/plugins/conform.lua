@@ -22,19 +22,19 @@ return {
       end
 
       if root_has {
-            'biome.json',
-            'biome.jsonc',
-          }
-      then
+        'biome.json',
+        'biome.jsonc',
+      } then
         return { 'biome-check' }
       end
 
-      if root_has {
-            'prettier.config.js',
-            'prettier.config.mjs',
-            '.prettierrc',
-            '.prettierrc.json',
-          }
+      if
+        root_has {
+          'prettier.config.js',
+          'prettier.config.mjs',
+          '.prettierrc',
+          '.prettierrc.json',
+        }
       then
         return { 'prettier' }
       end
@@ -48,10 +48,9 @@ return {
       end
 
       if root_has {
-            'cljfmt.edn',
-            '.cljfmt.edn',
-          }
-      then
+        'cljfmt.edn',
+        '.cljfmt.edn',
+      } then
         return { 'cljfmt', 'clj-kondo' }
       end
 

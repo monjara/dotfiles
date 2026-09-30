@@ -2,8 +2,7 @@ return {
   {
     'Olical/conjure',
     ft = { 'clojure', 'fennel' },
-    init = function()
-    end
+    init = function() end,
   },
 
   -- {

@@ -49,7 +49,7 @@ return {
         draw = {
           columns = {
             { 'kind_icon' },
-            { 'label',      'label_description', gap = 1 },
+            { 'label', 'label_description', gap = 1 },
             { 'source_name' },
           },
         },
@@ -58,7 +58,7 @@ return {
     },
 
     snippets = {
-      preset = 'mini_snippets'
+      preset = 'mini_snippets',
     },
 
     -- Default list of enabled providers defined so that you can extend it

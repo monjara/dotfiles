@@ -11,16 +11,14 @@ end
 --- @param bufnr integer Buffer id, or 0 for current buffer
 --- @return boolean # true if the buffer is ready, false otherwise.
 local function buffer_is_ready(bufnr)
-  return vim.api.nvim_buf_is_loaded(bufnr)
-      and vim.api.nvim_buf_is_valid(bufnr)
-      and vim.bo[bufnr].buflisted
+  return vim.api.nvim_buf_is_loaded(bufnr) and vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted
 end
 
 --- Gets a list of recent buffers, sorted by last used time.
 ---
 --- @return integer[] # A list of buffer numbers, sorted by last used time.
 local function get_recent_buffers()
-  local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+  local buffers = vim.fn.getbufinfo { buflisted = 1 }
 
   table.sort(buffers, function(a, b)
     return a.lastused > b.lastused
@@ -34,7 +32,6 @@ local function get_recent_buffers()
 
   return bufnrs
 end
-
 
 local RIGHT_DIRECTION = 1
 local LEFT_DIRECTION = -1
@@ -100,9 +97,7 @@ local function find_next_buffer(current_bufnr)
   local buffers = get_recent_buffers()
 
   for _, bufnr in ipairs(buffers) do
-    if bufnr ~= current_bufnr
-        and buffer_is_ready(bufnr)
-    then
+    if bufnr ~= current_bufnr and buffer_is_ready(bufnr) then
       if not is_terminal(bufnr) then
         preferred = bufnr
         break
@@ -114,7 +109,6 @@ local function find_next_buffer(current_bufnr)
 
   return preferred or fallback
 end
-
 
 local function close_buffer()
   local current_bufnr = vim.api.nvim_get_current_buf()
