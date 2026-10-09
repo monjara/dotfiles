@@ -99,7 +99,7 @@ return {
     if cargo_crate_dir == nil then
       on_dir(
         vim.fs.root(fname, { 'rust-project.json' })
-          or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+        or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
       )
       return
     end
@@ -173,6 +173,9 @@ return {
         expressionAdjustmentHints = { enable = 'reborrow' },
         rangeExclusiveHints = { enable = true },
       },
+      files = {
+        excludeDirs = { '.direnv' },
+      }
     },
   },
   before_init = function(init_params, config)
