@@ -81,3 +81,8 @@ vim.api.nvim_create_user_command('Term', function(opts)
 end, {
   nargs = '+',
 })
+
+vim.api.nvim_create_user_command('TSEnable', function()
+  vim.treesitter.stop()
+  vim.treesitter.start()
+end, { range = false })
