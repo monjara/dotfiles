@@ -123,7 +123,7 @@ local function close_buffer()
   end
 
   vim.bo[current_bufnr].buflisted = false
-  vim.api.nvim_buf_delete(current_bufnr, { unload = true, force = false })
+  vim.api.nvim_buf_delete(current_bufnr, { force = false })
 end
 
 vim.keymap.set('n', '<leader>q', close_buffer, { desc = 'delete current buffer' })
